@@ -89,16 +89,26 @@ h1,h2,h3,h4{font-weight:700;letter-spacing:-.04em;line-height:1.02}
 .alc-head h3{font-size:clamp(30px,4vw,44px)}
 .alc-head h3 span{color:var(--muted)}
 .alc-head p{color:var(--text-2);max-width:420px;font-size:16px}
-.ptabs{display:grid;grid-template-columns:1fr 1fr;gap:6px;background:var(--bg-2);border:1px solid var(--line);padding:6px;border-radius:18px;max-width:680px;margin:0 0 36px}
-.ptabs button{border:0;background:transparent;border-radius:13px;padding:14px 18px;text-align:left;cursor:pointer;font-weight:700;font-size:17px;color:var(--text-2);transition:.2s}
-.ptabs button:hover{color:var(--text)}
-.ptabs button small{display:block;font-weight:500;font-size:13.5px;color:var(--muted);margin-top:3px;line-height:1.35}
-.ptabs button.on{background:var(--card);color:var(--text);box-shadow:0 8px 20px -10px rgba(11,11,16,.3)}
-.ptabs button.on small{color:var(--accent)}
+.ptabs-hint{font-size:14px;font-weight:600;color:var(--text-2);margin:0 0 10px;display:flex;align-items:center;gap:8px}
+.ptabs-hint svg{width:16px;height:16px;color:var(--accent)}
+.ptabs{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:880px;margin:0 0 38px}
+.ptabs button{display:grid;grid-template-columns:24px 1fr auto;gap:14px;align-items:center;border:1.5px solid var(--line-2);background:var(--card);border-radius:16px;padding:16px 18px;text-align:left;cursor:pointer;font-weight:700;font-size:17px;color:var(--text);transition:.2s var(--ease);box-shadow:0 3px 0 var(--line)}
+.ptabs button:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:0 6px 0 var(--line)}
+.ptabs button:focus-visible{outline:3px solid var(--accent-soft);outline-offset:2px}
+.ptabs .rd{width:24px;height:24px;border-radius:50%;border:2px solid var(--line-2);display:grid;place-items:center;transition:.2s}
+.ptabs .rd::after{content:"";width:11px;height:11px;border-radius:50%;background:var(--accent);transform:scale(0);transition:.25s var(--ease)}
+.ptabs small{display:block;font-weight:500;font-size:13.5px;color:var(--muted);margin-top:3px;line-height:1.35}
+.ptabs .go{font-size:13px;font-weight:700;color:var(--accent);white-space:nowrap}
+.ptabs .go::after{content:"View \2192"}
+.ptabs button.on{border:2px solid var(--accent);background:var(--accent-soft);box-shadow:none;transform:none}
+.ptabs button.on .rd{border-color:var(--accent)}
+.ptabs button.on .rd::after{transform:scale(1)}
+.ptabs button.on .go{color:var(--text-2)}
+.ptabs button.on .go::after{content:"Showing \2713"}
 .pt-pane{display:none}.pt-pane.on{display:block;animation:paneIn .35s var(--ease)}
 @keyframes paneIn{from{opacity:0;transform:translateY(8px)}}
 #pane-small .alc{margin-top:0}
-@media (max-width:600px){.ptabs button{padding:12px;font-size:15.5px}.ptabs button small{font-size:12px}}
+@media (max-width:600px){.ptabs{gap:8px}.ptabs button{grid-template-columns:20px 1fr;gap:10px;padding:13px 12px;font-size:15.5px}.ptabs .rd{width:20px;height:20px}.ptabs .rd::after{width:9px;height:9px}.ptabs .go{display:none}.ptabs small{font-size:12px}}
 .alc-grid{display:grid;grid-template-columns:1fr 360px;gap:24px;align-items:start}
 .alc-groups{display:grid;gap:26px}
 .alc-g h4{font-size:18px;display:flex;align-items:center;gap:10px;margin-bottom:12px;letter-spacing:-.02em}
@@ -275,6 +285,71 @@ section{padding:120px 0;position:relative}
 .skills{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
 .skills span{border:1px solid var(--line-2);background:var(--card);border-radius:99px;padding:7px 14px;font-size:14px;font-weight:500;color:var(--text-2)}
 @media (max-width:1000px){.about{grid-template-columns:1fr;gap:24px}}
+/* try it */
+.tryit{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:28px;padding:44px;background-image:radial-gradient(600px 300px at 90% 10%,var(--accent-soft),transparent 70%)}
+.tr-controls{display:grid;gap:20px;max-width:440px}
+.tr-f{display:grid;gap:8px;font-weight:600;font-size:14.5px}
+.tr-sw{display:flex;gap:10px;flex-wrap:wrap}
+.tr-sw button{width:38px;height:38px;border-radius:50%;background:var(--sw);border:3px solid var(--card);box-shadow:0 0 0 1.5px var(--line-2);cursor:pointer;transition:.2s var(--ease)}
+.tr-sw button:hover{transform:scale(1.1)}
+.tr-sw button.on{box-shadow:0 0 0 2.5px var(--text)}
+.tr-st{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.tr-st button{border:1.5px solid var(--line-2);background:var(--bg);border-radius:12px;padding:11px;font-weight:600;cursor:pointer;transition:.2s}
+.tr-st button:hover{border-color:var(--accent)}
+.tr-st button.on{border-color:var(--accent);background:var(--accent-soft);color:var(--text)}
+.tr-st [data-s="bold"]{font-weight:800;text-transform:uppercase;letter-spacing:.04em;font-size:13.5px}
+.tr-st [data-s="classic"]{font-family:Georgia,serif;font-style:italic}
+.tr-controls .btn{justify-content:center;margin-top:4px}
+.tr-note{font-size:13px;color:var(--muted);text-align:center;margin-top:-8px}
+.tr-stage{display:grid;place-items:center}
+.phone{width:290px;background:#0b0b10;border-radius:44px;padding:11px;box-shadow:0 40px 80px -30px rgba(11,11,16,.45),inset 0 0 0 2px #2a2a33;position:relative;transform:rotate(2deg);transition:transform .5s var(--ease)}
+.tryit:hover .phone{transform:rotate(0)}
+.ph-notch{position:absolute;top:18px;left:50%;transform:translateX(-50%);width:84px;height:22px;background:#0b0b10;border-radius:20px;z-index:3}
+.ph-screen{--c:#e5533f;height:560px;border-radius:34px;overflow:hidden;background:#fff;color:#16161d;font-family:Geist,system-ui,sans-serif;position:relative;display:flex;flex-direction:column;font-size:12px;line-height:1.45}
+.ph-screen *{transition:background .35s,color .35s,border-color .35s}
+.m-nav{display:flex;align-items:center;gap:8px;padding:44px 16px 12px}
+.m-logo{width:28px;height:28px;border-radius:8px;background:var(--c);color:#fff;display:grid;place-items:center;font-weight:800;font-size:12px;flex:none}
+.m-name{font-weight:700;font-size:13px;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.m-burg{width:18px;height:12px;border-block:2px solid #16161d;position:relative}
+.m-burg::after{content:"";position:absolute;left:0;right:0;top:3px;border-top:2px solid #16161d}
+.m-hero{margin:0 12px;border-radius:20px;padding:20px 16px 18px;background:linear-gradient(150deg,var(--c),color-mix(in srgb,var(--c) 60%,#000));color:#fff;position:relative;overflow:hidden}
+.m-hero::after{content:attr(data-icon);position:absolute;right:-6px;bottom:-14px;font-size:76px;opacity:.22;transform:rotate(-12deg)}
+.m-open{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.18);border-radius:99px;padding:4px 10px;font-size:10.5px;font-weight:600}
+.m-open i{width:6px;height:6px;border-radius:50%;background:#4ade80}
+.m-hero h3{font-size:24px;line-height:1.08;margin:12px 0 6px;letter-spacing:-.03em;word-break:break-word}
+.m-hero p{opacity:.88;font-size:12px;max-width:200px}
+.m-btns{display:flex;gap:6px;margin-top:14px;position:relative;z-index:1}
+.m-btns span{background:#fff;color:var(--c);font-weight:700;border-radius:10px;padding:8px 11px;font-size:11.5px}
+.m-btns span+span{background:rgba(255,255,255,.16);color:#fff;border:1px solid rgba(255,255,255,.35)}
+.m-sec{padding:16px 16px 6px}
+.m-sec h4{font-size:13px;margin-bottom:8px;display:flex;justify-content:space-between}
+.m-sec h4 small{color:var(--c);font-weight:600;font-size:11px}
+.m-row{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid #ececf1;font-size:12px}
+.m-row b{font-weight:700;color:var(--c)}
+.m-map{margin:10px 16px 0;border-radius:14px;height:64px;background:repeating-linear-gradient(35deg,#eef0f4 0 10px,#e6e9ef 10px 20px);display:flex;align-items:center;justify-content:center;gap:6px;font-weight:600;font-size:11.5px;color:#3a3a46}
+.m-map i{font-style:normal;color:var(--c);font-size:14px}
+.m-bar{margin-top:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:6px;padding:10px 12px 16px;border-top:1px solid #ececf1;background:#fff}
+.m-bar span{text-align:center;border-radius:10px;padding:8px 0;font-weight:700;font-size:11px;background:#f3f3f6}
+.m-bar span:first-child{background:var(--c);color:#fff}
+.ph-screen.st-bold .m-hero{background:#16161d;border-radius:6px}
+.ph-screen.st-bold .m-hero h3{text-transform:uppercase;font-weight:900;font-size:25px;letter-spacing:-.01em;color:var(--c)}
+.ph-screen.st-bold .m-btns span{border-radius:4px;background:var(--c);color:#fff}
+.ph-screen.st-bold .m-btns span+span{background:transparent}
+.ph-screen.st-bold .m-logo,.ph-screen.st-bold .m-bar span,.ph-screen.st-bold .m-map{border-radius:4px}
+.ph-screen.st-bold .m-sec h4{text-transform:uppercase;letter-spacing:.06em;font-size:11.5px}
+.ph-screen.st-classic{font-family:Georgia,"Times New Roman",serif;background:#fbf8f2}
+.ph-screen.st-classic .m-hero{background:#fbf8f2;color:#2a2620;border:1px solid color-mix(in srgb,var(--c) 40%,#fff);text-align:center}
+.ph-screen.st-classic .m-hero h3{font-style:italic;font-weight:400;font-size:26px;color:var(--c)}
+.ph-screen.st-classic .m-hero p{margin:0 auto;color:#5a5247}
+.ph-screen.st-classic .m-open{background:color-mix(in srgb,var(--c) 12%,#fff);color:#2a2620}
+.ph-screen.st-classic .m-btns{justify-content:center}
+.ph-screen.st-classic .m-btns span{background:var(--c);color:#fff;border-radius:99px}
+.ph-screen.st-classic .m-btns span+span{background:transparent;color:var(--c);border-color:var(--c)}
+.ph-screen.st-classic .m-logo{border-radius:50%}
+.ph-screen.st-classic .m-bar{background:#fbf8f2}
+.ph-screen.st-classic .m-row{border-bottom-style:dotted}
+@media (max-width:1000px){.tryit{grid-template-columns:1fr;padding:28px}.tr-controls{max-width:none}.phone{transform:none}.tr-stage{order:-1}}
+@media (max-width:600px){.tryit{padding:20px;border-radius:22px}.phone{width:260px}.ph-screen{height:430px}}
 /* promise row (inside How it works) */
 .promise-row{margin-top:60px}
 .promise-row h3{font-size:clamp(26px,3vw,34px);letter-spacing:-.035em;margin-bottom:22px}
@@ -375,7 +450,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
 <header id="hdr">
   <div class="wrap">
     <a href="#top" class="logo" aria-label="Meagley Web Design"><svg viewBox="0 0 100 100" aria-hidden="true"><rect class="lb" width="100" height="100" rx="22"/><rect x="14" y="14" width="72" height="10" rx="3.5" fill="#f87666"/><rect class="lf" x="14" y="30.5" width="18" height="55.5" rx="3.5"/><rect class="lf" x="68" y="30.5" width="18" height="55.5" rx="3.5"/><path class="lf" d="M37 30.5h26L50 60z"/></svg><span><b>Meagley</b><small>WEB DESIGN</small></span></a>
-    <nav class="nav"><a href="#work">Work</a><a href="#pricing">Pricing</a><a href="#process">How It Works</a><a href="#faq">FAQ</a><a href="#about">About</a></nav>
+    <nav class="nav"><a href="#work">Work</a><a href="#pricing">Pricing</a><a href="#process">How It Works</a><a href="#try">Try It</a><a href="#faq">FAQ</a><a href="#about">About</a></nav>
     <div class="hdr-right">
       <button class="icon-btn menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" width="20" height="20"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
       <button class="icon-btn" id="theme" aria-label="Toggle dark mode">
@@ -473,9 +548,10 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
   <div class="wrap">
     <div class="head"><div class="reveal"><div class="label"><b>02</b> Pricing</div><h2>Pay once. <span>No monthly fees required.</span></h2></div></div>
     <p class="reveal" style="color:var(--text-2);font-size:17.5px;max-width:620px;margin:-10px 0 40px">Most web companies charge you every month, forever. With me, you pay for your site once, and keeping it online is free. Every job gets an exact quote after your free preview. Jobs $100 and up start with half down, and the rest is due when it's done.</p>
+    <p class="ptabs-hint reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>Tap one to switch between the two price lists</p>
     <div class="ptabs reveal" role="tablist" aria-label="Pricing options">
-      <button class="on" role="tab" aria-selected="true" data-pane="pane-sites">Full websites<small>New site, one-time price · $150–1,500</small></button>
-      <button role="tab" aria-selected="false" data-pane="pane-small">Smaller jobs<small>Google, Facebook, logos &amp; more · from $20</small></button>
+      <button class="on" role="tab" aria-selected="true" data-pane="pane-sites"><span class="rd"></span><span>Full websites<small>New site, one-time price · $150–1,500</small></span><span class="go"></span></button>
+      <button role="tab" aria-selected="false" data-pane="pane-small"><span class="rd"></span><span>Smaller jobs<small>Google, Facebook, logos &amp; more · from $20</small></span><span class="go"></span></button>
     </div>
     <div class="pt-pane on" id="pane-sites">
     <div class="prices">
@@ -570,10 +646,35 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
   </div>
 </section>
 
+<!-- TRY IT -->
+<section id="try" style="padding-top:0">
+  <div class="wrap">
+    <div class="head">
+      <div class="reveal"><div class="label"><b>04</b> Try it</div><h2>Sketch your site. <span>Right here.</span></h2></div>
+      <p class="reveal" data-d="1">Type your business name and play with the options. This is just a quick sketch. Your free preview will be the real thing, made around your business.</p>
+    </div>
+    <div class="tryit reveal">
+      <div class="tr-controls">
+        <label class="tr-f">Your business name<input id="trName" maxlength="26" placeholder="e.g. Main Street Bakery" autocomplete="organization"></label>
+        <label class="tr-f">Type of business<select id="trType">
+          <option value="salon">Salon or barber</option><option value="food">Restaurant</option><option value="coffee">Coffee shop or bakery</option><option value="lawn">Lawn &amp; landscaping</option><option value="auto">Auto repair</option><option value="build">Contractor or roofing</option><option value="shop">Boutique or shop</option><option value="church">Church</option><option value="other">Something else</option>
+        </select></label>
+        <div class="tr-f"><span>Color</span><div class="tr-sw" id="trColor"><button type="button" aria-label="Coral" title="Coral" data-c="#e5533f" data-n="Coral" style="--sw:#e5533f" class="on"></button><button type="button" aria-label="Navy" title="Navy" data-c="#334155" data-n="Navy" style="--sw:#334155"></button><button type="button" aria-label="Forest" title="Forest" data-c="#2f6b4f" data-n="Forest" style="--sw:#2f6b4f"></button><button type="button" aria-label="Plum" title="Plum" data-c="#7c3a6b" data-n="Plum" style="--sw:#7c3a6b"></button><button type="button" aria-label="Gold" title="Gold" data-c="#b7791f" data-n="Gold" style="--sw:#b7791f"></button><button type="button" aria-label="Ocean" title="Ocean" data-c="#1d6fa5" data-n="Ocean" style="--sw:#1d6fa5"></button></div></div>
+        <div class="tr-f"><span>Style</span><div class="tr-st" id="trStyle"><button type="button" class="on" data-s="clean">Clean</button><button type="button" data-s="bold">Bold</button><button type="button" data-s="classic">Classic</button></div></div>
+        <button class="btn btn-primary" id="trSend" type="button">I like this. Make me the real one <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        <p class="tr-note">Free, no obligation. Your picks get added to the contact form below.</p>
+      </div>
+      <div class="tr-stage">
+        <div class="phone" aria-label="Sketch of your website on a phone"><div class="ph-notch"></div><div class="ph-screen st-clean" id="trScreen"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- FAQ -->
 <section id="faq" style="padding-top:0">
   <div class="wrap">
-    <div class="head"><div class="reveal"><div class="label"><b>04</b> FAQ</div><h2>Good questions.</h2></div></div>
+    <div class="head"><div class="reveal"><div class="label"><b>05</b> FAQ</div><h2>Good questions.</h2></div></div>
     <div class="faq reveal">
       <div class="q open"><button>Is the preview really free?<i>+</i></button><div class="a"><div><p>Yes. I'll build a working preview of your new homepage at no cost. If you don't love it, you walk away and owe nothing.</p></div></div></div>
       <div class="q"><button>Do I have to sign a contract?<i>+</i></button><div class="a"><div><p>Only once you decide to go ahead, and never for the free preview. It's a short agreement in plain English: what you're getting, the price, that you own everything once it's paid for, and that you can leave anytime. No fine print. Ask and I'll send it before you decide.</p></div></div></div>
@@ -591,7 +692,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
 <section id="about" style="padding-top:0">
   <div class="wrap about">
     <div class="reveal">
-      <div class="label"><b>05</b> About</div>
+      <div class="label"><b>06</b> About</div>
       <h2 class="h2">Who builds <span>your site.</span></h2>
     </div>
     <div class="reveal" data-d="1">
@@ -664,6 +765,41 @@ $('#totop').onclick = () => scrollTo({ top: 0, behavior: 'smooth' });
 const tabs=$$(".ptabs button");const show=id=>{tabs.forEach(b=>{const on=b.dataset.pane===id;b.classList.toggle("on",on);b.setAttribute("aria-selected",on)});$$(".pt-pane").forEach(p=>p.classList.toggle("on",p.id===id))};
 tabs.forEach(b=>b.onclick=()=>show(b.dataset.pane));
 $("#barGo").addEventListener("click",()=>show("pane-small"));})();
+
+/* ---------- try it: live sketch ---------- */
+(function(){
+  const scr=$("#trScreen");if(!scr)return;
+  const T={
+    salon:["✂️","Fresh cuts, color and style in a relaxed space.","Book now","Services",[["Haircut","$30"],["Color","$75+"],["Blowout","$35"]]],
+    food:["🍽️","Home-cooked favorites, made fresh every day.","See the menu","Today's menu",[["Lunch special","$9"],["Burger &amp; fries","$12"],["Family meal","$32"]]],
+    coffee:["☕","Good coffee, fresh pastries and a friendly face.","Order ahead","Favorites",[["Latte","$4.50"],["Cold brew","$4"],["Blueberry muffin","$3"]]],
+    lawn:["🌿","Mowing, cleanups and landscaping for your yard.","Get a quote","Services",[["Weekly mowing","from $35"],["Leaf cleanup","from $90"],["Mulch &amp; beds","from $60"]]],
+    auto:["🔧","Straightforward repairs and quick oil changes.","Schedule service","Services",[["Oil change","$45"],["Brakes","from $150"],["Diagnostics","$60"]]],
+    build:["🏠","Roofing, repairs and remodels for your home.","Free estimate","What we do",[["Roof repair","Free estimate"],["Gutters","Free estimate"],["Remodels","Free estimate"]]],
+    shop:["🛍️","Hand-picked clothing, gifts and home décor.","Shop new arrivals","In the store",[["New arrivals","This week"],["Gift cards","Any amount"],["Sale rack","Up to 40% off"]]],
+    church:["⛪","Everyone is welcome. Come as you are.","Plan a visit","Weekly",[["Sunday service","10:30 am"],["Bible study","Wed 6 pm"],["Youth group","Fri 7 pm"]]],
+    other:["⭐","Friendly, local and here to help.","Contact us","About us",[["Our services","See all"],["Hours","Mon–Sat"],["Location","Directions"]]]
+  };
+  const st={name:"",type:"salon",color:"#e5533f",cname:"Coral",style:"clean"};
+  const esc=s=>s.replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+  const initials=n=>(n.match(/\b[A-Za-z0-9]/g)||["Y","B"]).slice(0,2).join("").toUpperCase();
+  function draw(){
+    const t=T[st.type],nm=esc(st.name.trim()||"Your Business");
+    scr.style.setProperty("--c",st.color);
+    scr.className="ph-screen st-"+st.style;
+    scr.innerHTML='<div class="m-nav"><span class="m-logo">'+esc(initials(st.name.trim()||"Your Business"))+'</span><span class="m-name">'+nm+'</span><span class="m-burg"></span></div>'+
+      '<div class="m-hero" data-icon="'+t[0]+'"><span class="m-open"><i></i>Open today · 9 am – 6 pm</span><h3>'+nm+'</h3><p>'+t[1]+'</p><div class="m-btns"><span>'+t[2]+'</span><span>Call us</span></div></div>'+
+      '<div class="m-sec"><h4>'+t[3]+'<small>See all →</small></h4>'+t[4].map(i=>'<div class="m-row"><span>'+i[0]+'</span><b>'+i[1]+'</b></div>').join("")+'</div>'+
+      '<div class="m-map"><i>📍</i>123 Main Street · Get directions</div>'+
+      '<div class="m-bar"><span>Call</span><span>Text</span><span>Directions</span></div>';
+  }
+  $("#trName").addEventListener("input",e=>{st.name=e.target.value;draw()});
+  $("#trType").addEventListener("change",e=>{st.type=e.target.value;draw()});
+  $$("#trColor button").forEach(b=>b.onclick=()=>{$$("#trColor button").forEach(x=>x.classList.toggle("on",x===b));st.color=b.dataset.c;st.cname=b.dataset.n;draw()});
+  $$("#trStyle button").forEach(b=>b.onclick=()=>{$$("#trStyle button").forEach(x=>x.classList.toggle("on",x===b));st.style=b.dataset.s;draw()});
+  $("#trSend").onclick=()=>{const ty=$("#trType");prefill("My sketch from your site:\nBusiness: "+(st.name.trim()||"(not filled in)")+"\nType: "+ty.options[ty.selectedIndex].text+"\nColor: "+st.cname+"\nStyle: "+st.style.charAt(0).toUpperCase()+st.style.slice(1),0)};
+  draw();
+})();
 
 /* ---------- live sites counter: counts every "Live client" card in Work ---------- */
 (function(){const n=document.querySelectorAll('.proj .chip.live').length+1;/* +1 = this site */$('#liveN').textContent=n;$('#liveL').textContent=(n===1?'site':'sites')+' built & live';})();
