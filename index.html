@@ -1224,7 +1224,7 @@ $$('.q button').forEach(b => b.onclick = () => b.parentElement.classList.toggle(
     cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
     const n=Math.round(Math.min(58,Math.max(18,W*H/22000)));toks=[];
     for(let i=0;i<n;i++){
-      const x=W<700?rnd(0,W):(Math.random()<.74?rnd(W*.52,W-20):rnd(10,W));
+      const x=rnd(14,W-14);
       const txt=TOK[i%TOK.length];
       toks.push({txt,disp:txt,fs:Math.round(rnd(12,19)),hx:x,hy:rnd(20,H-20),x,y:0,vx:0,vy:0,a0:rnd(-.18,.18),ph:rnd(0,6.28),sp:rnd(.15,.35),al:rnd(.13,.24),hot:0,sc:0});
     }
