@@ -1223,10 +1223,13 @@ $$('.q button').forEach(b => b.onclick = () => b.parentElement.classList.toggle(
     const r=host.getBoundingClientRect();dpr=Math.min(2,devicePixelRatio||1);W=r.width;H=r.height;
     cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
     const n=Math.round(Math.min(58,Math.max(18,W*H/22000)));toks=[];
+    // spread evenly: one piece of code per grid cell, nudged randomly inside its cell
+    const cols=Math.max(3,Math.round(Math.sqrt(n*W/H))),rows=Math.ceil(n/cols),cw=(W-40)/cols,ch=(H-40)/rows;
     for(let i=0;i<n;i++){
-      const x=rnd(14,W-14);
+      const c=i%cols,rw=Math.floor(i/cols);
+      const x=20+cw*(c+rnd(.15,.85)),y=20+ch*(rw+rnd(.15,.85));
       const txt=TOK[i%TOK.length];
-      toks.push({txt,disp:txt,fs:Math.round(rnd(12,19)),hx:x,hy:rnd(20,H-20),x,y:0,vx:0,vy:0,a0:rnd(-.18,.18),ph:rnd(0,6.28),sp:rnd(.15,.35),al:rnd(.13,.24),hot:0,sc:0});
+      toks.push({txt,disp:txt,fs:Math.round(rnd(12,19)),hx:x,hy:y,x,y:0,vx:0,vy:0,a0:rnd(-.18,.18),ph:rnd(0,6.28),sp:rnd(.15,.35),al:rnd(.13,.24),hot:0,sc:0});
     }
     toks.forEach(o=>o.y=o.hy);
   }
