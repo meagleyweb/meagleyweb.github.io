@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Meagley Web Design | Websites for Local Businesses</title>
+<title>Meagley Web Design | Websites for Small Businesses</title>
 <meta name="description" content="Fast, modern websites for small-town businesses in western Arkansas. See a free preview of your new site before you pay anything.">
 <meta property="og:title" content="Meagley Web Design">
-<meta property="og:description" content="Fast, modern websites for local businesses. Free preview before you pay.">
+<meta property="og:description" content="Fast, modern websites for small businesses anywhere. Free preview before you pay.">
 <meta property="og:image" content="https://meagleyweb.github.io/img/og-card.png">
 <meta name="theme-color" content="#0b0b10">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Crect width=%27100%27 height=%27100%27 rx=%2722%27 fill=%27%23334155%27/%3E%3Crect x=%2714%27 y=%2714%27 width=%2772%27 height=%2710%27 rx=%273.5%27 fill=%27%23f87666%27/%3E%3Crect x=%2714%27 y=%2730.5%27 width=%2718%27 height=%2755.5%27 rx=%273.5%27 fill=%27white%27/%3E%3Crect x=%2768%27 y=%2730.5%27 width=%2718%27 height=%2755.5%27 rx=%273.5%27 fill=%27white%27/%3E%3Cpath d=%27M37 30.5h26L50 60z%27 fill=%27white%27/%3E%3C/svg%3E">
@@ -56,7 +56,9 @@ h1,h2,h3,h4{font-weight:700;letter-spacing:-.04em;line-height:1.02}
 
 
 /* pricing */
-.prices{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.prices{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.prices .price{padding:26px}
+@media (max-width:1180px){.prices{grid-template-columns:repeat(2,1fr)}}
 .price{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:30px;display:flex;flex-direction:column;position:relative;transition:.35s var(--ease)}
 .price:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
 .price.pop{border:2px solid var(--accent)}
@@ -174,9 +176,9 @@ header .btn{padding:10px 16px;font-size:14px}
 .hero p.lead{font-size:clamp(17px,1.5vw,19.5px);color:var(--text-2);max-width:560px;margin:26px 0 32px}
 .hero p.lead b{color:var(--text);font-weight:600}
 .ctas{display:flex;gap:10px;flex-wrap:wrap}
-.stats{display:grid;grid-template-columns:repeat(3,auto);gap:28px;text-align:left}
+.stats{display:grid;grid-template-columns:repeat(2,auto);gap:22px 40px;text-align:left}
 .stats div{font-size:13px;color:var(--muted)}
-.stats b{display:block;font-size:30px;color:var(--text);letter-spacing:-.04em;font-weight:700}
+.stats b{display:block;white-space:nowrap;font-size:30px;color:var(--text);letter-spacing:-.04em;font-weight:700}
 
 /* marquee */
 .marquee{border-block:1px solid var(--line);padding:18px 0;overflow:hidden;margin-top:80px}
@@ -325,7 +327,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
   .wrap{padding:0 16px}
   section{padding:84px 0}
   header .btn{display:none}
-  .stats{grid-template-columns:repeat(3,1fr);gap:14px}.stats b{font-size:24px}
+  .stats{grid-template-columns:repeat(2,1fr);gap:14px}.stats b{font-size:24px}
   .steps,.svc,.f2{grid-template-columns:1fr}
   .step{border-right:0!important;border-bottom:1px solid var(--line)}
   .qs,.pq,.score,.summary{padding:20px}
@@ -363,9 +365,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
   <div class="wrap">
     <div class="hero-top">
       <div>
-        <div class="avail reveal"><i></i>Taking new projects · Western Arkansas</div>
-        <h1 class="reveal" data-d="1">Websites that get local businesses <span class="hl">more customers.<svg viewBox="0 0 300 20" preserveAspectRatio="none"><path d="M2 14 C 80 4, 200 4, 298 12" stroke="currentColor" stroke-width="5" fill="none" stroke-linecap="round"/></svg></span></h1>
-        <p class="lead reveal" data-d="2">I design and build fast, modern sites for small-town businesses. <b>You'll see a free working preview of your new site, usually the same day, before you pay anything.</b></p>
+        <div class="avail reveal"><i></i>Taking new projects · Anywhere in the US</div>
+        <h1 class="reveal" data-d="1">Websites that get small businesses <span class="hl">more customers.<svg viewBox="0 0 300 20" preserveAspectRatio="none"><path d="M2 14 C 80 4, 200 4, 298 12" stroke="currentColor" stroke-width="5" fill="none" stroke-linecap="round"/></svg></span></h1>
+        <p class="lead reveal" data-d="2">I design and build fast, modern sites for small businesses, near me in Western Arkansas or anywhere else. <b>You'll see a free working preview of your new site, usually the same day, before you pay anything.</b></p>
         <div class="ctas reveal" data-d="3">
           <a href="#contact" class="btn btn-primary">Get My Free Preview <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a href="sms:+18035091640" class="btn btn-ghost">💬 Text Me</a>
@@ -373,8 +375,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
       </div>
       <div class="stats reveal" data-d="3">
         <div><b>$0</b>to see a preview</div>
-        <div><b>100%</b>yours to keep</div>
-        <div><b>Fast</b>on every phone</div>
+        <div><b>Same day</b>previews</div>
+        <div><b>3+ yrs</b>writing code</div>
+        <div><b id="liveN">1</b><span id="liveL">site delivered &amp; live</span></div>
       </div>
     </div>
 
@@ -463,9 +466,16 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
         <a href="work/hollow-creek-lawn/" style="display:block;text-align:center;margin-top:12px;font-size:14px;font-weight:600;color:var(--accent)">See a Business example →</a>
       </div>
       <div class="price reveal" data-d="2">
+        <h3>Edit It Yourself</h3><div class="for">Make your own changes, anytime</div>
+        <div class="amt">$500<small> – $950</small></div><div class="one">one-time</div>
+        <ul><li>Everything in Business</li><li>Easy editor for your phone or computer</li><li>Change hours, prices, photos, specials &amp; pages</li><li>One-on-one walkthrough</li><li>Step-by-step how-to guide</li><li>Stuck? Just text me</li></ul>
+        <a class="btn btn-ghost" href="#contact">Get a free preview</a>
+        <span style="display:block;text-align:center;margin-top:12px;font-size:14px;color:var(--muted)">Or add the editor to any site for $150</span>
+      </div>
+      <div class="price reveal" data-d="3">
         <h3>Plus</h3><div class="for">Tools that save you phone calls</div>
         <div class="amt">$950<small> – $1,500</small></div><div class="one">one-time</div>
-        <ul><li>Everything in Business</li><li>Online booking or ordering</li><li>Instant quote calculator</li><li>Repair or order tracker</li><li>Specials you can update yourself</li></ul>
+        <ul><li>Everything in Edit It Yourself</li><li>Online booking or ordering</li><li>Instant quote calculator</li><li>Repair or order tracker</li><li>Specials that update automatically</li></ul>
         <a class="btn btn-ghost" href="#contact">Get a free preview</a>
         <a href="work/ridgeline-coffee/" style="display:block;text-align:center;margin-top:12px;font-size:14px;font-weight:600;color:var(--accent)">See a Plus example →</a>
       </div>
@@ -576,7 +586,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
       <div class="q"><button>Are there monthly fees?<i>+</i></button><div class="a"><div><p>Not unless you want them. You pay for your website once, and keeping it online is free. The only yearly cost is your web address, like yourbusiness.com (about $11/year, paid at cost). The care plan is optional, for people who want me to handle updates.</p></div></div></div>
       <div class="q"><button>How long does a website take?<i>+</i></button><div class="a"><div><p>Most previews are ready the same day you reach out. Once you approve it, most sites launch within 2–5 days. Sites with booking, ordering or trackers can take a little longer, and it also depends on how quickly we gather photos and details.</p></div></div></div>
       <div class="q"><button>I already have a website. Can you redo it?<i>+</i></button><div class="a"><div><p>Yes. I can redesign it while keeping your web address, your email and your spot on Google, and it often costs less per month than what you're paying now.</p></div></div></div>
-      <div class="q"><button>Can I update the site myself?<i>+</i></button><div class="a"><div><p>Most clients just text me changes. If you'd rather do it yourself, I can set up a simple editing page for photos, hours and specials.</p></div></div></div>
+      <div class="q"><button>Can I update the site myself?<i>+</i></button><div class="a"><div><p>Yes. The Edit It Yourself package (and Plus) comes with an easy editor you can use from your phone or computer, a one-on-one walkthrough and a how-to guide. Already have a site with me? The editor can be added for $150. Or skip it and just text me changes.</p></div></div></div>
+      <div class="q"><button>Do you only work with local businesses?<i>+</i></button><div class="a"><div><p>No, I work with businesses anywhere. Everything can be done by text, phone, email or video call, and you'll see your preview online either way. If you're near Western Arkansas, I'm happy to meet in person too.</p></div></div></div>
       <div class="q"><button>Do I need photos or a logo?<i>+</i></button><div class="a"><div><p>Nope, you don't need either one to get started. We can figure them out together as we go. If you already have photos or a logo, send them my way. I'm happy to use them as they are or rework them into something fresh. Even phone photos work great.</p></div></div></div>
     </div>
   </div>
@@ -667,13 +678,18 @@ $('#sendPlan').onclick = () => {
 };
 
 
+/* ---------- live sites counter: counts every "Live client" card in Work ---------- */
+(function(){const n=document.querySelectorAll('.proj .chip.live').length;if(!n)return;$('#liveN').textContent=n;$('#liveL').textContent=(n===1?'site':'sites')+' delivered & live';})();
+
 /* ---------- a la carte list ---------- */
 (function(){
   const G=[
     ["🖥️","Already have a website?","",[
       ["redo","Website redesign","Freshen up your current site and keep your web address. Usually less than a new build since your info is already there.",125,300],
-      ["move","Move off Wix, GoDaddy or Squarespace","Stop paying them every month. Same site or better, with no monthly bill.",150,300],
+      ["move","Move off Wix, GoDaddy or Squarespace","Stop paying them every month. Same site or better, with no monthly bill.",125,300],
       ["upd","Small update","New hours, prices, photos or wording.",25,25,"Or get them all for $20/month on the care plan."],
+      ["page","Add a page","A new page for services, a menu, a gallery or anything else.",50,50],
+      ["edit","Add an easy editor","Make your own changes from your phone or computer. Includes a walkthrough.",150,150],
       ["feat","Add a feature","Booking, gallery, menu, quote form and more.",100,300]]],
     ["📍","Google & Facebook","Help people find you",[
       ["gset","Google Maps listing setup","Get your business on Google Maps and Search.",75,75],
