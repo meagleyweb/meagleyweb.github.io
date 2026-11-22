@@ -7,9 +7,9 @@
 <meta name="description" content="Fast, modern websites for small-town businesses in western Arkansas. See a free preview of your new site before you pay anything.">
 <meta property="og:title" content="Meagley Web Design">
 <meta property="og:description" content="Fast, modern websites for local businesses. Free preview before you pay.">
-<meta property="og:image" content="img/manehouse.png">
+<meta property="og:image" content="https://meagleyweb.github.io/img/og-card.png">
 <meta name="theme-color" content="#0b0b10">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%233d5afe'/%3E%3Cpath d='M8 23V10l8 8 8-8v13' stroke='white' stroke-width='3.2' fill='none' stroke-linejoin='round' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Crect width=%27100%27 height=%27100%27 rx=%2722%27 fill=%27%23334155%27/%3E%3Crect x=%2714%27 y=%2714%27 width=%2772%27 height=%2710%27 rx=%273.5%27 fill=%27%23f87666%27/%3E%3Crect x=%2714%27 y=%2730.5%27 width=%2718%27 height=%2755.5%27 rx=%273.5%27 fill=%27white%27/%3E%3Crect x=%2768%27 y=%2730.5%27 width=%2718%27 height=%2755.5%27 rx=%273.5%27 fill=%27white%27/%3E%3Cpath d=%27M37 30.5h26L50 60z%27 fill=%27white%27/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -20,17 +20,17 @@
 <style>
 :root{
   --bg:#fafafa; --bg-2:#f1f1f4; --card:#ffffff; --text:#0b0b10; --text-2:#3a3a46; --muted:#6c6c7a;
-  --line:#e4e4ea; --line-2:#d4d4dd; --accent:#3d5afe; --accent-2:#6a7dff; --accent-soft:rgba(61,90,254,.1);
+  --line:#e4e4ea; --line-2:#d4d4dd; --accent:#e5533f; --accent-2:#f87666; --accent-soft:rgba(229,83,63,.1); --logo-bg:#334155; --logo-fg:#fff;
   --good:#16a34a; --warn:#f59e0b; --bad:#ef4444; --shadow:0 30px 60px -30px rgba(11,11,16,.25);
   --ease:cubic-bezier(.2,.7,.1,1);
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --bg:#0b0b10; --bg-2:#121219; --card:#14141c; --text:#f2f2f7; --text-2:#c4c4d0; --muted:#8a8a9a;
-  --line:#23232e; --line-2:#30303d; --accent:#6a7dff; --accent-2:#8b9bff; --accent-soft:rgba(106,125,255,.14); --shadow:0 30px 60px -30px rgba(0,0,0,.7);
+  --line:#23232e; --line-2:#30303d; --accent:#f87666; --accent-2:#fb9a8d; --accent-soft:rgba(248,118,102,.14); --logo-bg:#f1f5f9; --logo-fg:#334155; --shadow:0 30px 60px -30px rgba(0,0,0,.7);
 }}
 :root[data-theme="dark"]{
   --bg:#0b0b10; --bg-2:#121219; --card:#14141c; --text:#f2f2f7; --text-2:#c4c4d0; --muted:#8a8a9a;
-  --line:#23232e; --line-2:#30303d; --accent:#6a7dff; --accent-2:#8b9bff; --accent-soft:rgba(106,125,255,.14); --shadow:0 30px 60px -30px rgba(0,0,0,.7);
+  --line:#23232e; --line-2:#30303d; --accent:#f87666; --accent-2:#fb9a8d; --accent-soft:rgba(248,118,102,.14); --logo-bg:#f1f5f9; --logo-fg:#334155; --shadow:0 30px 60px -30px rgba(0,0,0,.7);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -62,8 +62,11 @@ h1,h2,h3,h4{font-weight:700;letter-spacing:-.04em;line-height:1.02}
 header{position:fixed;top:0;left:0;right:0;z-index:60;transition:.3s}
 header .wrap{display:flex;align-items:center;justify-content:space-between;height:72px;gap:16px}
 header.scrolled{background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
-.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:17px;letter-spacing:-.02em}
-.logo i{width:32px;height:32px;border-radius:9px;background:var(--accent);display:grid;place-items:center}
+.logo{display:flex;align-items:center;gap:11px;line-height:1}
+.logo svg{width:36px;height:36px;flex:none}
+.logo .lb{fill:var(--logo-bg)}.logo .lf{fill:var(--logo-fg)}
+.logo b{display:block;font-weight:700;font-size:19px;letter-spacing:-.03em}
+.logo small{display:block;font-size:9.5px;letter-spacing:.32em;font-weight:600;color:var(--accent);margin-top:3px}
 .nav{display:flex;gap:4px;font-size:14.5px;font-weight:500}
 .nav a{padding:8px 13px;border-radius:9px;color:var(--text-2);transition:.2s}
 .nav a:hover{background:var(--bg-2);color:var(--text)}
@@ -313,7 +316,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
 
 <header id="hdr">
   <div class="wrap">
-    <a href="#top" class="logo"><i><svg width="18" height="18" viewBox="0 0 32 32"><path d="M6 25V9l10 10 10-10v16" stroke="#fff" stroke-width="3.6" fill="none" stroke-linejoin="round" stroke-linecap="round"/></svg></i>Meagley Web Design</a>
+    <a href="#top" class="logo" aria-label="Meagley Web Design"><svg viewBox="0 0 100 100" aria-hidden="true"><rect class="lb" width="100" height="100" rx="22"/><rect x="14" y="14" width="72" height="10" rx="3.5" fill="#f87666"/><rect class="lf" x="14" y="30.5" width="18" height="55.5" rx="3.5"/><rect class="lf" x="68" y="30.5" width="18" height="55.5" rx="3.5"/><path class="lf" d="M37 30.5h26L50 60z"/></svg><span><b>Meagley</b><small>WEB DESIGN</small></span></a>
     <nav class="nav"><a href="#work">Work</a><a href="#checkup">Site Checkup</a><a href="#process">Process</a><a href="#planner">Plan a Site</a><a href="#faq">FAQ</a></nav>
     <div class="hdr-right">
       <button class="icon-btn" id="theme" aria-label="Toggle dark mode">
@@ -403,7 +406,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
           <span class="chip sample">Sample design</span>
           <h3>Ridgeline Coffee Co.</h3>
           <div class="type">Coffee house · Concept</div>
-          <div class="tags"><span>Interactive menu</span><span>Live hours</span><span>Loyalty sign-up</span></div>
+          <div class="tags"><span>Order ahead</span><span>Drink builder</span><span>Daily specials</span><span>Live hours</span></div>
           <span class="go">View sample →</span>
         </div>
       </a>
@@ -413,7 +416,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
           <span class="chip sample">Sample design</span>
           <h3>Hollow Creek Lawn</h3>
           <div class="type">Lawn &amp; landscaping · Concept</div>
-          <div class="tags"><span>Instant quote tool</span><span>Before / after</span><span>Lead capture</span></div>
+          <div class="tags"><span>Instant quote + booking</span><span>Service area check</span><span>Before / after</span></div>
           <span class="go">View sample →</span>
         </div>
       </a>
@@ -598,8 +601,8 @@ $('#totop').onclick = () => scrollTo({ top: 0, behavior: 'smooth' });
 /* ---------- live showcase ---------- */
 const SITES = [
   { url: 'https://themanehousegwd.github.io/', show: 'themanehousegwd.github.io', desc: '<b>The Mane House</b>: live client site. Go ahead and scroll around.' },
-  { url: 'work/ridgeline-coffee/', show: 'ridgeline-coffee (sample)', desc: '<b>Ridgeline Coffee</b>: sample design. Try the menu tabs.' },
-  { url: 'work/hollow-creek-lawn/', show: 'hollow-creek-lawn (sample)', desc: '<b>Hollow Creek Lawn</b>: sample design. Try the quote calculator.' },
+  { url: 'work/ridgeline-coffee/', show: 'ridgeline-coffee (sample)', desc: '<b>Ridgeline Coffee</b>: sample design. Try building a drink and ordering ahead.' },
+  { url: 'work/hollow-creek-lawn/', show: 'hollow-creek-lawn (sample)', desc: '<b>Hollow Creek Lawn</b>: sample design. Try the instant quote and booking calendar.' },
 ];
 let cur = 0, mode = 'desk';
 const frame = $('#frame'), screen = $('#screen'), loading = $('#loading');
