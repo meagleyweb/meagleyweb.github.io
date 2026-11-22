@@ -54,6 +54,36 @@ h1,h2,h3,h4{font-weight:700;letter-spacing:-.04em;line-height:1.02}
 .reveal.in{opacity:1;transform:none}
 [data-d="1"]{transition-delay:.08s}[data-d="2"]{transition-delay:.16s}[data-d="3"]{transition-delay:.24s}
 
+
+/* pricing */
+.prices{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.price{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:30px;display:flex;flex-direction:column;position:relative;transition:.35s var(--ease)}
+.price:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.price.pop{border:2px solid var(--accent)}
+.price .tag{position:absolute;top:-13px;left:28px;background:var(--accent);color:#fff;font-family:"Geist Mono";font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;padding:5px 11px;border-radius:99px}
+.price h3{font-size:24px}
+.price .for{color:var(--muted);font-size:14.5px;margin-top:4px}
+.price .amt{font-size:44px;font-weight:700;letter-spacing:-.05em;margin:22px 0 2px;line-height:1}
+.price .amt small{font-size:16px;font-weight:500;color:var(--muted);letter-spacing:0}
+.price .one{font-family:"Geist Mono";font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.price ul{list-style:none;margin:22px 0 26px;display:grid;gap:10px;font-size:15px;color:var(--text-2)}
+.price li{display:flex;gap:10px;align-items:flex-start}
+.price li::before{content:"✓";color:var(--accent);font-weight:700;flex:none}
+.price .btn{margin-top:auto;justify-content:center}
+.care{margin-top:18px;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:30px;display:grid;grid-template-columns:1.2fr 1fr;gap:30px;align-items:center}
+.care h3{font-size:24px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.care h3 span{font-family:"Geist Mono";font-size:11.5px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line-2);padding:4px 10px;border-radius:99px}
+.care p{color:var(--text-2);margin-top:8px;font-size:15.5px}
+.care .opts{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.care .o{border:1px solid var(--line-2);border-radius:16px;padding:18px;position:relative}
+.care .o.best{border:2px solid var(--accent);background:var(--accent-soft)}
+.care .o b{font-size:30px;letter-spacing:-.04em;display:block;line-height:1.1}
+.care .o small{color:var(--muted);font-size:13.5px}
+.care .o em{position:absolute;top:-11px;right:14px;font-style:normal;background:var(--accent);color:#fff;font-size:11px;font-weight:600;padding:3px 9px;border-radius:99px}
+.nofee{margin-top:18px;display:flex;gap:14px;align-items:center;justify-content:center;flex-wrap:wrap;text-align:center;color:var(--text-2);font-size:15px}
+.nofee b{color:var(--text)}
+@media (max-width:900px){.prices,.care{grid-template-columns:1fr}.price.pop{order:-1}}
+@media (max-width:480px){.care .opts{grid-template-columns:1fr}}
 /* grid backdrop */
 .grid-bg{position:absolute;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
 .grid-bg::before,.grid-bg::after{content:"";position:absolute;border-radius:50%;filter:blur(90px);opacity:.55;animation:drift 18s ease-in-out infinite alternate}
@@ -324,7 +354,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
 <header id="hdr">
   <div class="wrap">
     <a href="#top" class="logo" aria-label="Meagley Web Design"><svg viewBox="0 0 100 100" aria-hidden="true"><rect class="lb" width="100" height="100" rx="22"/><rect x="14" y="14" width="72" height="10" rx="3.5" fill="#f87666"/><rect class="lf" x="14" y="30.5" width="18" height="55.5" rx="3.5"/><rect class="lf" x="68" y="30.5" width="18" height="55.5" rx="3.5"/><path class="lf" d="M37 30.5h26L50 60z"/></svg><span><b>Meagley</b><small>WEB DESIGN</small></span></a>
-    <nav class="nav"><a href="#work">Work</a><a href="#checkup">Site Checkup</a><a href="#process">Process</a><a href="#planner">Plan a Site</a><a href="#faq">FAQ</a></nav>
+    <nav class="nav"><a href="#work">Work</a><a href="#checkup">Site Checkup</a><a href="#process">Process</a><a href="#planner">Plan a Site</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a></nav>
     <div class="hdr-right">
       <button class="icon-btn" id="theme" aria-label="Toggle dark mode">
         <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
@@ -534,12 +564,53 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
   </div>
 </section>
 
+<!-- PRICING -->
+<section id="pricing" style="padding-top:0">
+  <div class="wrap">
+    <div class="head"><div class="reveal"><div class="label"><b>07</b> Pricing</div><h2>Pay once. <span>No monthly fees required.</span></h2></div></div>
+    <p class="reveal" style="color:var(--text-2);font-size:17.5px;max-width:620px;margin:-10px 0 40px">Most web companies charge you every month, forever. With me, you pay for your site once, and hosting is free. Every job gets an exact quote after your free preview.</p>
+    <div class="prices">
+      <div class="price reveal">
+        <h3>Starter</h3><div class="for">Get found and look legit</div>
+        <div class="amt">$200<small> – $400</small></div><div class="one">one-time</div>
+        <ul><li>One-page site</li><li>Hours, services, photos &amp; map</li><li>Tap to call, text or get directions</li><li>Facebook &amp; Google links</li><li>Built for phones first</li></ul>
+        <a class="btn btn-ghost" href="#contact">Get a free preview</a>
+      </div>
+      <div class="price pop reveal" data-d="1">
+        <span class="tag">Most popular</span>
+        <h3>Business</h3><div class="for">A full site that brings customers in</div>
+        <div class="amt">$500<small> – $1,000</small></div><div class="one">one-time</div>
+        <ul><li>Everything in Starter</li><li>Multiple pages</li><li>Photo gallery &amp; reviews</li><li>Contact form to your email</li><li>Google Business Profile setup</li></ul>
+        <a class="btn btn-primary" href="#contact">Get a free preview</a>
+      </div>
+      <div class="price reveal" data-d="2">
+        <h3>Plus</h3><div class="for">Tools that save you phone calls</div>
+        <div class="amt">$1,100<small> – $1,700</small></div><div class="one">one-time</div>
+        <ul><li>Everything in Business</li><li>Online booking or ordering</li><li>Instant quote calculator</li><li>Repair or order tracker</li><li>Specials you can update yourself</li></ul>
+        <a class="btn btn-ghost" href="#contact">Get a free preview</a>
+      </div>
+    </div>
+    <div class="care reveal">
+      <div>
+        <h3>Care plan <span>Optional</span></h3>
+        <p>Your site works fine without it. The care plan is for owners who would rather text me changes than think about it: updates to hours, prices, photos and specials, plus a monthly check that everything works.</p>
+      </div>
+      <div class="opts">
+        <div class="o best"><em>Save $60</em><b>$240<small> /year</small></b><small>Pay once a year, about $20/month</small></div>
+        <div class="o"><b>$25<small> /month</small></b><small>Cancel anytime</small></div>
+      </div>
+    </div>
+    <div class="nofee reveal"><span>🌐 <b>Domain name:</b> about $11/year, paid at cost and kept in your name.</span><span>🔒 <b>Hosting:</b> free.</span></div>
+  </div>
+</section>
+
 <!-- FAQ -->
 <section id="faq" style="padding-top:0">
   <div class="wrap">
-    <div class="head"><div class="reveal"><div class="label"><b>07</b> FAQ</div><h2>Good questions.</h2></div></div>
+    <div class="head"><div class="reveal"><div class="label"><b>08</b> FAQ</div><h2>Good questions.</h2></div></div>
     <div class="faq reveal">
       <div class="q open"><button>Is the preview really free?<i>+</i></button><div class="a"><div><p>Yes. I'll build a working preview of your new homepage at no cost. If you don't love it, you walk away and owe nothing.</p></div></div></div>
+      <div class="q"><button>Are there monthly fees?<i>+</i></button><div class="a"><div><p>Not unless you want them. You pay for your website once, and hosting is free. The only yearly cost is your domain name (about $11/year, paid at cost). The care plan is optional, for people who want me to handle updates.</p></div></div></div>
       <div class="q"><button>How long does a website take?<i>+</i></button><div class="a"><div><p>Most previews are ready within about a week. Once you approve it, a typical small-business site launches within one to two weeks, depending on how quickly we gather photos and details.</p></div></div></div>
       <div class="q"><button>I already have a website. Can you redo it?<i>+</i></button><div class="a"><div><p>Yes. I can redesign it while keeping your domain, email and Google ranking, and it often costs less per month than what you're paying now.</p></div></div></div>
       <div class="q"><button>Can I update the site myself?<i>+</i></button><div class="a"><div><p>Most clients just text me changes. If you'd rather do it yourself, I can set up a simple editing page for photos, hours and specials.</p></div></div></div>
