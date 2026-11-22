@@ -1214,7 +1214,7 @@ $$('.q button').forEach(b => b.onclick = () => b.parentElement.classList.toggle(
   const cv=document.getElementById("shapes");if(!cv)return;
   const ctx=cv.getContext("2d"),host=cv.parentElement;
   const still=matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const TOK=["<div>","</div>","{ }","=>","<h1>","fn()","[ ]","#f87666","&&","<a href>","git push","flex","::","alt=\"\"","1fr","<p>","return","@media","{...}","//","</>",">_","404","<nav>","onClick","0.3s","rem","grid","<img>","async","#334155",":hover","{}","()=>{}","<b>","margin","z-index","200 OK"];
+  const TOK=["<div>","</div>","{ }","=>","<h1>","fn()","#f87666","&&","<a href>","git push","flex","alt=\"\"","1fr","return","@media","{...}","//","</>",">_","404","<nav>","onClick","grid","<img>","async","#334155",":hover","()=>{}","margin","z-index","200 OK","console.log(\"hi\")","npm run build","<button>","if (open)","sudo apt update","pip install","print()","import bpy","def main():","ls -la","chmod +x","</html>","git commit -m","--accent","transform","await fetch()","<canvas>","requestAnimationFrame","ssh","λ","0xF8","for (i in list)","while (true)","true && !false","<!DOCTYPE html>","x += 1","{ color: coral }","border-radius","new Vector3()","#!/bin/bash","// TODO: coffee","404 → 200","</body>","cd ~/sites","∑","::before","let fun = true"];
   const GLYPH="<>/{}[]#=;:_*&$01";
   let W=0,H=0,dpr=1,toks=[],px=-9999,py=-9999,cx=-9999,cy=-9999,inside=false,ink="#334155",coral="#f87666",raf,t=0;
   const rnd=(a,b)=>a+Math.random()*(b-a);
@@ -1222,7 +1222,7 @@ $$('.q button').forEach(b => b.onclick = () => b.parentElement.classList.toggle(
   function build(){
     const r=host.getBoundingClientRect();dpr=Math.min(2,devicePixelRatio||1);W=r.width;H=r.height;
     cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
-    const n=Math.round(Math.min(38,Math.max(14,W*H/34000)));toks=[];
+    const n=Math.round(Math.min(58,Math.max(18,W*H/22000)));toks=[];
     for(let i=0;i<n;i++){
       const x=W<700?rnd(0,W):(Math.random()<.74?rnd(W*.52,W-20):rnd(10,W));
       const txt=TOK[i%TOK.length];
@@ -1249,10 +1249,12 @@ $$('.q button').forEach(b => b.onclick = () => b.parentElement.classList.toggle(
       o.vx+=(tx-o.x)*.012;o.vy+=(ty-o.y)*.012;
       const dx=o.x-px,dy=o.y-py,d=Math.hypot(dx,dy),R=160;
       if(d<R&&d>0){const f=(1-d/R)*2;o.vx+=dx/d*f;o.vy+=dy/d*f;if(o.hot<.3&&o.sc<=0)o.sc=14;o.hot=Math.min(1,o.hot+.08)}else o.hot*=.95;
-      if(o.sc>0){if(t%2===0)o.disp=o.sc>1?scramble(o.txt):o.txt;o.sc--}else o.disp=o.txt;
+      if(o.sc>0){if(t%2===0)o.disp=o.sc>1?scramble(o.txt):o.txt;o.sc--}else if(o.ty!=null){if(t%4===0)o.ty++;o.disp=o.txt.slice(0,o.ty)+(o.ty<o.txt.length&&Math.floor(t/8)%2?"_":"");if(o.ty>=o.txt.length)o.ty=null}else o.disp=o.txt;
       o.vx*=.9;o.vy*=.9;o.x+=o.vx;o.y+=o.vy;
       draw(o);
     }
+    // every so often a piece of code re-types itself
+    if(t%70===0&&toks.length){const o=toks[Math.floor(Math.random()*toks.length)];if(o.hot<.2&&o.ty==null){o.txt=TOK[Math.floor(Math.random()*TOK.length)];o.ty=0}}
     // blinking text cursor that trails the mouse
     if(inside&&Math.floor(t/30)%2===0){ctx.globalAlpha=.75;ctx.fillStyle=coral;ctx.fillRect(cx+10,cy-9,2.5,18)}
     ctx.globalAlpha=1;
