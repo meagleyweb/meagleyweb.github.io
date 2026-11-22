@@ -84,6 +84,53 @@ h1,h2,h3,h4{font-weight:700;letter-spacing:-.04em;line-height:1.02}
 .nofee b{color:var(--text)}
 @media (max-width:900px){.prices,.care{grid-template-columns:1fr}.price.pop{order:-1}}
 @media (max-width:480px){.care .opts{grid-template-columns:1fr}}
+
+/* a la carte */
+.alc{margin-top:90px}
+.alc-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;margin-bottom:30px}
+.alc-head h3{font-size:clamp(30px,4vw,44px)}
+.alc-head h3 span{color:var(--muted)}
+.alc-head p{color:var(--text-2);max-width:420px;font-size:16px}
+.alc-grid{display:grid;grid-template-columns:1fr 360px;gap:24px;align-items:start}
+.alc-groups{display:grid;gap:26px}
+.alc-g h4{font-size:18px;display:flex;align-items:center;gap:10px;margin-bottom:12px;letter-spacing:-.02em}
+.alc-g h4 i{font-style:normal;width:34px;height:34px;border-radius:10px;background:var(--accent-soft);display:grid;place-items:center;font-size:17px}
+.alc-g h4 small{font-weight:500;color:var(--muted);font-size:14px;letter-spacing:0}
+.items{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.it{display:grid;grid-template-columns:28px 1fr auto;gap:4px 14px;align-items:start;text-align:left;background:var(--card);border:1.5px solid var(--line);border-radius:16px;padding:16px 18px;cursor:pointer;transition:.2s var(--ease);font:inherit;color:var(--text);width:100%}
+.it:hover{border-color:var(--line-2);transform:translateY(-1px)}
+.it .bx{grid-row:1/3;width:26px;height:26px;border-radius:8px;border:2px solid var(--line-2);display:grid;place-items:center;transition:.2s;margin-top:1px}
+.it .bx svg{width:15px;height:15px;stroke:#fff;stroke-width:3.4;fill:none;opacity:0;transform:scale(.5);transition:.2s var(--ease)}
+.it b{font-weight:600;font-size:15.5px;line-height:1.3}
+.it .ip{font-weight:700;font-size:15.5px;white-space:nowrap}
+.it small{grid-column:2/4;color:var(--muted);font-size:13.5px;line-height:1.45}
+.it em{font-style:normal;display:inline-block;margin-top:4px;color:var(--accent);font-weight:600}
+.it.on{border-color:var(--accent);background:var(--accent-soft)}
+.it.on .bx{background:var(--accent);border-color:var(--accent)}
+.it.on .bx svg{opacity:1;transform:none}
+.it.inc{opacity:.5;cursor:default}
+.it.inc .ip{text-decoration:line-through}
+.it.deal{grid-column:1/-1;border-style:dashed;border-color:var(--accent)}
+.it .tagd{display:inline-block;margin-left:8px;font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;background:var(--accent);color:#fff;padding:3px 8px;border-radius:99px;vertical-align:2px}
+.cart{position:sticky;top:96px;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:24px;box-shadow:var(--shadow)}
+.cart .label{margin-bottom:14px}
+.cart ul{list-style:none;display:grid;gap:8px;max-height:280px;overflow:auto;margin-bottom:16px}
+.cart li{display:flex;justify-content:space-between;gap:12px;font-size:14.5px;color:var(--text-2);animation:cartIn .3s var(--ease)}
+.cart li span:last-child{font-weight:600;color:var(--text);white-space:nowrap}
+.cart li.none{display:block;color:var(--muted);padding:18px 0;text-align:center}
+@keyframes cartIn{from{opacity:0;transform:translateX(8px)}}
+.cart .tot{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--line);padding-top:16px;margin-bottom:6px}
+.cart .tot b{font-size:28px;letter-spacing:-.04em}
+.cart .fine{font-size:13px;color:var(--muted);margin-bottom:16px}
+.cart .btn{width:100%;justify-content:center}
+.cart .btn[disabled]{opacity:.4;pointer-events:none}
+.cart .clear{display:block;margin:10px auto 0;background:none;border:0;color:var(--muted);font:inherit;font-size:13.5px;cursor:pointer;text-decoration:underline}
+.alc-bar{position:fixed;left:12px;right:12px;bottom:12px;z-index:55;display:none;align-items:center;justify-content:space-between;gap:12px;background:var(--text);color:var(--bg);padding:12px 12px 12px 18px;border-radius:16px;box-shadow:0 20px 40px -10px rgba(0,0,0,.4);transform:translateY(160%);transition:.4s var(--ease)}
+.alc-bar.show{transform:none}
+.alc-bar b{font-size:16px}
+.alc-bar .btn{padding:11px 16px}
+@media (max-width:980px){.alc-grid{grid-template-columns:1fr}.cart{position:static}.alc-bar{display:flex}}
+@media (max-width:640px){.items{grid-template-columns:1fr}}
 /* grid backdrop */
 .grid-bg{position:absolute;inset:0;z-index:-1;overflow:hidden;pointer-events:none;--ink:#334155;--coral:#f87666}
 [data-theme="dark"] .grid-bg{--ink:#94a3b8}
@@ -418,8 +465,26 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
       </div>
     </div>
     <div class="nofee reveal"><span>🌐 <b>Your web address</b> (like yourbusiness.com): about $11/year, paid at cost and kept in your name.</span><span>🔒 <b>Keeping it online:</b> free.</span></div>
+    <div class="alc" id="extras">
+      <div class="alc-head reveal">
+        <h3>Need something smaller? <span>Tap what you need.</span></h3>
+        <p>Not every business needs a whole new website. Pick as many as you like, and I'll get back to you with an exact price.</p>
+      </div>
+      <div class="alc-grid">
+        <div class="alc-groups" id="alcGroups"></div>
+        <aside class="cart reveal" data-d="1">
+          <div class="label">Your list</div>
+          <ul id="cartList"></ul>
+          <div class="tot"><span>Estimated total</span><b id="cartTot">$0</b></div>
+          <p class="fine">One-time prices. Final price is confirmed before any work starts.</p>
+          <button class="btn btn-primary" id="cartSend" disabled>Send me this list <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          <button class="clear" id="cartClear" hidden>Clear my list</button>
+        </aside>
+      </div>
+    </div>
   </div>
 </section>
+<div class="alc-bar" id="alcBar"><span><b id="barN">0 picked</b> · <span id="barTot">$0</span></span><a class="btn btn-primary" href="#extras" id="barGo">See my list</a></div>
 
 <!-- PROCESS -->
 <section id="process" style="padding-top:0">
@@ -514,7 +579,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
       <div class="prefilled" id="prefilled">✓ Your plan was added below. Just add your info.</div>
       <div class="f2"><input name="name" placeholder="Your name" required><input name="business" placeholder="Business name" required></div>
       <div class="f2"><input name="email" type="email" placeholder="Email" required><input name="phone" type="tel" placeholder="Phone (optional)"></div>
-      <select name="need" id="need"><option>I need a new website</option><option>I want my current site redone</option><option>I need help with Google / email</option><option>Just have a question</option></select>
+      <select name="need" id="need"><option>I need a new website</option><option>I want my current site redone</option><option>Google, Facebook, logo or other help</option><option>Just have a question</option></select>
       <textarea name="message" id="message" placeholder="Tell me about your business, or paste your current website or Facebook link."></textarea>
       <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
       <button class="btn btn-primary" type="submit">Send <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
@@ -584,6 +649,64 @@ $('#sendPlan').onclick = () => {
   prefill('My site plan:\n' + lines.join('\n'), plan.now[0] === 'Have a site, needs a redo' ? 1 : 0);
 };
 
+
+/* ---------- a la carte list ---------- */
+(function(){
+  const G=[
+    ["🖥️","Already have a website?","",[
+      ["redo","Website redesign","Rebuild your current site and keep your web address.",300,800],
+      ["move","Move off Wix, GoDaddy or Squarespace","Stop paying them every month. Same site or better, with no monthly bill.",150,300],
+      ["upd","Small update","New hours, prices, photos or wording.",25,25,"Or get them all for $20/month on the care plan."],
+      ["feat","Add a feature","Booking, gallery, menu, quote form and more.",100,300]]],
+    ["📍","Google & Facebook","Help people find you",[
+      ["gset","Google Maps listing setup","Get your business on Google Maps and Search.",75,75],
+      ["gfix","Google listing cleanup","Fix your hours, photos, services and categories.",50,50],
+      ["fset","Facebook page setup","A new page done right from the start.",60,60],
+      ["ffix","Facebook page refresh","New cover photo and profile picture, plus your about info, hours and buttons.",40,40],
+      ["bund","Get Found bundle","Google cleanup, Facebook refresh and a review QR card.",95,95,"",["gfix","ffix","rev"]]]],
+    ["🎨","Logos & print","Look professional everywhere",[
+      ["logo","New logo","2–3 ideas, 2 rounds of changes, every file type you need.",100,200],
+      ["lfix","Logo cleanup","Turn a blurry or pixelated logo into a crisp one.",40,75],
+      ["flyer","Flyer or ad design","For Facebook, the paper or the window.",40,75],
+      ["card","Business card design","Design only. Print anywhere you like.",35,35],
+      ["social","Social media graphics pack","Cover photos and post templates that match your brand.",60,100],
+      ["menu","Menu or price list design","For restaurants, salons, shops and more.",50,100]]],
+    ["✨","Little extras","",[
+      ["email","Business email","you@yourbusiness.com, working on your phone.",35,35],
+      ["qr","QR code sign or sticker","Points to your website, menu or anything else.",20,20],
+      ["rev","Review card","A “Scan to leave us a review” card for your counter.",25,25]]]
+  ];
+  const ALL={};G.forEach(g=>g[3].forEach(i=>ALL[i[0]]=i));
+  const fmt=n=>"$"+n.toLocaleString();
+  const price=i=>i[3]===i[4]?fmt(i[3]):fmt(i[3])+"–"+fmt(i[4]).slice(1);
+  const ck='<svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>';
+  $("#alcGroups").innerHTML=G.map((g,gi)=>`<div class="alc-g reveal"${gi?` data-d="${Math.min(gi,3)}"`:""}><h4><i>${g[0]}</i>${g[1]}${g[2]?` <small>· ${g[2]}</small>`:""}</h4><div class="items">`+
+    g[3].map(i=>`<button type="button" class="it${i[6]?" deal":""}" data-id="${i[0]}" aria-pressed="false"><span class="bx">${ck}</span><b>${i[1]}${i[6]?`<span class="tagd">Save $${i[6].reduce((s,k)=>s+ALL[k][3],0)-i[3]}</span>`:""}</b><span class="ip">${price(i)}</span><small>${i[2]}${i[5]?`<br><em>${i[5]}</em>`:""}</small></button>`).join("")+`</div></div>`).join("");
+  $$("#alcGroups .reveal").forEach(el=>io.observe(el));
+  const sel=new Set();
+  const covered=()=>{const s=new Set();sel.forEach(k=>(ALL[k][6]||[]).forEach(x=>s.add(x)));return s};
+  let inList=false,cartSeen=false;const bar=$("#alcBar");
+  const barCheck=()=>bar.classList.toggle("show",sel.size>0&&inList&&!cartSeen);
+  function render(){
+    const cov=covered();
+    $$(".it").forEach(b=>{const id=b.dataset.id,inc=cov.has(id);if(inc)sel.delete(id);b.classList.toggle("on",sel.has(id));b.classList.toggle("inc",inc);b.setAttribute("aria-pressed",sel.has(id));b.title=inc?"Included in your bundle":""});
+    const items=[...sel].map(k=>ALL[k]);
+    const lo=items.reduce((s,i)=>s+i[3],0),hi=items.reduce((s,i)=>s+i[4],0);
+    $("#cartList").innerHTML=items.length?items.map(i=>`<li><span>${i[1]}</span><span>${price(i)}</span></li>`).join(""):`<li class="none">Nothing yet. Tap anything to add it here.</li>`;
+    const tot=lo===hi?fmt(lo):fmt(lo)+" – "+fmt(hi);
+    $("#cartTot").textContent=tot;
+    $("#cartSend").disabled=!items.length;$("#cartClear").hidden=!items.length;
+    $("#barN").textContent=items.length+" picked";$("#barTot").textContent=tot;
+    barCheck();
+  }
+  $("#alcGroups").addEventListener("click",e=>{const b=e.target.closest(".it");if(!b||b.classList.contains("inc"))return;const id=b.dataset.id;sel.has(id)?sel.delete(id):sel.add(id);render()});
+  $("#cartClear").onclick=()=>{sel.clear();render()};
+  $("#cartSend").onclick=()=>{const items=[...sel].map(k=>ALL[k]);prefill("I'd like help with:\n"+items.map(i=>"- "+i[1]+" ("+price(i)+")").join("\n")+"\nEstimated total: "+$("#cartTot").textContent,2)};
+  new IntersectionObserver(es=>{inList=es[0].isIntersecting;barCheck()}).observe($("#alcGroups"));
+  new IntersectionObserver(es=>{cartSeen=es[0].isIntersecting;barCheck()}).observe($(".cart"));
+  $("#barGo").onclick=e=>{e.preventDefault();$(".cart").scrollIntoView({behavior:"smooth",block:"center"})};
+  render();
+})();
 /* ---------- contact ---------- */
 function prefill(text, needIdx) {
   $('#message').value = text + '\n\n';
