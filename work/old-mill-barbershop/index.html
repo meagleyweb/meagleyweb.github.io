@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Old Mill Barbershop · Starter Sample by Meagley Web Design</title>
+<meta name="description" content="Sample one-page website for a fictional barbershop, showing the Meagley Web Design Starter package.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23182230'/%3E%3Crect x='12' y='5' width='8' height='22' rx='4' fill='%23f4ede1'/%3E%3Cpath d='M12 9l8-3M12 15l8-3M12 21l8-3M12 27l8-3' stroke='%23a3302a' stroke-width='2.4'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#182230;--navy-2:#223047;--red:#a3302a;--red-2:#c2413a;--cream:#f4ede1;--paper:#fbf8f2;--ink:#1b1f27;--muted:#5f6672;--line:#e5dccb;--gold:#c99a4b;--ease:cubic-bezier(.2,.75,.15,1)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+h1,h2,h3{font-family:"Alfa Slab One",serif;font-weight:400;line-height:1.05;letter-spacing:.005em}
+.wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-weight:700;font-size:16px;padding:15px 24px;border-radius:12px;transition:.25s var(--ease);white-space:nowrap}
+.btn svg{width:19px;height:19px}
+.btn-red{background:var(--red);color:#fff}
+.btn-red:hover{background:var(--red-2);transform:translateY(-2px)}
+.btn-line{border:2px solid currentColor}
+.btn-line:hover{background:rgba(255,255,255,.08)}
+.kicker{font-size:12.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--red)}
+
+.mw-bar{background:#334155;color:#cbd5e1;font-size:13px;display:flex;justify-content:center;align-items:center;gap:10px;padding:8px 16px;text-align:center}
+.mw-bar svg{width:20px;height:20px;flex:none}
+.mw-bar a{color:#f87666;font-weight:700}
+
+.pole{height:10px;background:repeating-linear-gradient(-45deg,var(--red) 0 14px,var(--cream) 14px 28px,var(--navy) 28px 42px,var(--cream) 42px 56px);background-size:79px 10px;animation:pole 3s linear infinite}
+@keyframes pole{to{background-position:79px 0}}
+
+/* hero */
+.hero{background:var(--navy);color:var(--cream);position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(700px 400px at 85% 10%,rgba(201,154,75,.18),transparent 60%)}
+.hero .wrap{position:relative;padding-top:26px;padding-bottom:70px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:60px}
+.logo{display:flex;align-items:center;gap:12px}
+.logo .badge{width:48px;height:48px;border-radius:50%;border:2px solid var(--gold);display:grid;place-items:center}
+.logo b{font-family:"Alfa Slab One";font-weight:400;font-size:20px;display:block;line-height:1}
+.logo small{font-size:10.5px;letter-spacing:.28em;color:var(--gold);font-weight:600}
+.top .call{font-weight:700;display:flex;align-items:center;gap:8px;font-size:15px}
+.top .call svg{width:18px;height:18px}
+.hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}
+.status{display:inline-flex;align-items:center;gap:9px;font-size:14px;font-weight:600;background:rgba(244,237,225,.08);border:1px solid rgba(244,237,225,.15);padding:7px 14px;border-radius:99px;margin-bottom:22px}
+.status i{width:9px;height:9px;border-radius:50%;background:#6fcf7f}
+.status.closed i{background:#e0705f}
+.hero h1{font-size:clamp(44px,7vw,78px);margin-bottom:18px}
+@media (min-width:560px){.hero h1 span{white-space:nowrap}}
+.hero h1 span{color:var(--gold)}
+.hero p.sub{font-size:19px;color:rgba(244,237,225,.75);max-width:470px;margin-bottom:30px}
+.ctas{display:flex;gap:12px;flex-wrap:wrap}
+.since{justify-self:center;width:min(320px,100%);aspect-ratio:1;border-radius:50%;border:2px dashed rgba(201,154,75,.5);display:grid;place-items:center;text-align:center;position:relative}
+.since::before{content:"";position:absolute;inset:18px;border-radius:50%;border:1px solid rgba(201,154,75,.35)}
+.since div{font-family:"Alfa Slab One";font-size:22px;line-height:1.2;color:var(--gold)}
+.since div b{display:block;font-size:58px;color:var(--cream);font-weight:400;margin:6px 0}
+.since div small{font-family:Inter;font-size:12px;letter-spacing:.24em;color:rgba(244,237,225,.6);font-weight:600}
+
+section{padding:90px 0}
+.h2{font-size:clamp(34px,5vw,54px);margin:10px 0 14px}
+.lead{color:var(--muted);font-size:17.5px;max-width:540px}
+
+/* services */
+.svc{display:grid;grid-template-columns:1fr 1fr;gap:0 60px;margin-top:40px}
+.row{display:flex;align-items:baseline;gap:12px;padding:18px 0;border-bottom:1px solid var(--line)}
+.row b{font-size:18px;font-weight:700}
+.row small{display:block;color:var(--muted);font-size:14.5px;font-weight:400}
+.row .dots{flex:1;border-bottom:2px dotted var(--line);transform:translateY(-5px);min-width:20px}
+.row .p{font-family:"Alfa Slab One";font-size:22px;color:var(--red)}
+.note{margin-top:22px;color:var(--muted);font-size:15px}
+
+/* photos */
+.photos{background:var(--cream)}
+.gal{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:200px 200px;gap:14px;margin-top:40px}
+.ph{border-radius:18px;overflow:hidden;position:relative}
+.ph:first-child{grid-row:span 2}
+.ph svg{width:100%;height:100%;display:block}
+.ph span{position:absolute;left:12px;bottom:12px;background:rgba(24,34,48,.8);color:var(--cream);font-size:12.5px;font-weight:600;padding:5px 11px;border-radius:99px}
+
+/* visit */
+.visit{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:40px}
+.card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:30px}
+.card h3{font-size:24px;margin-bottom:6px}
+.hours{list-style:none;margin-top:14px}
+.hours li{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--line);font-size:16px}
+.hours li.now{color:var(--red);font-weight:700}
+.map{border-radius:20px;overflow:hidden;min-height:300px;position:relative;background:#e8e1d2}
+.map svg{position:absolute;inset:0;width:100%;height:100%}
+.map .pin{position:absolute;left:50%;top:45%;transform:translate(-50%,-100%);background:var(--navy);color:var(--cream);padding:9px 14px;border-radius:12px;font-weight:700;font-size:14px;white-space:nowrap}
+.map .pin::after{content:"";position:absolute;left:50%;bottom:-6px;width:12px;height:12px;background:var(--navy);transform:translateX(-50%) rotate(45deg)}
+.addr{margin:12px 0 20px;color:var(--muted)}
+.acts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.acts .btn{font-size:15px;padding:13px 14px}
+.btn-navy{background:var(--navy);color:var(--cream)}
+.btn-navy:hover{background:var(--navy-2)}
+.btn-ghost{border:2px solid var(--line)}
+.btn-ghost:hover{border-color:var(--navy)}
+
+/* social */
+.social{background:var(--navy);color:var(--cream);text-align:center}
+.social .lead{color:rgba(244,237,225,.7);margin:0 auto}
+.soc{display:flex;justify-content:center;gap:12px;margin-top:28px;flex-wrap:wrap}
+.soc a{display:flex;align-items:center;gap:10px;background:rgba(244,237,225,.08);border:1px solid rgba(244,237,225,.16);padding:14px 22px;border-radius:14px;font-weight:700;transition:.25s}
+.soc a:hover{background:rgba(244,237,225,.16)}
+.soc svg{width:22px;height:22px}
+
+footer{padding:30px 0 110px;text-align:center;color:var(--muted);font-size:14px}
+
+/* sticky phone bar */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:50;display:none;grid-template-columns:repeat(3,1fr);background:var(--navy);border-top:3px solid var(--red)}
+.bar a{display:flex;flex-direction:column;align-items:center;gap:3px;padding:10px 0 12px;color:var(--cream);font-size:12.5px;font-weight:700}
+.bar a+a{border-left:1px solid rgba(244,237,225,.12)}
+.bar svg{width:22px;height:22px}
+.toast{position:fixed;left:50%;top:20px;transform:translate(-50%,-300%);visibility:hidden;background:var(--navy);color:var(--cream);padding:13px 20px;border-radius:12px;font-weight:600;z-index:90;transition:.45s var(--ease);max-width:calc(100% - 32px);text-align:center}
+.toast.show{transform:translate(-50%,0);visibility:visible}
+
+@media (max-width:860px){
+  .hero-grid,.visit,.svc{grid-template-columns:1fr}
+  .since{display:none}
+  .gal{grid-template-columns:1fr 1fr;grid-template-rows:180px 140px 140px}
+  .ph:first-child{grid-column:span 2;grid-row:auto}
+  .top .call span{display:none}
+  .bar{display:grid}
+  section{padding:70px 0}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<div class="mw-bar">
+  <a href="../../" aria-label="Meagley Web Design home"><svg viewBox="0 0 100 100"><rect width="100" height="100" rx="22" fill="#f8fafc"/><rect x="14" y="14" width="72" height="10" rx="3.5" fill="#f87666"/><rect x="14" y="30.5" width="18" height="55.5" rx="3.5" fill="#334155"/><rect x="68" y="30.5" width="18" height="55.5" rx="3.5" fill="#334155"/><path d="M37 30.5h26L50 60z" fill="#334155"/></svg></a>
+  <span>Starter package sample ($200–400) for a fictional business · by <a href="../../">Meagley Web Design</a></span>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="top">
+      <div class="logo">
+        <span class="badge"><svg width="22" height="30" viewBox="0 0 22 30"><rect x="5" y="1" width="12" height="28" rx="6" fill="#f4ede1"/><path d="M5 7l12-4M5 14l12-4M5 21l12-4M5 28l12-4" stroke="#a3302a" stroke-width="2.6"/></svg></span>
+        <span><b>Old Mill</b><small>BARBERSHOP</small></span>
+      </div>
+      <a class="call" href="tel:+15550142000" data-demo><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><span>(555) 014-2000</span></a>
+    </div>
+    <div class="hero-grid">
+      <div>
+        <span class="status" id="status"><i></i><span id="statusTxt">Checking hours…</span></span>
+        <h1 class="reveal">Classic cuts.<br><span>Walk right in.</span></h1>
+        <p class="sub reveal">Walk-in haircuts, fades, beard trims and hot towel shaves on Main Street. Grab a seat, we'll get you in.</p>
+        <div class="ctas reveal">
+          <a class="btn btn-red" href="tel:+15550142000" data-demo><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>Call the shop</a>
+          <a class="btn btn-line" href="#visit">Hours &amp; directions</a>
+        </div>
+      </div>
+      <div class="since" aria-hidden="true"><div>Walk-ins<b>$20</b><small>CLASSIC CUT</small></div></div>
+    </div>
+  </div>
+  <div class="pole"></div>
+</header>
+
+<section id="services">
+  <div class="wrap">
+    <span class="kicker reveal">Services &amp; prices</span>
+    <h2 class="h2 reveal">Simple prices. Great cuts.</h2>
+    <p class="lead reveal">Cash or card. Kids, seniors and veterans get $3 off every day.</p>
+    <div class="svc">
+      <div class="reveal">
+        <div class="row"><div><b>Classic cut</b><small>Scissors or clippers, neck shave</small></div><span class="dots"></span><span class="p">$20</span></div>
+        <div class="row"><div><b>Skin fade</b><small>Blended down to the skin</small></div><span class="dots"></span><span class="p">$25</span></div>
+        <div class="row"><div><b>Kids cut</b><small>12 and under</small></div><span class="dots"></span><span class="p">$15</span></div>
+        <div class="row"><div><b>Buzz cut</b><small>One guard all over</small></div><span class="dots"></span><span class="p">$12</span></div>
+      </div>
+      <div class="reveal">
+        <div class="row"><div><b>Beard trim</b><small>Shaped and lined up</small></div><span class="dots"></span><span class="p">$12</span></div>
+        <div class="row"><div><b>Hot towel shave</b><small>Straight razor, hot lather</small></div><span class="dots"></span><span class="p">$25</span></div>
+        <div class="row"><div><b>Cut + beard</b><small>The works</small></div><span class="dots"></span><span class="p">$30</span></div>
+        <div class="row"><div><b>Senior cut</b><small>65 and up</small></div><span class="dots"></span><span class="p">$15</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="photos">
+  <div class="wrap">
+    <span class="kicker reveal">The shop</span>
+    <h2 class="h2 reveal">Come see us.</h2>
+    <p class="lead reveal">On a real site, these would be the owner's own photos of the shop and their work.</p>
+    <div class="gal reveal">
+      <div class="ph"><svg viewBox="0 0 400 420" preserveAspectRatio="xMidYMid slice"><rect width="400" height="420" fill="#223047"/><rect x="0" y="300" width="400" height="120" fill="#3a2a22"/><g fill="#a3302a"><rect x="60" y="190" width="90" height="70" rx="10"/><rect x="250" y="190" width="90" height="70" rx="10"/></g><g fill="#1b1f27"><rect x="95" y="260" width="20" height="45"/><rect x="285" y="260" width="20" height="45"/><rect x="70" y="300" width="70" height="10" rx="5"/><rect x="260" y="300" width="70" height="10" rx="5"/></g><g fill="#c7d2dc" opacity=".55"><rect x="50" y="50" width="110" height="120" rx="8"/><rect x="240" y="50" width="110" height="120" rx="8"/></g><circle cx="105" cy="110" r="22" fill="#f4ede1" opacity=".2"/><circle cx="295" cy="110" r="22" fill="#f4ede1" opacity=".2"/></svg><span>The chairs</span></div>
+      <div class="ph"><svg viewBox="0 0 200 200" preserveAspectRatio="xMidYMid slice"><rect width="200" height="200" fill="#e3d5bb"/><rect x="85" y="20" width="30" height="160" rx="15" fill="#fff" stroke="#182230" stroke-width="4"/><g clip-path="inset(0)"><path d="M85 50l30-14M85 80l30-14M85 110l30-14M85 140l30-14M85 170l30-14" stroke="#a3302a" stroke-width="8"/></g><circle cx="100" cy="20" r="12" fill="#c99a4b"/><circle cx="100" cy="180" r="12" fill="#c99a4b"/></svg><span>Out front</span></div>
+      <div class="ph"><svg viewBox="0 0 200 200" preserveAspectRatio="xMidYMid slice"><rect width="200" height="200" fill="#a3302a"/><g fill="none" stroke="#f4ede1" stroke-width="6" stroke-linecap="round"><circle cx="70" cy="140" r="18"/><circle cx="130" cy="140" r="18"/><path d="M82 126l50-90M118 126l-50-90"/></g></svg><span>Tools of the trade</span></div>
+      <div class="ph"><svg viewBox="0 0 200 200" preserveAspectRatio="xMidYMid slice"><rect width="200" height="200" fill="#c99a4b"/><path d="M60 60h80v90a20 20 0 0 1-20 20H80a20 20 0 0 1-20-20z" fill="#182230"/><rect x="70" y="40" width="60" height="22" rx="6" fill="#f4ede1"/><path d="M80 100h40" stroke="#c99a4b" stroke-width="5"/></svg><span>Hot towel shaves</span></div>
+      <div class="ph"><svg viewBox="0 0 200 200" preserveAspectRatio="xMidYMid slice"><rect width="200" height="200" fill="#182230"/><g fill="#f4ede1"><circle cx="100" cy="85" r="34"/><path d="M40 190c0-40 27-62 60-62s60 22 60 62z"/></g><path d="M66 78c4-30 64-30 68 0" fill="#1b1f27"/></svg><span>Fresh fades</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="visit">
+  <div class="wrap">
+    <span class="kicker reveal">Visit</span>
+    <h2 class="h2 reveal">Hours &amp; directions.</h2>
+    <div class="visit">
+      <div class="card reveal">
+        <h3>Walk-in hours</h3>
+        <ul class="hours" id="hours"></ul>
+      </div>
+      <div class="reveal">
+        <div class="map">
+          <svg viewBox="0 0 500 320" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="500" height="320" fill="#e8e1d2"/><g stroke="#fbf8f2" stroke-width="18"><path d="M0 150h500M250 0v320"/></g><g stroke="#fbf8f2" stroke-width="8"><path d="M0 70h500M0 245h500M110 0v320M390 0v320"/></g><g fill="#d6cbb5"><rect x="130" y="85" width="100" height="50" rx="6"/><rect x="270" y="85" width="100" height="50" rx="6"/><rect x="130" y="170" width="100" height="60" rx="6"/><rect x="270" y="170" width="100" height="60" rx="6"/></g><text x="490" y="142" text-anchor="end" font-family="Inter" font-size="12" font-weight="700" fill="#9a8c70" letter-spacing="2">MAIN ST</text></svg>
+          <span class="pin">💈 Old Mill Barbershop</span>
+        </div>
+        <p class="addr">210 Main Street · Hometown, USA</p>
+        <div class="acts">
+          <a class="btn btn-navy" href="#" data-demo>Get directions</a>
+          <a class="btn btn-ghost" href="sms:+15550142000" data-demo>Text us</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="social">
+  <div class="wrap">
+    <span class="kicker reveal" style="color:var(--gold)">Follow along</span>
+    <h2 class="h2 reveal">See our latest cuts.</h2>
+    <p class="lead reveal">We post fresh work and holiday hours on Facebook. Like us on Google? Leave a review!</p>
+    <div class="soc reveal">
+      <a href="#" data-demo><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v2H8v4h2v8h4v-8h3l1-4h-4V8z"/></svg>Facebook</a>
+      <a href="#" data-demo><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.6 12.2c0-.7-.1-1.3-.2-1.9H12v3.6h5.4a4.6 4.6 0 0 1-2 3v2.5h3.2c1.9-1.7 3-4.3 3-7.2z"/><path d="M12 22c2.7 0 5-.9 6.6-2.4l-3.2-2.5c-.9.6-2 1-3.4 1-2.6 0-4.8-1.8-5.6-4.1H3.1v2.6A10 10 0 0 0 12 22z" opacity=".75"/><path d="M6.4 14c-.2-.6-.3-1.3-.3-2s.1-1.4.3-2V7.4H3.1a10 10 0 0 0 0 9.2z" opacity=".55"/><path d="M12 5.9c1.5 0 2.8.5 3.8 1.5l2.9-2.9A10 10 0 0 0 3.1 7.4L6.4 10c.8-2.3 3-4.1 5.6-4.1z" opacity=".9"/></svg>Leave a Google review</a>
+    </div>
+  </div>
+</section>
+
+<footer>© Old Mill Barbershop (a fictional business) · Starter sample site by <a href="../../" style="color:#e2604f;font-weight:700">Meagley Web Design</a></footer>
+
+<nav class="bar" aria-label="Quick actions">
+  <a href="tel:+15550142000" data-demo><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>Call</a>
+  <a href="sms:+15550142000" data-demo><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.5 7.2L4 21l1.8-5.5A8 8 0 1 1 21 12z"/></svg>Text</a>
+  <a href="#visit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>Directions</a>
+</nav>
+<div class="toast" id="toast"></div>
+
+<script>
+const H=[null,[9,18],[9,18],[9,18],[9,18],[9,18],[8,14]];
+const D=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+const f=h=>(h%12||12)+(h<12?' am':' pm');
+const n=new Date(),d=n.getDay(),m=n.getHours()+n.getMinutes()/60;
+document.getElementById('hours').innerHTML=[1,2,3,4,5,6,0].map(i=>`<li class="${i===d?'now':''}"><span>${D[i]}${i===d?' (today)':''}</span><span>${H[i]?f(H[i][0])+' – '+f(H[i][1]):'Closed'}</span></li>`).join('');
+const t=H[d],open=t&&m>=t[0]&&m<t[1],st=document.getElementById('status');
+if(open)document.getElementById('statusTxt').textContent='Open now · walk-ins until '+f(t[1]);
+else{st.classList.add('closed');let k=d,s=0;do{k=(k+1)%7;s++}while(!H[k]);const nd=t&&m<t[0]?d:k;document.getElementById('statusTxt').textContent='Closed · opens '+(nd===d?'today':D[nd])+' at '+f(H[nd][0])}
+const toast=document.getElementById('toast');
+document.querySelectorAll('[data-demo]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();toast.textContent='Sample site: on a real site this would call, text or open directions.';toast.classList.add('show');clearTimeout(toast._t);toast._t=setTimeout(()=>toast.classList.remove('show'),2800)}));
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
