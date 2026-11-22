@@ -567,9 +567,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
 
 <script>
 /* ===================== CONFIG ===================== */
-const CONTACT_EMAIL = '';   // the email you want shown publicly, e.g. 'meagleywebdesign@gmail.com'
-const CONTACT_PHONE = '';   // optional, e.g. '479-555-0123' (adds "Call" + "Text" buttons)
-const WEB3FORMS_KEY = '';   // free key from web3forms.com so the form emails you
+const CONTACT_EMAIL = 'meagleywebdesign@gmail.com';   // the email you want shown publicly, e.g. 'meagleywebdesign@gmail.com'
+const CONTACT_PHONE = '803-509-1640';   // text-only: shows a "Text" button, no call link
+const WEB3FORMS_KEY = '099815b7-fcbb-4f32-9300-61c6b24480c8';   // free key from web3forms.com so the form emails you
 /* ================================================== */
 
 const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
@@ -706,7 +706,7 @@ function prefill(text, needIdx) {
 const direct = $('#direct');
 if (CONTACT_PHONE) {
   const tel = CONTACT_PHONE.replace(/\D/g, '');
-  direct.insertAdjacentHTML('beforeend', `<a class="btn" href="tel:${tel}">📞 Call</a><a class="btn" href="sms:${tel}">💬 Text</a>`);
+  direct.insertAdjacentHTML('beforeend', `<a class="btn" title="Text only, please (no calls)" href="sms:+1${tel}">💬 Text ${CONTACT_PHONE}</a>`);
 }
 if (CONTACT_EMAIL) {
   direct.insertAdjacentHTML('beforeend', `<button class="btn" id="copyEmail">✉️ ${CONTACT_EMAIL}</button>`);
