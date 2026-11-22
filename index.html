@@ -369,7 +369,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
       <div>
         <div class="avail reveal"><i></i>Taking new projects · Western Arkansas</div>
         <h1 class="reveal" data-d="1">Websites that get local businesses <span class="hl">more customers.<svg viewBox="0 0 300 20" preserveAspectRatio="none"><path d="M2 14 C 80 4, 200 4, 298 12" stroke="currentColor" stroke-width="5" fill="none" stroke-linecap="round"/></svg></span></h1>
-        <p class="lead reveal" data-d="2">I design and build fast, modern sites for small-town businesses. <b>You'll see a free working preview of your new site before you pay anything.</b></p>
+        <p class="lead reveal" data-d="2">I design and build fast, modern sites for small-town businesses. <b>You'll see a free working preview of your new site, usually the same day, before you pay anything.</b></p>
         <div class="ctas reveal" data-d="3">
           <a href="#contact" class="btn btn-primary">Get My Free Preview <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a href="#checkup" class="btn btn-ghost">Check My Current Site</a>
@@ -488,7 +488,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
     </div>
     <div class="steps reveal" id="steps">
       <div class="step"><span class="bar"></span><span class="n">STEP 01</span><h4>Quick chat</h4><p>Tell me about your business and what you want customers to do.</p><span class="pay">Free</span></div>
-      <div class="step"><span class="bar"></span><span class="n">STEP 02</span><h4>Free preview</h4><p>I build a real working preview of your new homepage.</p><span class="pay">Free</span></div>
+      <div class="step"><span class="bar"></span><span class="n">STEP 02</span><h4>Free preview</h4><p>I build a real working preview of your new homepage, usually the same day.</p><span class="pay">Free</span></div>
       <div class="step"><span class="bar"></span><span class="n">STEP 03</span><h4>Polish &amp; launch</h4><p>Love it? We finish the details and put it live on your domain.</p><span class="pay">Pay when happy</span></div>
       <div class="step"><span class="bar"></span><span class="n">STEP 04</span><h4>Keep it fresh</h4><p>New photos, hours or specials? Just text me.</p><span class="pay">Optional care</span></div>
     </div>
@@ -519,7 +519,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
           <span class="label">Your plan</span>
           <h3 id="sumTitle">A website for your business</h3>
           <div class="sum-list" id="sumList"></div>
-          <div class="eta"><div style="font-size:28px">⚡</div><div><small>Free preview could be ready</small><b id="eta">in about a week</b></div></div>
+          <div class="eta"><div style="font-size:28px">⚡</div><div><small>Free preview could be ready</small><b id="eta">same day</b></div></div>
           <button class="btn btn-primary" id="sendPlan">Send this plan to Jacob <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
         </div>
       </div>
@@ -607,7 +607,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
     <div class="faq reveal">
       <div class="q open"><button>Is the preview really free?<i>+</i></button><div class="a"><div><p>Yes. I'll build a working preview of your new homepage at no cost. If you don't love it, you walk away and owe nothing.</p></div></div></div>
       <div class="q"><button>Are there monthly fees?<i>+</i></button><div class="a"><div><p>Not unless you want them. You pay for your website once, and hosting is free. The only yearly cost is your domain name (about $11/year, paid at cost). The care plan is optional, for people who want me to handle updates.</p></div></div></div>
-      <div class="q"><button>How long does a website take?<i>+</i></button><div class="a"><div><p>Most previews are ready within about a week. Once you approve it, a typical small-business site launches within one to two weeks, depending on how quickly we gather photos and details.</p></div></div></div>
+      <div class="q"><button>How long does a website take?<i>+</i></button><div class="a"><div><p>Most previews are ready the same day you reach out. Once you approve it, most sites launch within 2–5 days. Sites with booking, ordering or trackers can take a little longer, and it also depends on how quickly we gather photos and details.</p></div></div></div>
       <div class="q"><button>I already have a website. Can you redo it?<i>+</i></button><div class="a"><div><p>Yes. I can redesign it while keeping your domain, email and Google ranking, and it often costs less per month than what you're paying now.</p></div></div></div>
       <div class="q"><button>Can I update the site myself?<i>+</i></button><div class="a"><div><p>Most clients just text me changes. If you'd rather do it yourself, I can set up a simple editing page for photos, hours and specials.</p></div></div></div>
       <div class="q"><button>Do I need photos or a logo?<i>+</i></button><div class="a"><div><p>No. Phone photos work great, and we can figure out the logo together.</p></div></div></div>
@@ -764,7 +764,7 @@ function renderPlan() {
   ];
   $('#sumList').innerHTML = rows.map(r => `<div><span>${r[0]}</span><span>${r[1]}</span></div>`).join('');
   const heavy = plan.feat.some(f => /calculator|tracker|booking/i.test(f));
-  $('#eta').textContent = plan.when[0] === 'ASAP' && !heavy ? 'in just a few days' : heavy ? 'in about 1–2 weeks' : 'in about a week';
+  $('#eta').textContent = heavy ? 'in 1–2 days' : 'same day';
 }
 renderPlan();
 $('#sendPlan').onclick = () => {
