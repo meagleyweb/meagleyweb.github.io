@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Meagley Web Design | Websites for Small Businesses</title>
-<meta name="description" content="Fast, modern websites for small-town businesses in western Arkansas. See a free preview of your new site before you pay anything.">
+<meta name="description" content="Websites that help small businesses get found and get called. See a free working preview of your new site before you pay anything.">
 <meta property="og:title" content="Meagley Web Design">
-<meta property="og:description" content="Fast, modern websites for small businesses anywhere. Free preview before you pay.">
+<meta property="og:description" content="Websites that help small businesses get found and get called. Free preview before you pay.">
 <meta property="og:image" content="https://meagleyweb.github.io/img/og-card.png">
 <meta name="theme-color" content="#0b0b10">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Crect width=%27100%27 height=%27100%27 rx=%2722%27 fill=%27%23334155%27/%3E%3Crect x=%2714%27 y=%2714%27 width=%2772%27 height=%2710%27 rx=%273.5%27 fill=%27%23f87666%27/%3E%3Crect x=%2714%27 y=%2730.5%27 width=%2718%27 height=%2755.5%27 rx=%273.5%27 fill=%27white%27/%3E%3Crect x=%2768%27 y=%2730.5%27 width=%2718%27 height=%2755.5%27 rx=%273.5%27 fill=%27white%27/%3E%3Cpath d=%27M37 30.5h26L50 60z%27 fill=%27white%27/%3E%3C/svg%3E">
@@ -170,6 +170,7 @@ header .btn{padding:10px 16px;font-size:14px}
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(22,163,74,.5)}70%,100%{box-shadow:0 0 0 8px rgba(22,163,74,0)}}
 .hero h1{font-size:clamp(44px,7vw,100px);max-width:980px}
 .hero h1 .hl{color:var(--accent);position:relative;white-space:nowrap}
+.hero h1 .nw{white-space:nowrap}
 .hero h1 .hl svg{position:absolute;left:0;bottom:-.08em;width:100%;height:.22em}
 .hero h1 .hl svg path{stroke-dasharray:400;stroke-dashoffset:400;animation:draw 1.2s var(--ease) .6s forwards}
 @keyframes draw{to{stroke-dashoffset:0}}
@@ -178,6 +179,7 @@ header .btn{padding:10px 16px;font-size:14px}
 .ctas{display:flex;gap:10px;flex-wrap:wrap}
 .stats{display:grid;grid-template-columns:repeat(2,auto);gap:22px 40px;text-align:left}
 .stats div{font-size:13px;color:var(--muted)}
+.stats>div{border-top:3px solid var(--accent);padding-top:12px}
 .stats b{display:block;white-space:nowrap;font-size:30px;color:var(--text);letter-spacing:-.04em;font-weight:700}
 
 /* marquee */
@@ -334,7 +336,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
   .qrow{flex-direction:column;align-items:flex-start}
   .contact{margin:0 8px 8px;border-radius:24px;padding:70px 0}
   form{padding:22px}
-  .hero h1 .hl{white-space:normal}
+  .hero h1 .hl{white-space:nowrap;display:inline-block}
 }
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
@@ -365,9 +367,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
   <div class="wrap">
     <div class="hero-top">
       <div>
-        <div class="avail reveal"><i></i>Taking new projects · Anywhere in the US</div>
-        <h1 class="reveal" data-d="1">Websites that get small businesses <span class="hl">more customers.<svg viewBox="0 0 300 20" preserveAspectRatio="none"><path d="M2 14 C 80 4, 200 4, 298 12" stroke="currentColor" stroke-width="5" fill="none" stroke-linecap="round"/></svg></span></h1>
-        <p class="lead reveal" data-d="2">I design and build fast, modern sites for small businesses, near me in Western Arkansas or anywhere else. <b>You'll see a free working preview of your new site, usually the same day, before you pay anything.</b></p>
+        <div class="avail reveal"><i></i>Taking new projects · Working anywhere</div>
+        <h1 class="reveal" data-d="1"><span class="nw">Get found.</span> <span class="nw">Get called.</span> <span class="hl">Get customers.<svg viewBox="0 0 300 20" preserveAspectRatio="none"><path d="M2 14 C 80 4, 200 4, 298 12" stroke="currentColor" stroke-width="5" fill="none" stroke-linecap="round"/></svg></span></h1>
+        <p class="lead reveal" data-d="2">I make websites for small businesses that look great on phones and make it easy for customers to reach you. <b>You'll see a free working preview of your new site, usually the same day, before you pay anything.</b></p>
         <div class="ctas reveal" data-d="3">
           <a href="#contact" class="btn btn-primary">Get My Free Preview <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a href="sms:+18035091640" class="btn btn-ghost">💬 Text Me</a>
@@ -597,7 +599,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
 <section class="contact" id="contact">
   <div class="wrap grid">
     <div>
-      <div class="label reveal">Let's talk</div>
+      <div class="label reveal">Free preview</div>
       <h2 class="h2 reveal" data-d="1">Ready for a site <span>you're proud of?</span></h2>
       <p class="lead reveal" data-d="2">Tell me about your business and I'll start on your free preview.</p>
       <div class="direct reveal" data-d="3" id="direct"></div>
