@@ -85,14 +85,10 @@ h1,h2,h3,h4{font-weight:700;letter-spacing:-.04em;line-height:1.02}
 @media (max-width:900px){.prices,.care{grid-template-columns:1fr}.price.pop{order:-1}}
 @media (max-width:480px){.care .opts{grid-template-columns:1fr}}
 /* grid backdrop */
-.grid-bg{position:absolute;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
-.grid-bg::before,.grid-bg::after{content:"";position:absolute;border-radius:50%;filter:blur(90px);opacity:.55;animation:drift 18s ease-in-out infinite alternate}
-.grid-bg::before{width:620px;height:620px;right:-120px;top:-140px;background:radial-gradient(circle,rgba(248,118,102,.55),transparent 65%)}
-.grid-bg::after{width:560px;height:560px;left:-160px;top:220px;background:radial-gradient(circle,rgba(51,65,85,.35),transparent 65%);animation-delay:-9s}
-[data-theme="dark"] .grid-bg::after{background:radial-gradient(circle,rgba(148,163,184,.25),transparent 65%)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .grid-bg::after{background:radial-gradient(circle,rgba(148,163,184,.25),transparent 65%)}}
-@keyframes drift{to{transform:translate(-60px,50px) scale(1.12)}}
-@media (prefers-reduced-motion:reduce){.grid-bg::before,.grid-bg::after{animation:none}}
+.grid-bg{position:absolute;inset:0;z-index:-1;overflow:hidden;pointer-events:none;--ink:#334155;--coral:#f87666}
+[data-theme="dark"] .grid-bg{--ink:#94a3b8}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .grid-bg{--ink:#94a3b8}}
+.grid-bg canvas{position:absolute;inset:0;width:100%;height:100%}
 
 /* progress + header */
 .progress{position:fixed;top:0;left:0;height:2px;background:var(--accent);z-index:100;width:0}
@@ -367,7 +363,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
 
 <!-- HERO -->
 <section class="hero" id="top" style="padding-bottom:0">
-  <div class="grid-bg"></div>
+  <div class="grid-bg"><canvas id="shapes"></canvas></div>
   <div class="wrap">
     <div class="hero-top">
       <div>
@@ -596,8 +592,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
         <p>Your site works fine without it. The care plan is for owners who would rather text me changes than think about it: updates to hours, prices, photos and specials, plus a monthly check that everything works.</p>
       </div>
       <div class="opts">
-        <div class="o best"><em>Save $60</em><b>$240<small> /year</small></b><small>Pay once a year, about $20/month</small></div>
-        <div class="o"><b>$25<small> /month</small></b><small>Cancel anytime</small></div>
+        <div class="o best"><em>Save $40</em><b>$200<small> /year</small></b><small>Pay once a year, about $17/month</small></div>
+        <div class="o"><b>$20<small> /month</small></b><small>Cancel anytime</small></div>
       </div>
     </div>
     <div class="nofee reveal"><span>🌐 <b>Domain name:</b> about $11/year, paid at cost and kept in your name.</span><span>🔒 <b>Hosting:</b> free.</span></div>
@@ -815,6 +811,63 @@ $('#form').addEventListener('submit', async e => {
 
 /* FAQ */
 $$('.q button').forEach(b => b.onclick = () => b.parentElement.classList.toggle('open'));
+
+/* ===== floating logo shapes (hero) ===== */
+(function(){
+  const cv=document.getElementById("shapes");if(!cv)return;
+  const ctx=cv.getContext("2d"),host=cv.parentElement;
+  const still=matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let W=0,H=0,dpr=1,shapes=[],px=-9999,py=-9999,ink="#334155",coral="#f87666",raf;
+  const rnd=(a,b)=>a+Math.random()*(b-a);
+  function colors(){const cs=getComputedStyle(host);ink=cs.getPropertyValue("--ink").trim()||ink;coral=cs.getPropertyValue("--coral").trim()||coral}
+  function build(){
+    const r=host.getBoundingClientRect();dpr=Math.min(2,devicePixelRatio||1);W=r.width;H=r.height;
+    cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
+    const n=Math.round(Math.min(34,Math.max(14,W*H/38000)));shapes=[];
+    for(let i=0;i<n;i++){
+      // keep most shapes off the headline: favor right side and edges
+      let x=W<700?rnd(0,W):(Math.random()<.72?rnd(W*.52,W):rnd(0,W));
+      const t=["bar","pill","tri"][i%3],s=rnd(.7,1.35);
+      shapes.push({t,s,hx:x,hy:rnd(0,H),x,y:0,vx:0,vy:0,a:rnd(0,6.28),va:rnd(-.004,.004),ph:rnd(0,6.28),sp:rnd(.15,.35),al:rnd(.14,.32),hot:0});
+    }
+    shapes.forEach(o=>o.y=o.hy);
+  }
+  function rr(x,y,w,h,r){ctx.beginPath();ctx.moveTo(x+r,y);ctx.arcTo(x+w,y,x+w,y+h,r);ctx.arcTo(x+w,y+h,x,y+h,r);ctx.arcTo(x,y+h,x,y,r);ctx.arcTo(x,y,x+w,y,r);ctx.closePath()}
+  function draw(o){
+    ctx.save();ctx.translate(o.x,o.y);ctx.rotate(o.a);ctx.scale(o.s*(1+o.hot*.25),o.s*(1+o.hot*.25));
+    ctx.globalAlpha=Math.min(.75,o.al+o.hot*.45);
+    if(o.t==="bar"){ctx.fillStyle=coral;rr(-26,-5,52,10,4);ctx.fill()}
+    else if(o.t==="pill"){ctx.fillStyle=o.hot>.4?coral:ink;rr(-7,-22,14,44,4);ctx.fill()}
+    else{ctx.fillStyle=o.hot>.4?coral:ink;ctx.beginPath();ctx.moveTo(-13,-10);ctx.lineTo(13,-10);ctx.lineTo(0,14);ctx.closePath();ctx.fill()}
+    ctx.restore();
+  }
+  let t=0;
+  function frame(){
+    t+=1;ctx.clearRect(0,0,W,H);
+    for(const o of shapes){
+      const tx=o.hx+Math.sin(t*.004*o.sp*4+o.ph)*24,ty=o.hy+Math.cos(t*.003*o.sp*4+o.ph)*18;
+      o.vx+=(tx-o.x)*.012;o.vy+=(ty-o.y)*.012;
+      const dx=o.x-px,dy=o.y-py,d=Math.hypot(dx,dy),R=170;
+      if(d<R&&d>0){const f=(1-d/R)*2.2;o.vx+=dx/d*f;o.vy+=dy/d*f;o.va+=(Math.random()-.5)*.004;o.hot=Math.min(1,o.hot+.08)}else o.hot*=.96;
+      o.vx*=.9;o.vy*=.9;o.x+=o.vx;o.y+=o.vy;o.a+=o.va;o.va*=.995;if(Math.abs(o.va)<.001)o.va+=(Math.random()-.5)*.0006;
+      draw(o);
+    }
+    raf=requestAnimationFrame(frame);
+  }
+  function setP(e){const r=cv.getBoundingClientRect();px=e.clientX-r.left;py=e.clientY-r.top}
+  addEventListener("pointermove",setP,{passive:true});
+  addEventListener("pointerdown",setP,{passive:true});
+  document.addEventListener("pointerleave",()=>{px=py=-9999});
+  addEventListener("pointerup",e=>{if(e.pointerType!=="mouse"){px=py=-9999}});
+  colors();build();
+  new MutationObserver(()=>{colors();if(still){ctx.clearRect(0,0,W,H);shapes.forEach(draw)}}).observe(document.documentElement,{attributes:true,attributeFilter:["data-theme"]});
+  let rt;addEventListener("resize",()=>{clearTimeout(rt);rt=setTimeout(()=>{build();if(still)shapes.forEach(draw)},150)});
+  if(still){shapes.forEach(draw)}
+  else{
+    // pause when the hero is off screen
+    new IntersectionObserver(es=>{cancelAnimationFrame(raf);if(es[0].isIntersecting)raf=requestAnimationFrame(frame)}).observe(host);
+  }
+})();
 </script>
 </body>
 </html>
