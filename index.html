@@ -131,34 +131,6 @@ header .btn{padding:10px 16px;font-size:14px}
 .stats div{font-size:13px;color:var(--muted)}
 .stats b{display:block;font-size:30px;color:var(--text);letter-spacing:-.04em;font-weight:700}
 
-/* live showcase */
-.showcase{margin-top:64px;border:1px solid var(--line);background:var(--card);border-radius:22px;padding:14px;box-shadow:var(--shadow)}
-.sc-bar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:4px 4px 14px;flex-wrap:wrap}
-.tabs{display:flex;gap:4px;background:var(--bg-2);border-radius:12px;padding:4px;flex-wrap:wrap}
-.tabs button{border:0;background:transparent;padding:8px 14px;border-radius:9px;font-size:14px;font-weight:600;color:var(--muted);cursor:pointer;transition:.2s;display:flex;gap:8px;align-items:center}
-.tabs button.on{background:var(--card);color:var(--text);box-shadow:0 1px 3px rgba(0,0,0,.12)}
-.tabs button .dot{width:7px;height:7px;border-radius:50%;background:var(--line-2)}
-.tabs button.on .dot{background:var(--accent)}
-.tabs button[data-live] .dot{background:var(--good)}
-.dev{display:flex;gap:4px;background:var(--bg-2);border-radius:12px;padding:4px}
-.dev button{border:0;background:transparent;width:38px;height:34px;border-radius:9px;cursor:pointer;display:grid;place-items:center;color:var(--muted)}
-.dev button.on{background:var(--card);color:var(--text);box-shadow:0 1px 3px rgba(0,0,0,.12)}
-.dev svg{width:18px;height:18px}
-.stage{position:relative;height:clamp(380px,56vw,640px);border-radius:14px;background:var(--bg-2);overflow:hidden;display:grid;place-items:center}
-.screen{position:relative;overflow:hidden;background:#fff;transition:width .6s var(--ease),height .6s var(--ease),border-radius .6s var(--ease),box-shadow .6s}
-.screen.desk{width:100%;height:100%;border-radius:0}
-.screen.phone{width:300px;height:calc(100% - 40px);max-height:600px;border-radius:38px;box-shadow:0 0 0 10px #111,0 30px 60px -20px rgba(0,0,0,.5)}
-.screen iframe{position:absolute;top:0;left:0;border:0;transform-origin:0 0;background:#fff}
-.urlbar{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);z-index:3;font-family:"Geist Mono";font-size:12px;background:rgba(11,11,16,.78);color:#fff;border-radius:99px;padding:6px 14px;backdrop-filter:blur(8px);white-space:nowrap;max-width:90%;overflow:hidden;text-overflow:ellipsis;pointer-events:none}
-.sc-foot{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:14px 6px 4px;flex-wrap:wrap}
-.sc-foot p{font-size:14.5px;color:var(--text-2)}
-.sc-foot p b{color:var(--text)}
-.sc-foot a{font-weight:600;font-size:14.5px;color:var(--accent);display:flex;gap:6px;align-items:center}
-.loading{position:absolute;inset:0;display:grid;place-items:center;background:var(--bg-2);z-index:2;transition:opacity .4s}
-.loading.hide{opacity:0;pointer-events:none}
-.spin{width:28px;height:28px;border-radius:50%;border:3px solid var(--line-2);border-top-color:var(--accent);animation:sp 0.8s linear infinite}
-@keyframes sp{to{transform:rotate(360deg)}}
-
 /* marquee */
 .marquee{border-block:1px solid var(--line);padding:18px 0;overflow:hidden;margin-top:80px}
 .marquee .t{display:flex;width:max-content;animation:tick 40s linear infinite}
@@ -200,29 +172,6 @@ section{padding:120px 0;position:relative}
 .tool-head{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 24px;border-bottom:1px solid var(--line);background:var(--bg-2)}
 .tool-head .label{color:var(--text-2)}
 .tool-head .count{font-family:"Geist Mono";font-size:13px;color:var(--muted)}
-
-/* checkup quiz */
-.check{display:grid;grid-template-columns:1.25fr 1fr}
-.qs{padding:30px;display:grid;gap:10px}
-.qrow{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:14px 16px;border:1px solid var(--line);border-radius:14px;transition:.2s}
-.qrow.answered{border-color:var(--line-2)}
-.qrow span{font-size:15.5px;font-weight:500}
-.yn{display:flex;gap:4px;flex:none}
-.yn button{border:1px solid var(--line-2);background:var(--card);border-radius:9px;padding:6px 14px;font-size:13.5px;font-weight:600;cursor:pointer;transition:.2s}
-.yn button.yes.on{background:var(--good);border-color:var(--good);color:#fff}
-.yn button.no.on{background:var(--bad);border-color:var(--bad);color:#fff}
-.score{padding:34px;border-left:1px solid var(--line);display:flex;flex-direction:column;align-items:center;text-align:center;gap:16px;background:linear-gradient(180deg,var(--card),var(--bg-2))}
-.ring{position:relative;width:180px;height:180px}
-.ring svg{width:100%;height:100%;transform:rotate(-90deg)}
-.ring circle{fill:none;stroke-width:12}
-.ring .track{stroke:var(--line)}
-.ring .val{stroke:var(--accent);stroke-linecap:round;stroke-dasharray:502;stroke-dashoffset:502;transition:stroke-dashoffset 1s var(--ease),stroke .4s}
-.ring .num{position:absolute;inset:0;display:grid;place-items:center;font-size:48px;font-weight:700;letter-spacing:-.05em}
-.ring .num small{display:block;font-family:"Geist Mono";font-size:11px;color:var(--muted);letter-spacing:.08em;font-weight:500;margin-top:-6px}
-.verdict{font-size:22px;font-weight:700;letter-spacing:-.03em}
-.tips{text-align:left;width:100%;display:grid;gap:8px;font-size:14.5px;color:var(--text-2)}
-.tips li{list-style:none;display:flex;gap:10px}
-.tips li::before{content:"→";color:var(--accent);font-weight:700}
 
 /* process */
 .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);border-radius:22px;overflow:hidden;background:var(--card)}
@@ -350,7 +299,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
 <header id="hdr">
   <div class="wrap">
     <a href="#top" class="logo" aria-label="Meagley Web Design"><svg viewBox="0 0 100 100" aria-hidden="true"><rect class="lb" width="100" height="100" rx="22"/><rect x="14" y="14" width="72" height="10" rx="3.5" fill="#f87666"/><rect class="lf" x="14" y="30.5" width="18" height="55.5" rx="3.5"/><rect class="lf" x="68" y="30.5" width="18" height="55.5" rx="3.5"/><path class="lf" d="M37 30.5h26L50 60z"/></svg><span><b>Meagley</b><small>WEB DESIGN</small></span></a>
-    <nav class="nav"><a href="#work">Work</a><a href="#checkup">Site Checkup</a><a href="#process">Process</a><a href="#planner">Plan a Site</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a></nav>
+    <nav class="nav"><a href="#work">Work</a><a href="#pricing">Pricing</a><a href="#process">How It Works</a><a href="#faq">FAQ</a></nav>
     <div class="hdr-right">
       <button class="icon-btn" id="theme" aria-label="Toggle dark mode">
         <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
@@ -372,41 +321,16 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
         <p class="lead reveal" data-d="2">I design and build fast, modern sites for small-town businesses. <b>You'll see a free working preview of your new site, usually the same day, before you pay anything.</b></p>
         <div class="ctas reveal" data-d="3">
           <a href="#contact" class="btn btn-primary">Get My Free Preview <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          <a href="#checkup" class="btn btn-ghost">Check My Current Site</a>
+          <a href="sms:+18035091640" class="btn btn-ghost">💬 Text Me</a>
         </div>
       </div>
       <div class="stats reveal" data-d="3">
         <div><b>$0</b>to see a preview</div>
         <div><b>100%</b>yours to keep</div>
-        <div><b>Mobile</b>first, always</div>
+        <div><b>Fast</b>on every phone</div>
       </div>
     </div>
 
-    <!-- Live showcase -->
-    <div class="showcase reveal" id="work-live">
-      <div class="sc-bar">
-        <div class="tabs" id="scTabs">
-          <button class="on" data-i="0" data-live><span class="dot"></span>The Mane House</button>
-          <button data-i="1"><span class="dot"></span>Ridgeline Coffee</button>
-          <button data-i="2"><span class="dot"></span>Hollow Creek Lawn</button>
-        </div>
-        <div class="dev" id="scDev">
-          <button class="on" data-d="desk" aria-label="Desktop view"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></button>
-          <button data-d="phone" aria-label="Phone view"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></svg></button>
-        </div>
-      </div>
-      <div class="stage" id="stage">
-        <div class="screen desk" id="screen">
-          <div class="urlbar" id="url"></div>
-          <div class="loading" id="loading"><div class="spin"></div></div>
-          <iframe id="frame" title="Website preview" loading="lazy"></iframe>
-        </div>
-      </div>
-      <div class="sc-foot">
-        <p id="scDesc"></p>
-        <a id="scOpen" href="#" target="_blank" rel="noopener">Open full site <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
-      </div>
-    </div>
   </div>
   <div class="marquee" aria-hidden="true"><div class="t">
     <span>Salons</span><span>Restaurants</span><span>Roofers</span><span>Auto repair</span><span>Lawn care</span><span>Boutiques</span><span>Repair shops</span><span>Contractors</span><span>Churches</span><span>Flea markets</span>
@@ -457,114 +381,11 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
   </div>
 </section>
 
-<!-- CHECKUP -->
-<section id="checkup" style="padding-top:0">
-  <div class="wrap">
-    <div class="head">
-      <div class="reveal"><div class="label"><b>02</b> Free tool</div><h2>Is your website helping or hurting? <span>Find out in 30 seconds.</span></h2></div>
-      <p class="reveal" data-d="1">Answer 8 quick questions about your current site, or your Facebook page if that's all you have.</p>
-    </div>
-    <div class="tool reveal">
-      <div class="tool-head"><span class="label">Website Checkup</span><span class="count" id="qCount">0 / 8 answered</span></div>
-      <div class="check">
-        <div class="qs" id="qs"></div>
-        <div class="score">
-          <div class="ring"><svg viewBox="0 0 180 180"><circle class="track" cx="90" cy="90" r="80"/><circle class="val" id="ringVal" cx="90" cy="90" r="80"/></svg><div class="num"><div><span id="scoreNum">–</span><small>SCORE</small></div></div></div>
-          <div class="verdict" id="verdict">Answer the questions to see your score</div>
-          <ul class="tips" id="tips"></ul>
-          <a href="#contact" class="btn btn-primary" id="checkCta" style="display:none">Fix it with a free preview →</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PROCESS -->
-<section id="process" style="padding-top:0">
-  <div class="wrap">
-    <div class="head">
-      <div class="reveal"><div class="label"><b>03</b> Process</div><h2>See it first. <span>Pay only if you love it.</span></h2></div>
-      <p class="reveal" data-d="1">Most designers ask for money up front and hope you like the result. I do it the other way around.</p>
-    </div>
-    <div class="steps reveal" id="steps">
-      <div class="step"><span class="bar"></span><span class="n">STEP 01</span><h4>Quick chat</h4><p>Tell me about your business and what you want customers to do.</p><span class="pay">Free</span></div>
-      <div class="step"><span class="bar"></span><span class="n">STEP 02</span><h4>Free preview</h4><p>I build a real working preview of your new homepage, usually the same day.</p><span class="pay">Free</span></div>
-      <div class="step"><span class="bar"></span><span class="n">STEP 03</span><h4>Polish &amp; launch</h4><p>Love it? We finish the details and put it live on your domain.</p><span class="pay">Pay when happy</span></div>
-      <div class="step"><span class="bar"></span><span class="n">STEP 04</span><h4>Keep it fresh</h4><p>New photos, hours or specials? Just text me.</p><span class="pay">Optional care</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- PLANNER -->
-<section id="planner" style="padding-top:0">
-  <div class="wrap">
-    <div class="head">
-      <div class="reveal"><div class="label"><b>04</b> Free tool</div><h2>Plan your new site. <span>Send it to me in one click.</span></h2></div>
-      <p class="reveal" data-d="1">Pick what you need and I'll know exactly where to start your free preview. No commitment.</p>
-    </div>
-    <div class="tool reveal">
-      <div class="tool-head"><span class="label">Site Planner</span><span class="count">takes ~1 minute</span></div>
-      <div class="plan">
-        <div class="pq">
-          <div><h4><i>1</i>What kind of business?</h4><div class="opts" data-g="type" data-single>
-            <span class="opt">Salon / Beauty</span><span class="opt">Restaurant / Café</span><span class="opt">Contractor / Trades</span><span class="opt">Auto</span><span class="opt">Retail / Boutique</span><span class="opt">Repair shop</span><span class="opt">Church / Nonprofit</span><span class="opt">Other</span></div></div>
-          <div><h4><i>2</i>Where are you now?</h4><div class="opts" data-g="now" data-single>
-            <span class="opt">No website yet</span><span class="opt">Facebook only</span><span class="opt">Have a site, needs a redo</span></div></div>
-          <div><h4><i>3</i>What should it do? <span style="color:var(--muted);font-weight:500">(pick any)</span></h4><div class="opts" data-g="feat">
-            <span class="opt">Online booking</span><span class="opt">Menu / price list</span><span class="opt">Photo gallery</span><span class="opt">Reviews</span><span class="opt">Quote calculator</span><span class="opt">Repair / order tracker</span><span class="opt">Specials &amp; promos</span><span class="opt">Contact form</span><span class="opt">Google Maps</span></div></div>
-          <div><h4><i>4</i>When do you want it?</h4><div class="opts" data-g="when" data-single>
-            <span class="opt">ASAP</span><span class="opt">This month</span><span class="opt">Just exploring</span></div></div>
-        </div>
-        <div class="summary">
-          <span class="label">Your plan</span>
-          <h3 id="sumTitle">A website for your business</h3>
-          <div class="sum-list" id="sumList"></div>
-          <div class="eta"><div style="font-size:28px">⚡</div><div><small>Free preview could be ready</small><b id="eta">same day</b></div></div>
-          <button class="btn btn-primary" id="sendPlan">Send this plan to Jacob <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SERVICES -->
-<section style="padding-top:0">
-  <div class="wrap">
-    <div class="head"><div class="reveal"><div class="label"><b>05</b> Services</div><h2>Everything you need online. <span>Nothing you don't.</span></h2></div></div>
-    <div class="svc reveal">
-      <div class="sv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/></svg><h4>New websites</h4><p>Custom-designed around your business, not a template with your name dropped in.</p></div>
-      <div class="sv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></svg><h4>Redesigns</h4><p>Rebuild a dated site while keeping your domain, email and Google ranking.</p></div>
-      <div class="sv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><h4>Hosting &amp; care</h4><p>Fast, secure hosting and text-me updates, with no long contracts.</p></div>
-      <div class="sv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg><h4>Smart tools</h4><p>Quote calculators, repair trackers and live menus that save you phone calls.</p></div>
-      <div class="sv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg><h4>Google setup</h4><p>Set up or clean up your Google Business Profile so locals find you on Maps.</p></div>
-      <div class="sv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg><h4>Domain &amp; email</h4><p>A professional you@yourbusiness.com address, owned by you.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- PROMISE -->
-<section style="padding-top:0">
-  <div class="wrap promise">
-    <div class="sticky reveal">
-      <div class="label"><b>06</b> My promise</div>
-      <h2 class="h2">No lock-in. <span>No runaround.</span></h2>
-      <p style="color:var(--text-2);font-size:17.5px;margin-top:18px;max-width:430px">A lot of web companies make it hard to leave. I'd rather earn your business every month.</p>
-    </div>
-    <div>
-      <div class="pr reveal"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></i><div><h4>You own your domain &amp; email</h4><p>In your name, on your account. Always.</p></div></div>
-      <div class="pr reveal"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></i><div><h4>See it before you pay</h4><p>The free preview means there's no risk in finding out if we're a fit.</p></div></div>
-      <div class="pr reveal"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="2" width="12" height="20" rx="3"/></svg></i><div><h4>Fast on every phone</h4><p>Most customers find you on a phone, so I design for that first.</p></div></div>
-      <div class="pr reveal"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></i><div><h4>A real person</h4><p>You talk to me, the one doing the work. There's no call center.</p></div></div>
-      <div class="pr reveal"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg></i><div><h4>Leave anytime</h4><p>If you ever move on, you get all of your site files.</p></div></div>
-    </div>
-  </div>
-</section>
-
 <!-- PRICING -->
 <section id="pricing" style="padding-top:0">
   <div class="wrap">
-    <div class="head"><div class="reveal"><div class="label"><b>07</b> Pricing</div><h2>Pay once. <span>No monthly fees required.</span></h2></div></div>
-    <p class="reveal" style="color:var(--text-2);font-size:17.5px;max-width:620px;margin:-10px 0 40px">Most web companies charge you every month, forever. With me, you pay for your site once, and hosting is free. Every job gets an exact quote after your free preview.</p>
+    <div class="head"><div class="reveal"><div class="label"><b>02</b> Pricing</div><h2>Pay once. <span>No monthly fees required.</span></h2></div></div>
+    <p class="reveal" style="color:var(--text-2);font-size:17.5px;max-width:620px;margin:-10px 0 40px">Most web companies charge you every month, forever. With me, you pay for your site once, and keeping it online is free. Every job gets an exact quote after your free preview.</p>
     <div class="prices">
       <div class="price reveal">
         <h3>Starter</h3><div class="for">Get found and look legit</div>
@@ -576,7 +397,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
         <span class="tag">Most popular</span>
         <h3>Business</h3><div class="for">A full site that brings customers in</div>
         <div class="amt">$500<small> – $1,000</small></div><div class="one">one-time</div>
-        <ul><li>Everything in Starter</li><li>Multiple pages</li><li>Photo gallery &amp; reviews</li><li>Contact form to your email</li><li>Google Business Profile setup</li></ul>
+        <ul><li>Everything in Starter</li><li>Multiple pages</li><li>Photo gallery &amp; reviews</li><li>Contact form to your email</li><li>Help showing up on Google Maps</li></ul>
         <a class="btn btn-primary" href="#contact">Get a free preview</a>
       </div>
       <div class="price reveal" data-d="2">
@@ -596,19 +417,83 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
         <div class="o"><b>$20<small> /month</small></b><small>Cancel anytime</small></div>
       </div>
     </div>
-    <div class="nofee reveal"><span>🌐 <b>Domain name:</b> about $11/year, paid at cost and kept in your name.</span><span>🔒 <b>Hosting:</b> free.</span></div>
+    <div class="nofee reveal"><span>🌐 <b>Your web address</b> (like yourbusiness.com): about $11/year, paid at cost and kept in your name.</span><span>🔒 <b>Keeping it online:</b> free.</span></div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process" style="padding-top:0">
+  <div class="wrap">
+    <div class="head">
+      <div class="reveal"><div class="label"><b>03</b> How it works</div><h2>See it first. <span>Pay only if you love it.</span></h2></div>
+      <p class="reveal" data-d="1">Most designers ask for money up front and hope you like the result. I do it the other way around.</p>
+    </div>
+    <div class="steps reveal" id="steps">
+      <div class="step"><span class="bar"></span><span class="n">STEP 01</span><h4>Quick chat</h4><p>Tell me about your business and what you want customers to do.</p><span class="pay">Free</span></div>
+      <div class="step"><span class="bar"></span><span class="n">STEP 02</span><h4>Free preview</h4><p>I build a real working preview of your new homepage, usually the same day.</p><span class="pay">Free</span></div>
+      <div class="step"><span class="bar"></span><span class="n">STEP 03</span><h4>Polish &amp; launch</h4><p>Love it? We finish the details and put it online at your own web address.</p><span class="pay">Pay when happy</span></div>
+      <div class="step"><span class="bar"></span><span class="n">STEP 04</span><h4>Keep it fresh</h4><p>New photos, hours or specials? Just text me.</p><span class="pay">Optional care</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PLANNER -->
+<section id="planner" style="padding-top:0">
+  <div class="wrap">
+    <div class="head">
+      <div class="reveal"><div class="label"><b>04</b> Optional</div><h2>Not sure what you need? <span>Tap a few things and send it to me.</span></h2></div>
+      <p class="reveal" data-d="1">No commitment, and nothing to figure out. It just helps me get started on your free preview.</p>
+    </div>
+    <div class="tool reveal">
+      <div class="tool-head"><span class="label">Site Planner</span><span class="count">takes ~1 minute</span></div>
+      <div class="plan">
+        <div class="pq">
+          <div><h4><i>1</i>What kind of business?</h4><div class="opts" data-g="type" data-single>
+            <span class="opt">Salon / Beauty</span><span class="opt">Restaurant / Café</span><span class="opt">Contractor / Trades</span><span class="opt">Auto</span><span class="opt">Retail / Boutique</span><span class="opt">Repair shop</span><span class="opt">Church / Nonprofit</span><span class="opt">Other</span></div></div>
+          <div><h4><i>2</i>Where are you now?</h4><div class="opts" data-g="now" data-single>
+            <span class="opt">No website yet</span><span class="opt">Facebook only</span><span class="opt">Have a site, needs a redo</span></div></div>
+          <div><h4><i>3</i>What should it do? <span style="color:var(--muted);font-weight:500">(pick any)</span></h4><div class="opts" data-g="feat">
+            <span class="opt">Online booking</span><span class="opt">Menu / price list</span><span class="opt">Photo gallery</span><span class="opt">Reviews</span><span class="opt">Price quotes</span><span class="opt">Repair / order tracker</span><span class="opt">Specials</span><span class="opt">Show up on Google Maps</span></div></div>
+        </div>
+        <div class="summary">
+          <span class="label">Your plan</span>
+          <h3 id="sumTitle">A website for your business</h3>
+          <div class="sum-list" id="sumList"></div>
+          <div class="eta"><div style="font-size:28px">⚡</div><div><small>Free preview could be ready</small><b id="eta">same day</b></div></div>
+          <button class="btn btn-primary" id="sendPlan">Send this plan to Jacob <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROMISE -->
+<section style="padding-top:0">
+  <div class="wrap promise">
+    <div class="sticky reveal">
+      <div class="label"><b>05</b> My promise</div>
+      <h2 class="h2">No lock-in. <span>No runaround.</span></h2>
+      <p style="color:var(--text-2);font-size:17.5px;margin-top:18px;max-width:430px">A lot of web companies make it hard to leave. I'd rather earn your business every month.</p>
+    </div>
+    <div>
+      <div class="pr reveal"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></i><div><h4>You own your web address &amp; email</h4><p>In your name, on your account. Always.</p></div></div>
+      <div class="pr reveal"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></i><div><h4>See it before you pay</h4><p>The free preview means there's no risk in finding out if we're a fit.</p></div></div>
+      <div class="pr reveal"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="2" width="12" height="20" rx="3"/></svg></i><div><h4>Fast on every phone</h4><p>Most customers find you on a phone, so I design for that first.</p></div></div>
+      <div class="pr reveal"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></i><div><h4>A real person</h4><p>You talk to me, the one doing the work. There's no call center.</p></div></div>
+      <div class="pr reveal"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg></i><div><h4>Leave anytime</h4><p>If you ever move on, you get all of your site files.</p></div></div>
+    </div>
   </div>
 </section>
 
 <!-- FAQ -->
 <section id="faq" style="padding-top:0">
   <div class="wrap">
-    <div class="head"><div class="reveal"><div class="label"><b>08</b> FAQ</div><h2>Good questions.</h2></div></div>
+    <div class="head"><div class="reveal"><div class="label"><b>06</b> FAQ</div><h2>Good questions.</h2></div></div>
     <div class="faq reveal">
       <div class="q open"><button>Is the preview really free?<i>+</i></button><div class="a"><div><p>Yes. I'll build a working preview of your new homepage at no cost. If you don't love it, you walk away and owe nothing.</p></div></div></div>
-      <div class="q"><button>Are there monthly fees?<i>+</i></button><div class="a"><div><p>Not unless you want them. You pay for your website once, and hosting is free. The only yearly cost is your domain name (about $11/year, paid at cost). The care plan is optional, for people who want me to handle updates.</p></div></div></div>
+      <div class="q"><button>Are there monthly fees?<i>+</i></button><div class="a"><div><p>Not unless you want them. You pay for your website once, and keeping it online is free. The only yearly cost is your web address, like yourbusiness.com (about $11/year, paid at cost). The care plan is optional, for people who want me to handle updates.</p></div></div></div>
       <div class="q"><button>How long does a website take?<i>+</i></button><div class="a"><div><p>Most previews are ready the same day you reach out. Once you approve it, most sites launch within 2–5 days. Sites with booking, ordering or trackers can take a little longer, and it also depends on how quickly we gather photos and details.</p></div></div></div>
-      <div class="q"><button>I already have a website. Can you redo it?<i>+</i></button><div class="a"><div><p>Yes. I can redesign it while keeping your domain, email and Google ranking, and it often costs less per month than what you're paying now.</p></div></div></div>
+      <div class="q"><button>I already have a website. Can you redo it?<i>+</i></button><div class="a"><div><p>Yes. I can redesign it while keeping your web address, your email and your spot on Google, and it often costs less per month than what you're paying now.</p></div></div></div>
       <div class="q"><button>Can I update the site myself?<i>+</i></button><div class="a"><div><p>Most clients just text me changes. If you'd rather do it yourself, I can set up a simple editing page for photos, hours and specials.</p></div></div></div>
       <div class="q"><button>Do I need photos or a logo?<i>+</i></button><div class="a"><div><p>Nope, you don't need either one to get started. We can figure them out together as we go. If you already have photos or a logo, send them my way. I'm happy to use them as they are or rework them into something fresh. Even phone photos work great.</p></div></div></div>
     </div>
@@ -672,78 +557,6 @@ addEventListener('scroll', () => {
 }, { passive: true });
 $('#totop').onclick = () => scrollTo({ top: 0, behavior: 'smooth' });
 
-/* ---------- live showcase ---------- */
-const SITES = [
-  { url: 'https://themanehousegwd.github.io/', show: 'themanehousegwd.github.io', desc: '<b>The Mane House</b>: live client site. Go ahead and scroll around.' },
-  { url: 'work/ridgeline-coffee/', show: 'ridgeline-coffee (sample)', desc: '<b>Ridgeline Coffee</b>: sample design. Try building a drink and ordering ahead.' },
-  { url: 'work/hollow-creek-lawn/', show: 'hollow-creek-lawn (sample)', desc: '<b>Hollow Creek Lawn</b>: sample design. Try the instant quote and booking calendar.' },
-];
-let cur = 0, mode = 'desk';
-const frame = $('#frame'), screen = $('#screen'), loading = $('#loading');
-function fit() {
-  const w = screen.clientWidth, h = screen.clientHeight;
-  const vw = mode === 'desk' ? 1280 : 390;
-  const s = w / vw;
-  frame.style.width = vw + 'px'; frame.style.height = (h / s) + 'px'; frame.style.transform = `scale(${s})`;
-}
-function load(i) {
-  cur = i; const s = SITES[i];
-  loading.classList.remove('hide');
-  frame.src = s.url;
-  $('#url').textContent = s.show; $('#scDesc').innerHTML = s.desc; $('#scOpen').href = s.url;
-  $$('#scTabs button').forEach((b, j) => b.classList.toggle('on', j === i));
-}
-frame.addEventListener('load', () => setTimeout(() => loading.classList.add('hide'), 250));
-$('#scTabs').onclick = e => { const b = e.target.closest('button'); if (b) load(+b.dataset.i); };
-$('#scDev').onclick = e => {
-  const b = e.target.closest('button'); if (!b) return;
-  mode = b.dataset.d; screen.className = 'screen ' + mode;
-  $$('#scDev button').forEach(x => x.classList.toggle('on', x === b));
-  fit(); setTimeout(fit, 650);
-};
-new ResizeObserver(fit).observe(screen);
-// load the showcase once it's near the viewport
-new IntersectionObserver((es, o) => { if (es[0].isIntersecting) { o.disconnect(); load(0); fit(); } }, { rootMargin: '200px' }).observe(screen);
-
-/* ---------- website checkup ---------- */
-const QS = [
-  ['Does your business have its own website (not just Facebook)?', 'Get a real website. Facebook alone hides you from a lot of Google searches.'],
-  ['Does it look good and work well on a phone?', 'Most local customers search on their phones, so make it mobile-first.'],
-  ['Does it load in under about 3 seconds?', 'Slow sites lose visitors. A lighter, modern build fixes this.'],
-  ['Are your hours, phone number and address easy to find?', 'Put your hours and a tap-to-call button right at the top.'],
-  ['Has it been updated in the last 6 months?', 'Outdated info makes customers think you may have closed.'],
-  ['Can customers book, order or request a quote online?', 'Let customers take action 24/7, even after you close.'],
-  ['Does it show real photos and reviews?', 'Real photos and reviews build trust faster than anything else.'],
-  ['Do you show up on Google Maps when people search?', 'Set up or clean up your Google Business Profile.'],
-];
-const answers = Array(QS.length).fill(null);
-$('#qs').innerHTML = QS.map((q, i) => `<div class="qrow" data-i="${i}"><span>${q[0]}</span><div class="yn"><button class="yes" data-v="1">Yes</button><button class="no" data-v="0">No</button></div></div>`).join('');
-$('#qs').onclick = e => {
-  const b = e.target.closest('button'); if (!b) return;
-  const row = b.closest('.qrow'), i = +row.dataset.i;
-  answers[i] = +b.dataset.v;
-  row.classList.add('answered');
-  row.querySelectorAll('button').forEach(x => x.classList.toggle('on', x === b));
-  updateScore();
-};
-function updateScore() {
-  const done = answers.filter(a => a !== null).length;
-  $('#qCount').textContent = `${done} / ${QS.length} answered`;
-  if (!done) return;
-  const score = Math.round(answers.reduce((s, a) => s + (a || 0), 0) / QS.length * 100);
-  $('#scoreNum').textContent = score;
-  const ring = $('#ringVal'); ring.style.strokeDashoffset = 502 - 502 * score / 100;
-  ring.style.stroke = score >= 75 ? 'var(--good)' : score >= 45 ? 'var(--warn)' : 'var(--bad)';
-  $('#verdict').textContent = done < QS.length ? 'Keep going…' : score >= 75 ? 'Nice! A few tweaks could help.' : score >= 45 ? 'You’re leaving customers on the table.' : 'Your website is costing you business.';
-  const misses = answers.map((a, i) => a === 0 ? QS[i][1] : null).filter(Boolean).slice(0, 3);
-  $('#tips').innerHTML = misses.map(t => `<li>${t}</li>`).join('');
-  $('#checkCta').style.display = done === QS.length ? '' : 'none';
-}
-$('#checkCta').onclick = () => {
-  const misses = answers.map((a, i) => a === 0 ? '- ' + QS[i][0] : null).filter(Boolean);
-  prefill(misses.length ? 'I took the Website Checkup (score: ' + $('#scoreNum').textContent + '). Things I said "no" to:\n' + misses.join('\n') : 'I took the Website Checkup and scored ' + $('#scoreNum').textContent + '.', answers[0] === 0 ? 0 : 1);
-};
-
 /* ---------- site planner ---------- */
 const plan = { type: [], now: [], feat: [], when: [] };
 $$('.opts').forEach(g => g.addEventListener('click', e => {
@@ -760,15 +573,14 @@ function renderPlan() {
     ['Starting point', plan.now[0] || '—'],
     ['Features', plan.feat.length ? plan.feat.join(', ') : '—'],
     ['Pages', String(Math.max(1, Math.min(6, 1 + Math.ceil(plan.feat.length / 2))))],
-    ['Timing', plan.when[0] || '—'],
   ];
   $('#sumList').innerHTML = rows.map(r => `<div><span>${r[0]}</span><span>${r[1]}</span></div>`).join('');
-  const heavy = plan.feat.some(f => /calculator|tracker|booking/i.test(f));
+  const heavy = plan.feat.some(f => /quote|tracker|booking/i.test(f));
   $('#eta').textContent = heavy ? 'in 1–2 days' : 'same day';
 }
 renderPlan();
 $('#sendPlan').onclick = () => {
-  const lines = [`Business type: ${plan.type[0] || 'not picked'}`, `Right now: ${plan.now[0] || 'not picked'}`, `Wants: ${plan.feat.join(', ') || 'not picked'}`, `Timing: ${plan.when[0] || 'not picked'}`];
+  const lines = [`Business type: ${plan.type[0] || 'not picked'}`, `Right now: ${plan.now[0] || 'not picked'}`, `Wants: ${plan.feat.join(', ') || 'not picked'}`];
   prefill('My site plan:\n' + lines.join('\n'), plan.now[0] === 'Have a site, needs a redo' ? 1 : 0);
 };
 
@@ -828,14 +640,14 @@ $$('.q button').forEach(b => b.onclick = () => b.parentElement.classList.toggle(
       // keep most shapes off the headline: favor right side and edges
       let x=W<700?rnd(0,W):(Math.random()<.72?rnd(W*.52,W):rnd(0,W));
       const t=["bar","pill","tri"][i%3],s=rnd(.7,1.35);
-      shapes.push({t,s,hx:x,hy:rnd(0,H),x,y:0,vx:0,vy:0,a:rnd(0,6.28),va:rnd(-.004,.004),ph:rnd(0,6.28),sp:rnd(.15,.35),al:rnd(.14,.32),hot:0});
+      shapes.push({t,s,hx:x,hy:rnd(0,H),x,y:0,vx:0,vy:0,a:rnd(0,6.28),va:rnd(-.004,.004),ph:rnd(0,6.28),sp:rnd(.15,.35),al:rnd(.07,.16),hot:0});
     }
     shapes.forEach(o=>o.y=o.hy);
   }
   function rr(x,y,w,h,r){ctx.beginPath();ctx.moveTo(x+r,y);ctx.arcTo(x+w,y,x+w,y+h,r);ctx.arcTo(x+w,y+h,x,y+h,r);ctx.arcTo(x,y+h,x,y,r);ctx.arcTo(x,y,x+w,y,r);ctx.closePath()}
   function draw(o){
     ctx.save();ctx.translate(o.x,o.y);ctx.rotate(o.a);ctx.scale(o.s*(1+o.hot*.25),o.s*(1+o.hot*.25));
-    ctx.globalAlpha=Math.min(.75,o.al+o.hot*.45);
+    ctx.globalAlpha=Math.min(.4,o.al+o.hot*.22);
     if(o.t==="bar"){ctx.fillStyle=coral;rr(-26,-5,52,10,4);ctx.fill()}
     else if(o.t==="pill"){ctx.fillStyle=o.hot>.4?coral:ink;rr(-7,-22,14,44,4);ctx.fill()}
     else{ctx.fillStyle=o.hot>.4?coral:ink;ctx.beginPath();ctx.moveTo(-13,-10);ctx.lineTo(13,-10);ctx.lineTo(0,14);ctx.closePath();ctx.fill()}
