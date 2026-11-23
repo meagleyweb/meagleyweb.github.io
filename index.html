@@ -1235,6 +1235,7 @@ $('#form').addEventListener('submit', async e => {
       body: JSON.stringify({ ...data, access_key: WEB3FORMS_KEY, subject: 'New preview request: ' + data.business, from_name: 'Meagley Web Design site' }) });
     if (!(await r.json()).success) throw 0;
     f.innerHTML = '<h3>Got it! 🎉</h3><p style="color:var(--muted)">Thanks! I’ll be in touch soon about your free preview.</p>';
+    setTimeout(() => { location.href = '/thanks/'; }, 600); // thank-you page (Google Ads counts a lead when someone lands here)
   } catch { btn.disabled = false; btn.textContent = 'Try again'; note.textContent = 'Something went wrong.' + (CONTACT_EMAIL ? ' Please email ' + CONTACT_EMAIL : ''); }
 });
 
