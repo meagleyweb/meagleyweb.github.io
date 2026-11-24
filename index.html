@@ -124,6 +124,10 @@ h1,h2,h3,h4{font-weight:700;letter-spacing:-.04em;line-height:1.02}
 @media (max-width:480px){.care .opts{grid-template-columns:1fr}}
 @media (max-width:820px){.care.plans .opts{grid-template-columns:1fr}}
 
+.special{display:flex;gap:6px 14px;align-items:baseline;flex-wrap:wrap;background:var(--accent-soft);border:1.5px solid var(--accent);border-radius:16px;padding:15px 20px;margin-bottom:22px;color:var(--text-2);font-size:16px}
+.special b{color:var(--text);font-size:18px;letter-spacing:-.02em}
+.regp{font-size:14px;color:var(--text-2);margin-top:9px;line-height:1.4}
+.sp-off .sp-only{display:none}
 /* a la carte */
 .alc{margin-top:90px}
 .alc-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;margin-bottom:30px}
@@ -708,7 +712,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
         <div class="info">
           <span class="chip sample">Starter example</span>
           <h3>Old Mill Barbershop</h3>
-          <div class="type">Barbershop · Starter package, $150–350</div>
+          <div class="type" data-reg="Barbershop · Starter package, $200–400">Barbershop · Starter package, $150–350</div>
           <p>What the cheapest option gets you: one clean page with prices, photos, live hours, a map, and big call, text and directions buttons that stay at the bottom of the screen on phones.</p>
           <div class="tags"><span>One page</span><span>Live hours</span><span>Tap to call</span><span>Directions</span></div>
           <span class="go">View sample →</span>
@@ -719,7 +723,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
         <div class="info">
           <span class="chip sample">Business example</span>
           <h3>Hollow Creek Lawn</h3>
-          <div class="type">Lawn care · Business package, $450–900</div>
+          <div class="type" data-reg="Lawn care · Business package, $500–1,000">Lawn care · Business package, $450–900</div>
           <p>A full multi-page site: Home, Services and a Free Quote page with a contact form, plus a photo before-and-after, reviews and a service-area check.</p>
           <div class="tags"><span>3 pages</span><span>Quote request form</span><span>Reviews</span><span>Before / after</span></div>
           <span class="go">View sample →</span>
@@ -730,7 +734,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
         <div class="info">
           <span class="chip sample">Plus example</span>
           <h3>Ridgeline Coffee Co.</h3>
-          <div class="type">Coffee house · Plus package, $950–1,500</div>
+          <div class="type" data-reg="Coffee house · Plus package, $1,100–1,700">Coffee house · Plus package, $950–1,500</div>
           <p>Everything in Business, plus online ordering with pickup times, a drink builder, and specials that update themselves each day.</p>
           <div class="tags"><span>Order ahead</span><span>Drink builder</span><span>Daily specials</span><span>Live hours</span></div>
           <span class="go">View sample →</span>
@@ -747,14 +751,15 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
     <p class="reveal" style="color:var(--text-2);font-size:17.5px;max-width:620px;margin:-10px 0 40px">Most web companies charge you every month, forever. With me, you pay for your site once, and it lives in a hosting account in your name. Every job gets an exact quote after your free preview. Jobs $100 and up start with half down, and the rest is due when it's done.</p>
     <p class="ptabs-hint reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>Tap one to switch between the two price lists</p>
     <div class="ptabs reveal" role="tablist" aria-label="Pricing options">
-      <button class="on" role="tab" aria-selected="true" data-pane="pane-sites"><span class="rd"></span><span>Full websites<small>New site, one-time price · $150–1,500</small></span><span class="go"></span></button>
+      <button class="on" role="tab" aria-selected="true" data-pane="pane-sites"><span class="rd"></span><span>Full websites<small data-reg="New site, one-time price · $200–1,700">New site, special price · $150–1,500</small></span><span class="go"></span></button>
       <button role="tab" aria-selected="false" data-pane="pane-small"><span class="rd"></span><span>Smaller jobs<small>Google, Facebook, logos &amp; more · from $20</small></span><span class="go"></span></button>
     </div>
     <div class="pt-pane on" id="pane-sites">
+    <div class="special sp-only reveal"><b>Limited-time special</b><span>Introductory website prices, good through <span class="sp-date"></span>. Book by then to lock in your price.</span></div>
     <div class="prices">
       <div class="price reveal">
         <h3>Starter</h3><div class="for">A clean, simple home online</div>
-        <div class="amt">$150<small> – $350</small></div><div class="one">one-time</div>
+        <div class="amt" data-reg="$200&lt;small&gt; – $400&lt;/small&gt;">$150<small> – $350</small></div><div class="one">one-time</div><div class="regp sp-only">Regular price $200 – $400, starting <span class="sp-after"></span></div>
         <ul><li>Up to 3 pages</li><li>Hours, services, photos &amp; map</li><li>Tap to call, text or get directions</li><li>Facebook &amp; Google links</li><li>Built for phones first</li><li>2 rounds of changes</li></ul>
         <a class="btn btn-ghost" href="#contact">Get a free preview</a>
         <a href="work/old-mill-barbershop/" style="display:block;text-align:center;margin-top:12px;font-size:14px;font-weight:600;color:var(--accent)">See a Starter example →</a>
@@ -762,22 +767,22 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
       <div class="price pop reveal" data-d="1">
         <span class="tag">Most popular</span>
         <h3>Business</h3><div class="for">A full site for a growing business</div>
-        <div class="amt">$450<small> – $900</small></div><div class="one">one-time</div>
+        <div class="amt" data-reg="$500&lt;small&gt; – $1,000&lt;/small&gt;">$450<small> – $900</small></div><div class="one">one-time</div><div class="regp sp-only">Regular price $500 – $1,000, starting <span class="sp-after"></span></div>
         <ul><li>Everything in Starter</li><li>Up to 6 pages</li><li>Photo gallery &amp; reviews</li><li>Contact form to your email</li><li>Help showing up on Google Maps</li></ul>
         <a class="btn btn-primary" href="#contact">Get a free preview</a>
         <a href="work/hollow-creek-lawn/" style="display:block;text-align:center;margin-top:12px;font-size:14px;font-weight:600;color:var(--accent)">See a Business example →</a>
       </div>
       <div class="price reveal" data-d="2">
         <h3>Edit It Yourself</h3><div class="for">Make your own changes, anytime</div>
-        <div class="amt">$500<small> – $950</small></div><div class="one">one-time</div>
+        <div class="amt" data-reg="$550&lt;small&gt; – $1,050&lt;/small&gt;">$500<small> – $950</small></div><div class="one">one-time</div><div class="regp sp-only">Regular price $550 – $1,050, starting <span class="sp-after"></span></div>
         <ul><li>Everything in Business</li><li>Easy editor for your phone or computer</li><li>Change hours, prices, photos, specials &amp; pages</li><li>One-on-one walkthrough</li><li>Step-by-step how-to guide</li><li>Stuck? Just text me</li></ul>
         <a class="btn btn-ghost" href="#contact">Get a free preview</a>
         <span style="display:block;text-align:center;margin-top:12px;font-size:14px;color:var(--muted)">Or add the editor to any site for $150</span>
       </div>
       <div class="price reveal" data-d="3">
         <h3>Plus</h3><div class="for">Online ordering, booking and more</div>
-        <div class="amt">$950<small> – $1,500</small></div><div class="one">one-time</div>
-        <ul><li>Everything in Edit It Yourself</li><li>Online booking or ordering</li><li>Instant quote calculator</li><li>Repair or order tracker</li><li>Specials that update automatically</li></ul>
+        <div class="amt" data-reg="$1,100&lt;small&gt; – $1,700&lt;/small&gt;">$950<small> – $1,500</small></div><div class="one">one-time</div><div class="regp sp-only">Regular price $1,100 – $1,700, starting <span class="sp-after"></span></div>
+        <ul><li>Everything in Edit It Yourself</li><li>Online booking or ordering, with no subscription to me and no charge per booking</li><li>Instant quote calculator</li><li>Repair or order tracker</li><li>Specials that update automatically</li></ul>
         <a class="btn btn-ghost" href="#contact">Get a free preview</a>
         <a href="work/ridgeline-coffee/" style="display:block;text-align:center;margin-top:12px;font-size:14px;font-weight:600;color:var(--accent)">See a Plus example →</a>
       </div>
@@ -785,26 +790,26 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
     <div class="care plans reveal">
       <div>
         <h3>Plans after launch <span>Optional</span></h3>
-        <p>Your website lives in your own hosting account, and I help you set it up. After that you can look after it yourself, or pick a plan and I'll handle it. Pay monthly or yearly, and cancel anytime.</p>
+        <p>Your site, and your booking page if you have one, stay online with or without a plan. They live in your own hosting account, and I help you set it up. Plans are for when you'd rather have me handle the upkeep. Pay monthly, yearly or one time, and cancel plans anytime.</p>
       </div>
       <div class="opts">
         <div class="o">
           <h4>Site management</h4>
           <b>$5<small> /month</small></b><small>or $50/year (save $10)</small>
-          <ul><li>A monthly check that everything works</li><li>I fix it if something breaks</li><li>Help with your hosting account and domain</li></ul>
-        </div>
-        <div class="o">
-          <h4>Booking management</h4>
-          <b>$15<small> /month</small></b><small>or $150/year (save $30)</small>
-          <ul><li>Everything in Site management</li><li>Online booking kept running</li><li>Reminder upkeep</li></ul>
+          <ul><li>A monthly check that everything works</li><li>I fix it if something breaks</li><li>Help with your hosting account and domain</li><li>Booking support, if you have online booking: help with problems, plus 1 booking change a month</li></ul>
         </div>
         <div class="o best">
           <h4>Care plan</h4>
           <b>$20<small> /month</small></b><small>or $200/year (save $40)</small>
-          <ul><li>Everything in Site management</li><li>Up to 4 updates a month to hours, prices, photos and specials</li><li>Most updates done within 2 business days</li><li>10% off anything bigger</li></ul>
+          <ul><li>Everything in Site management</li><li>Up to 4 updates a month to hours, prices, photos, specials or booking</li><li>Most updates done within 2 business days</li><li>10% off anything bigger</li></ul>
+        </div>
+        <div class="o">
+          <h4>No plan? Pay once</h4>
+          <b>$25<small> /session</small></b><small>only when you need it</small>
+          <ul><li>One booking session, up to 30 minutes</li><li>Change services, prices, hours, rules or messages, or get a walkthrough</li><li>Just need the website updated? Small updates are $25 too</li></ul>
         </div>
       </div>
-      <p class="planote">Have online booking and want updates too? Ask me about combining plans. Plans cover my work. Anything your hosting, domain or email provider charges is billed to you by them.</p>
+      <p class="planote">If a free tool does what you need, I'll tell you. Plans and sessions cover my work. Anything your hosting, domain or email provider charges is billed to you by them.</p>
     </div>
     <div class="nofee reveal"><span>🌐 <b>Domain fee:</b> starts at $11.99/year for a web address like yourbusiness.com, kept in your name. Not every domain is available and some cost more, so the price may vary.</span></div>
     </div>
@@ -820,6 +825,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
           <button type="button" class="it" data-id="redo" data-name="Website redesign" data-lo="125" data-hi="300" aria-pressed="false"><span class="bx"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><b>Website redesign</b><span class="ip">$125–300</span><small>Freshen up your current site and keep your web address. Usually less than a new build since your info is already there.</small></button>
           <button type="button" class="it" data-id="move" data-name="Move off Wix, GoDaddy or Squarespace" data-lo="125" data-hi="300" aria-pressed="false"><span class="bx"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><b>Move off Wix, GoDaddy or Squarespace</b><span class="ip">$125–300</span><small>Same site or better, moved to a hosting account you own.</small></button>
           <button type="button" class="it" data-id="upd" data-name="Small update" data-lo="25" data-hi="25" aria-pressed="false"><span class="bx"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><b>Small update</b><span class="ip">$25</span><small>New hours, prices, photos or wording.<br><em>Or get them all for $20/month on the care plan.</em></small></button>
+          <button type="button" class="it" data-id="bksn" data-name="One-time booking session" data-lo="25" data-hi="25" aria-pressed="false"><span class="bx"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><b>One-time booking session</b><span class="ip">$25</span><small>Up to 30 minutes of booking changes or a walkthrough. No plan needed.</small></button>
           <button type="button" class="it" data-id="page" data-name="Add a page" data-lo="50" data-hi="50" aria-pressed="false"><span class="bx"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><b>Add a page</b><span class="ip">$50</span><small>A new page for services, a menu, a gallery or anything else.</small></button>
           <button type="button" class="it" data-id="edit" data-name="Add an easy editor" data-lo="150" data-hi="150" aria-pressed="false"><span class="bx"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><b>Add an easy editor</b><span class="ip">$150</span><small>Make your own changes from your phone or computer. Includes a walkthrough.</small></button>
           <button type="button" class="it" data-id="feat" data-name="Add a feature" data-lo="100" data-hi="300" aria-pressed="false"><span class="bx"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><b>Add a feature</b><span class="ip">$100–300</span><small>Booking, gallery, menu, quote form and more.</small></button>
@@ -939,9 +945,10 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
     <div class="faq reveal">
       <div class="q open"><button>Is the preview really free?<i>+</i></button><div class="a"><div><p>Yes. I'll build a working preview of your new homepage at no cost. If you don't love it, you walk away and owe nothing.</p></div></div></div>
       <div class="q"><button>Do I have to sign a contract?<i>+</i></button><div class="a"><div><p>Only once you decide to go ahead, and never for the free preview. It's a short agreement in plain English: what you're getting, the price, that you own everything once it's paid for, and that you can leave anytime. No fine print. Ask and I'll send it before you decide.</p></div></div></div>
-      <div class="q"><button>Are there monthly fees?<i>+</i></button><div class="a"><div><p>Not from me, unless you want a plan. You pay me once for your website. The plans are optional, from $5/month, for people who'd rather have me look after things.</p><p>There is a yearly domain fee for your web address, and your hosting or email provider may charge you if your site needs more than their basic plan covers. I'll tell you before that happens if I can see it coming.</p></div></div></div>
+      <div class="q"><button>Are there monthly fees?<i>+</i></button><div class="a"><div><p>Not from me, unless you want a plan. You pay me once for your website. The plans are optional, from $5/month, and you can pay for one-time help instead.</p><p>There is a yearly domain fee for your web address, and your hosting or email provider may charge you if your site needs more than their basic plan covers. I'll tell you before that happens if I can see it coming.</p></div></div></div>
       <div class="q"><button>How much is a domain?<i>+</i></button><div class="a"><div><p>A domain is your web address, like yourbusiness.com. Domains start at $11.99/year and are in your name. Not every domain is available, and some names and endings cost more, which is why the price may vary. I'll help you find one that's available, and you'll see the price before you buy.</p></div></div></div>
       <div class="q"><button>Where will my website be hosted?<i>+</i></button><div class="a"><div><p>In your own hosting account, under your name and email. Setup takes about 10 minutes, and I'll walk you through it. Then you invite me in so I can build and update your site. I never need your password, and you can remove my access anytime.</p></div></div></div>
+      <div class="q"><button>I already use Square or another booking app. Should I switch?<i>+</i></button><div class="a"><div><p>Maybe not. If a free booking app does what you need, keep it, and I'll link your new site to it. There's no reason to pay for something you already get free.</p><p>Having your own booking makes sense if you pay a monthly fee for booking, want it to match your site, or need something your app doesn't do. You pay me once to build it, I don't charge you per booking, and it keeps working without a plan. Need a change later? A one-time session is $25. If you take card payments, your payment company's fees still apply.</p></div></div></div>
       <div class="q"><button>How long does a website take?<i>+</i></button><div class="a"><div><p>Most previews are ready the same day you reach out. Once you approve it, most sites launch within 2–5 days. Sites with booking, ordering or trackers can take a little longer, and it also depends on how quickly we gather photos and details.</p></div></div></div>
       <div class="q"><button>I already have a website. Can you redo it?<i>+</i></button><div class="a"><div><p>Yes. I can redesign it while keeping your web address, your email and your spot on Google.</p></div></div></div>
       <div class="q"><button>Can I update the site myself?<i>+</i></button><div class="a"><div><p>Yes. The Edit It Yourself package (and Plus) comes with an easy editor you can use from your phone or computer, a one-on-one walkthrough and a how-to guide. Already have a site with me? The editor can be added for $150. Or skip it and just text me changes.</p><p>Don't worry about breaking anything. The editor only changes your words and photos, not the design, and every save is kept, so I can bring back an earlier version anytime. If something does go wrong in the first 30 days, I'll fix it free.</p></div></div></div>
@@ -984,12 +991,12 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
       <textarea name="message" id="message" placeholder="Tell me about your business, or paste your current website or Facebook link."></textarea>
       <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
       <button class="btn btn-primary" type="submit">Send <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
-      <p class="fine" id="formNote">I'll get back to you as soon as I can.</p>
+      <p class="fine" id="formNote">I'll get back to you as soon as I can. <a href="/privacy/" style="text-decoration:underline">How I use your info</a></p>
     </form>
   </div>
 </section>
 
-<footer><div class="wrap"><span>© <span id="yr"></span> Meagley Web Design</span><span>Built by hand in western Arkansas</span></div></footer>
+<footer><div class="wrap"><span>© <span id="yr"></span> Meagley Web Design</span><span><a href="/privacy/" style="text-decoration:underline;text-underline-offset:3px">Privacy</a></span><span>Built by hand in western Arkansas</span></div></footer>
 <button class="totop" id="totop" aria-label="Back to top"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
 <div class="toast" id="toast"></div>
 
@@ -998,7 +1005,15 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
 const CONTACT_EMAIL = 'jacob@meagley.tech';   // the email you want shown publicly, e.g. 'jacob@meagley.tech'
 const CONTACT_PHONE = '803-509-1640';   // text-only: shows a "Text" button, no call link
 const WEB3FORMS_KEY = '099815b7-fcbb-4f32-9300-61c6b24480c8';   // free key from web3forms.com so the form emails you
+/* Website prices are a limited-time special through this day. After it, the page shows the regular prices by itself. */
+const SPECIAL_ENDS = '2027-01-31';
 /* ================================================== */
+{
+  const end = new Date(SPECIAL_ENDS + 'T23:59:59'), next = new Date(end.getTime() + 1000), fmt = (d, o) => d.toLocaleDateString('en-US', o);
+  if (Date.now() > end) { document.documentElement.classList.add('sp-off'); document.querySelectorAll('[data-reg]').forEach(e => { e.innerHTML = e.dataset.reg; }); }
+  document.querySelectorAll('.sp-date').forEach(e => { e.textContent = fmt(end, { month: 'long', day: 'numeric', year: 'numeric' }); });
+  document.querySelectorAll('.sp-after').forEach(e => { e.textContent = fmt(next, { month: 'short', day: 'numeric', year: 'numeric' }); });
+}
 
 const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
 const toast = msg => { const t = $('#toast'); t.textContent = msg; t.classList.add('show'); clearTimeout(t._h); t._h = setTimeout(() => t.classList.remove('show'), 2400); };
@@ -1263,6 +1278,7 @@ $('#form').addEventListener('submit', async e => {
     const r = await fetch('https://api.web3forms.com/submit', { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
       body: JSON.stringify({ ...data, access_key: WEB3FORMS_KEY, subject: 'New preview request: ' + data.business, from_name: 'Meagley Web Design site' }) });
     if (!(await r.json()).success) throw 0;
+    if (window.mwdCount) mwdCount('contact');
     f.innerHTML = '<h3>Got it! 🎉</h3><p style="color:var(--muted)">Thanks! I’ll be in touch soon about your free preview.</p>';
     setTimeout(() => { location.href = '/thanks/'; }, 600); // thank-you page (Google Ads counts a lead when someone lands here)
   } catch { btn.disabled = false; btn.textContent = 'Try again'; note.textContent = 'Something went wrong.' + (CONTACT_EMAIL ? ' Please email ' + CONTACT_EMAIL : ''); }
@@ -1339,5 +1355,6 @@ $$('.q button').forEach(b => b.onclick = () => b.parentElement.classList.toggle(
   else{new IntersectionObserver(es=>{cancelAnimationFrame(raf);if(es[0].isIntersecting)raf=requestAnimationFrame(frame)}).observe(host)}
 })();
 </script>
+<script src="/count.js" defer></script>
 </body>
 </html>

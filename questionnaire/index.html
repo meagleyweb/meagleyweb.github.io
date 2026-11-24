@@ -230,7 +230,7 @@ textarea.in{min-height:104px;resize:vertical;display:block}
 
   <section class="step" data-name="Check and send" hidden>
     <h2 tabindex="-1">Does this look right?</h2>
-    <p class="intro">Nothing is sent until you press the button below.</p>
+    <p class="intro">Nothing is sent until you press the button below. <a href="/privacy/" target="_blank" rel="noopener" style="color:var(--accent)">How I use your info</a></p>
     <div class="rev" id="rev"></div>
     <div class="msg" id="sendErr" role="alert" hidden></div>
     <div class="copybox" id="copybox" hidden><button type="button" class="btn alt" id="copy">Copy my answers</button></div>
@@ -426,6 +426,7 @@ async function send(){
     const r=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(data)});
     if(!(await r.json()).success)throw 0;
     try{localStorage.removeItem(KEY)}catch(e){}
+    if(window.mwdCount)mwdCount('questionnaire');
     done();
   }catch(e){
     sending=false;b.disabled=false;b.textContent='Try again';
@@ -455,5 +456,6 @@ const q=new URLSearchParams(location.search);
 if(q.get('name'))$('#hello').textContent=`Hi ${q.get('name').slice(0,30).split(' ')[0]}! Let's plan your website`;
 drawExact();refresh();show(cur,false);
 </script>
+<script src="/count.js" defer></script>
 </body>
 </html>

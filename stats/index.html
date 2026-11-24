@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Visitors | Meagley Web Design</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<link rel="icon" href="/img/logo-mark.png">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,sans-serif;background:#faf6f0;color:#182030;line-height:1.5;font-size:16px}
+main{max-width:820px;margin:0 auto;padding:28px 18px 80px}
+h1{font-size:34px;letter-spacing:-.03em}
+h2{font-size:19px;margin:34px 0 8px}
+.sub{color:#6b6457}
+.big{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:24px;border-top:3px solid #334155;padding-top:14px}
+.big b{display:block;font-size:40px;line-height:1.1;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.big span{color:#6b6457;font-size:14.5px;display:block}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:0 34px}
+table{width:100%;border-collapse:collapse}
+td,th{text-align:left;padding:7px 0;border-bottom:1px solid #e2d8c8;font-weight:400;overflow-wrap:anywhere}
+th{color:#6b6457;font-size:14px}
+td:not(:first-child),th:not(:first-child){text-align:right;font-variant-numeric:tabular-nums;width:88px}
+.none{color:#6b6457;padding:8px 0}
+button{font:inherit;font-weight:600;color:#c93f2c;background:none;border:0;text-decoration:underline;cursor:pointer;padding:8px 0}
+@media (max-width:620px){.two{grid-template-columns:1fr}.big{gap:12px}.big b{font-size:32px}}
+</style>
+</head>
+<body>
+<main>
+  <h1>Visitors</h1>
+  <p class="sub" id="msg">Loading…</p>
+  <div id="out" hidden>
+    <div class="big" id="big"></div>
+    <div class="two"><div><h2>Forms sent, last 30 days</h2><table id="ev"></table></div><div><h2>Where people came from, last 30 days</h2><table id="refs"></table></div></div>
+    <h2>Pages, last 30 days</h2><table id="pages"></table>
+    <h2>By day</h2><table id="days"></table><button id="more" hidden>Show 90 days</button>
+  </div>
+</main>
+<script>
+const $=s=>document.querySelector(s),K='mwd-stats-key';let key='';
+try{if(location.hash.length>1){localStorage.setItem(K,location.hash.slice(1));history.replaceState(null,'',location.pathname)}key=localStorage.getItem(K)||'';}catch(e){key=location.hash.slice(1)}
+const NAMES={'/':'Homepage','/questionnaire/':'Questionnaire','/setup/':'Setup guide','/privacy/':'Privacy','/thanks/':'Thank-you page','other':'Other'},EV={contact:'Contact form',questionnaire:'Questionnaire'};
+const row=(...c)=>{const r=document.createElement('tr');c.forEach(x=>{const d=document.createElement('td');d.textContent=x;r.append(d)});return r};
+const head=(...c)=>{const r=document.createElement('tr');c.forEach(x=>{const d=document.createElement('th');d.textContent=x;r.append(d)});return r};
+const sum=(l,k)=>{const o={};l.forEach(x=>o[x[k]]=(o[x[k]]||0)+x.n);return Object.entries(o).sort((a,b)=>b[1]-a[1])};
+async function go(){
+  if(!key){$('#msg').textContent='Open this page with your full private link.';return}
+  let d;try{const r=await fetch('/api/stats',{headers:{Authorization:'Bearer '+key},cache:'no-store'});d=await r.json();if(!r.ok)throw new Error(d.error)}catch(e){$('#msg').textContent=e.message||"Couldn't load the numbers. Try again.";return}
+  try{localStorage.setItem('mwd-nocount','1')}catch(e){}
+  const back=n=>{const t=new Date(d.today+'T12:00:00Z');t.setUTCDate(t.getUTCDate()-n);return t.toISOString().slice(0,10)},since=(l,n)=>l.filter(x=>x.day>back(n)),tot=l=>l.reduce((s,x)=>s+x.n,0);
+  $('#msg').textContent="Your own visits on this device aren't counted.";$('#out').hidden=false;
+  [['Today',1],['Last 7 days',7],['Last 30 days',30]].forEach(([n,k])=>{const x=document.createElement('div'),b=document.createElement('b'),s=document.createElement('span'),s2=document.createElement('span');b.textContent=tot(since(d.visitors,k));s.textContent=k===1?'visitors today':n.toLowerCase()+' visitors*';s2.textContent=tot(since(d.views,k))+' page views';x.append(b,s,s2);$('#big').append(x)});
+  const fill=(id,list,cols)=>{const t=$(id);if(!list.length){t.outerHTML='<p class="none">Nothing yet.</p>';return}t.append(head(...cols),...list.slice(0,15).map(x=>row(x[0],x[1])))};
+  fill('#ev',sum(since(d.events,30),'name').map(x=>[EV[x[0]]||x[0],x[1]]),['Form','Sent']);
+  fill('#refs',sum(since(d.refs,30),'ref'),['Site','Visits']);
+  fill('#pages',sum(since(d.pages,30),'path').map(x=>[NAMES[x[0]]||x[0].replace('/work/','Sample: '),x[1]]),['Page','Views']);
+  const V=Object.fromEntries(d.visitors.map(x=>[x.day,x.n])),H=Object.fromEntries(d.views.map(x=>[x.day,x.n]));
+  const draw=n=>{$('#days').replaceChildren(head('Day','Visitors','Views'));for(let i=0;i<n;i++){const k=back(i);$('#days').append(row(i?new Date(k+'T12:00:00Z').toLocaleDateString(undefined,{weekday:'short',month:'short',day:'numeric',timeZone:'UTC'}):'Today',V[k]||0,H[k]||0))}};
+  draw(14);$('#more').hidden=false;$('#more').onclick=()=>{draw(90);$('#more').hidden=true};
+  const f=document.createElement('p');f.className='sub';f.style.marginTop='20px';f.textContent='*Counted once per day, so someone who visits on three days counts three times.';$('#out').append(f);
+}
+go();
+</script>
+</body>
+</html>
