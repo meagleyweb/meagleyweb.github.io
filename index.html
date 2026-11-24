@@ -7,21 +7,21 @@
 <meta name="description" content="Websites for small businesses that you'll love and feel confident sharing. See a free working preview of your new site before you pay anything.">
 <meta property="og:title" content="Meagley Web Design">
 <meta property="og:description" content="Websites for small businesses that you'll love and feel confident sharing. Free preview before you pay.">
-<meta property="og:image" content="https://meagleyweb.github.io/img/og-card.png">
+<meta property="og:image" content="https://meagley.tech/img/og-card.png">
 <meta name="google-site-verification" content="asjZNjxtD9X7iX4zjAPvgzBGoG-oVme65ncLlFQD8Q8" />
-<link rel="canonical" href="https://meagleyweb.github.io/">
-<meta property="og:url" content="https://meagleyweb.github.io/">
+<link rel="canonical" href="https://meagley.tech/">
+<meta property="og:url" content="https://meagley.tech/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Meagley Web Design">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://meagleyweb.github.io/img/og-card.png">
+<meta name="twitter:image" content="https://meagley.tech/img/og-card.png">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
   "name": "Meagley Web Design",
-  "url": "https://meagleyweb.github.io/",
-  "image": "https://meagleyweb.github.io/img/og-card.png",
+  "url": "https://meagley.tech/",
+  "image": "https://meagley.tech/img/og-card.png",
   "description": "Websites, Google and Facebook setup, logos and print design for small businesses in western Arkansas. Free working preview before you pay.",
   "email": "meagleywebdesign@gmail.com",
   "telephone": "+1-803-509-1640",
@@ -106,10 +106,20 @@ h1,h2,h3,h4{font-weight:700;letter-spacing:-.04em;line-height:1.02}
 .care .o b{font-size:30px;letter-spacing:-.04em;display:block;line-height:1.1}
 .care .o small{color:var(--muted);font-size:13.5px}
 .care .o em{position:absolute;top:-11px;right:14px;font-style:normal;background:var(--accent);color:#fff;font-size:11px;font-weight:600;padding:3px 9px;border-radius:99px}
+.care.plans{grid-template-columns:1fr;gap:24px}
+.care.plans>div>p{max-width:720px}
+.care.plans .opts{grid-template-columns:repeat(3,1fr);gap:14px}
+.care.plans .o{padding:22px}
+.care.plans h4{font-size:19px;letter-spacing:-.02em;margin-bottom:12px}
+.care.plans ul{list-style:none;margin-top:16px;display:grid;gap:8px;font-size:15px;color:var(--text-2)}
+.care.plans li{display:flex;gap:9px}
+.care.plans li::before{content:"✓";color:var(--accent);font-weight:700;flex:none}
+.care.plans .planote{margin:0;font-size:14.5px;color:var(--muted);max-width:820px}
 .nofee{margin-top:18px;display:flex;gap:14px;align-items:center;justify-content:center;flex-wrap:wrap;text-align:center;color:var(--text-2);font-size:15px}
 .nofee b{color:var(--text)}
 @media (max-width:900px){.prices,.care{grid-template-columns:1fr}.price.pop{order:-1}}
 @media (max-width:480px){.care .opts{grid-template-columns:1fr}}
+@media (max-width:820px){.care.plans .opts{grid-template-columns:1fr}}
 
 /* a la carte */
 .alc{margin-top:90px}
@@ -730,8 +740,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
 <!-- PRICING -->
 <section id="pricing" style="padding-top:0">
   <div class="wrap">
-    <div class="head"><div class="reveal"><div class="label"><b>02</b> Pricing</div><h2>Pay once. <span>No monthly fees required.</span></h2></div></div>
-    <p class="reveal" style="color:var(--text-2);font-size:17.5px;max-width:620px;margin:-10px 0 40px">Most web companies charge you every month, forever. With me, you pay for your site once, and keeping it online is free. Every job gets an exact quote after your free preview. Jobs $100 and up start with half down, and the rest is due when it's done.</p>
+    <div class="head"><div class="reveal"><div class="label"><b>02</b> Pricing</div><h2>Pay once. <span>Add a plan if you want help.</span></h2></div></div>
+    <p class="reveal" style="color:var(--text-2);font-size:17.5px;max-width:620px;margin:-10px 0 40px">Most web companies charge you every month, forever. With me, you pay for your site once, and it lives in a hosting account in your name. Every job gets an exact quote after your free preview. Jobs $100 and up start with half down, and the rest is due when it's done.</p>
     <p class="ptabs-hint reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>Tap one to switch between the two price lists</p>
     <div class="ptabs reveal" role="tablist" aria-label="Pricing options">
       <button class="on" role="tab" aria-selected="true" data-pane="pane-sites"><span class="rd"></span><span>Full websites<small>New site, one-time price · $150–1,500</small></span><span class="go"></span></button>
@@ -769,17 +779,31 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
         <a href="work/ridgeline-coffee/" style="display:block;text-align:center;margin-top:12px;font-size:14px;font-weight:600;color:var(--accent)">See a Plus example →</a>
       </div>
     </div>
-    <div class="care reveal">
+    <div class="care plans reveal">
       <div>
-        <h3>Care plan <span>Optional</span></h3>
-        <p>Your site works fine without it. The care plan is for owners who would rather text me changes than think about it: up to 4 updates a month to hours, prices, photos and specials, a monthly check that everything works, and 10% off anything bigger. Most updates are done within 2 business days.</p>
+        <h3>Plans after launch <span>Optional</span></h3>
+        <p>Your website lives in your own hosting account, and I help you set it up. After that you can look after it yourself, or pick a plan and I'll handle it. Pay monthly or yearly, and cancel anytime.</p>
       </div>
       <div class="opts">
-        <div class="o best"><em>Save $40</em><b>$200<small> /year</small></b><small>Pay once a year, about $17/month</small></div>
-        <div class="o"><b>$20<small> /month</small></b><small>Cancel anytime</small></div>
+        <div class="o">
+          <h4>Site management</h4>
+          <b>$5<small> /month</small></b><small>or $50/year (save $10)</small>
+          <ul><li>A monthly check that everything works</li><li>I fix it if something breaks</li><li>Help with your hosting account and domain</li></ul>
+        </div>
+        <div class="o">
+          <h4>Booking management</h4>
+          <b>$15<small> /month</small></b><small>or $150/year (save $30)</small>
+          <ul><li>Everything in Site management</li><li>Online booking kept running</li><li>Reminder upkeep</li></ul>
+        </div>
+        <div class="o best">
+          <h4>Care plan</h4>
+          <b>$20<small> /month</small></b><small>or $200/year (save $40)</small>
+          <ul><li>Everything in Site management</li><li>Up to 4 updates a month to hours, prices, photos and specials</li><li>Most updates done within 2 business days</li><li>10% off anything bigger</li></ul>
+        </div>
       </div>
+      <p class="planote">Have online booking and want updates too? Ask me about combining plans. Plans cover my work. Anything your hosting, domain or email provider charges is billed to you by them.</p>
     </div>
-    <div class="nofee reveal"><span>🌐 <b>Your web address</b> (like yourbusiness.com): about $11/year, paid at cost and kept in your name.</span><span>🔒 <b>Keeping it online:</b> free.</span></div>
+    <div class="nofee reveal"><span>🌐 <b>Domain fee:</b> starts at $11.99/year for a web address like yourbusiness.com, kept in your name. Not every domain is available and some cost more, so the price may vary.</span></div>
     </div>
     <div class="pt-pane" id="pane-small">
     <div class="alc" id="extras">
@@ -791,7 +815,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
         <div class="alc-groups" id="alcGroups">
         <div class="alc-g reveal"><h4><i>🖥️</i>Already have a website?</h4><div class="items">
           <button type="button" class="it" data-id="redo" data-name="Website redesign" data-lo="125" data-hi="300" aria-pressed="false"><span class="bx"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><b>Website redesign</b><span class="ip">$125–300</span><small>Freshen up your current site and keep your web address. Usually less than a new build since your info is already there.</small></button>
-          <button type="button" class="it" data-id="move" data-name="Move off Wix, GoDaddy or Squarespace" data-lo="125" data-hi="300" aria-pressed="false"><span class="bx"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><b>Move off Wix, GoDaddy or Squarespace</b><span class="ip">$125–300</span><small>Stop paying them every month. Same site or better, with no monthly bill.</small></button>
+          <button type="button" class="it" data-id="move" data-name="Move off Wix, GoDaddy or Squarespace" data-lo="125" data-hi="300" aria-pressed="false"><span class="bx"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><b>Move off Wix, GoDaddy or Squarespace</b><span class="ip">$125–300</span><small>Same site or better, moved to a hosting account you own.</small></button>
           <button type="button" class="it" data-id="upd" data-name="Small update" data-lo="25" data-hi="25" aria-pressed="false"><span class="bx"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><b>Small update</b><span class="ip">$25</span><small>New hours, prices, photos or wording.<br><em>Or get them all for $20/month on the care plan.</em></small></button>
           <button type="button" class="it" data-id="page" data-name="Add a page" data-lo="50" data-hi="50" aria-pressed="false"><span class="bx"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><b>Add a page</b><span class="ip">$50</span><small>A new page for services, a menu, a gallery or anything else.</small></button>
           <button type="button" class="it" data-id="edit" data-name="Add an easy editor" data-lo="150" data-hi="150" aria-pressed="false"><span class="bx"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><b>Add an easy editor</b><span class="ip">$150</span><small>Make your own changes from your phone or computer. Includes a walkthrough.</small></button>
@@ -843,13 +867,13 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
     <div class="steps reveal" id="steps">
       <div class="step"><span class="bar"></span><span class="n">STEP 01</span><h4>Quick chat</h4><p>Tell me about your business and what you want customers to do.</p><span class="pay">Free</span></div>
       <div class="step"><span class="bar"></span><span class="n">STEP 02</span><h4>Free preview</h4><p>I build a real working preview of your new homepage, usually the same day.</p><span class="pay">Free</span></div>
-      <div class="step"><span class="bar"></span><span class="n">STEP 03</span><h4>Sign &amp; launch</h4><p>Love it? We sign a short, plain-English agreement, then I finish the details and put it online at your own web address.</p><span class="pay">Pay when happy</span></div>
-      <div class="step"><span class="bar"></span><span class="n">STEP 04</span><h4>Keep it fresh</h4><p>New photos, hours or specials? Just text me.</p><span class="pay">Optional care</span></div>
+      <div class="step"><span class="bar"></span><span class="n">STEP 03</span><h4>Sign &amp; launch</h4><p>Love it? We sign a short, plain-English agreement, then I finish the details and put it online in your own hosting account, at your own web address.</p><span class="pay">Pay when happy</span></div>
+      <div class="step"><span class="bar"></span><span class="n">STEP 04</span><h4>Keep it fresh</h4><p>New photos, hours or specials? Just text me.</p><span class="pay">Optional plans</span></div>
     </div>
     <div class="promise-row">
       <h3 class="reveal">My promise: no lock-in. <span>No runaround.</span></h3>
       <div class="prs">
-        <div class="pr reveal"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></i><div><h4>You own your web address &amp; email</h4><p>In your name, on your account. Always.</p></div></div>
+        <div class="pr reveal"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></i><div><h4>You own your web address, hosting &amp; email</h4><p>In your name, on your account. Always.</p></div></div>
         <div class="pr reveal"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></i><div><h4>See it before you pay</h4><p>The free preview means there's no risk in finding out if we're a fit.</p></div></div>
         <div class="pr reveal"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="2" width="12" height="20" rx="3"/></svg></i><div><h4>Fast on every phone</h4><p>Most customers find you on a phone, so I design for that first.</p></div></div>
         <div class="pr reveal"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></i><div><h4>A real person</h4><p>You talk to me, the one doing the work. There's no call center.</p></div></div>
@@ -912,9 +936,11 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
     <div class="faq reveal">
       <div class="q open"><button>Is the preview really free?<i>+</i></button><div class="a"><div><p>Yes. I'll build a working preview of your new homepage at no cost. If you don't love it, you walk away and owe nothing.</p></div></div></div>
       <div class="q"><button>Do I have to sign a contract?<i>+</i></button><div class="a"><div><p>Only once you decide to go ahead, and never for the free preview. It's a short agreement in plain English: what you're getting, the price, that you own everything once it's paid for, and that you can leave anytime. No fine print. Ask and I'll send it before you decide.</p></div></div></div>
-      <div class="q"><button>Are there monthly fees?<i>+</i></button><div class="a"><div><p>Not unless you want them. You pay for your website once, and keeping it online is free. The only yearly cost is your web address, like yourbusiness.com (about $11/year, paid at cost). The care plan is optional, for people who want me to handle updates.</p></div></div></div>
+      <div class="q"><button>Are there monthly fees?<i>+</i></button><div class="a"><div><p>Not from me, unless you want a plan. You pay me once for your website. The plans are optional, from $5/month, for people who'd rather have me look after things.</p><p>There is a yearly domain fee for your web address, and your hosting or email provider may charge you if your site needs more than their basic plan covers. I'll tell you before that happens if I can see it coming.</p></div></div></div>
+      <div class="q"><button>How much is a domain?<i>+</i></button><div class="a"><div><p>A domain is your web address, like yourbusiness.com. Domains start at $11.99/year and are in your name. Not every domain is available, and some names and endings cost more, which is why the price may vary. I'll help you find one that's available, and you'll see the price before you buy.</p></div></div></div>
+      <div class="q"><button>Where will my website be hosted?<i>+</i></button><div class="a"><div><p>In your own hosting account, under your name and email. Setup takes about 10 minutes, and I'll walk you through it. Then you invite me in so I can build and update your site. I never need your password, and you can remove my access anytime.</p></div></div></div>
       <div class="q"><button>How long does a website take?<i>+</i></button><div class="a"><div><p>Most previews are ready the same day you reach out. Once you approve it, most sites launch within 2–5 days. Sites with booking, ordering or trackers can take a little longer, and it also depends on how quickly we gather photos and details.</p></div></div></div>
-      <div class="q"><button>I already have a website. Can you redo it?<i>+</i></button><div class="a"><div><p>Yes. I can redesign it while keeping your web address, your email and your spot on Google, and it often costs less per month than what you're paying now.</p></div></div></div>
+      <div class="q"><button>I already have a website. Can you redo it?<i>+</i></button><div class="a"><div><p>Yes. I can redesign it while keeping your web address, your email and your spot on Google.</p></div></div></div>
       <div class="q"><button>Can I update the site myself?<i>+</i></button><div class="a"><div><p>Yes. The Edit It Yourself package (and Plus) comes with an easy editor you can use from your phone or computer, a one-on-one walkthrough and a how-to guide. Already have a site with me? The editor can be added for $150. Or skip it and just text me changes.</p><p>Don't worry about breaking anything. The editor only changes your words and photos, not the design, and every save is kept, so I can bring back an earlier version anytime. If something does go wrong in the first 30 days, I'll fix it free.</p></div></div></div>
       <div class="q"><button>Do you only work with local businesses?<i>+</i></button><div class="a"><div><p>No, I work with businesses anywhere. Everything can be done by text, phone, email or video call, and you'll see your preview online either way. If you're near Western Arkansas, I'm happy to meet in person too.</p></div></div></div>
       <div class="q"><button>Do I need photos or a logo?<i>+</i></button><div class="a"><div><p>Nope, you don't need either one to get started. We can figure them out together as we go. If you already have photos or a logo, send them my way. I'm happy to use them as they are or rework them into something fresh. Even phone photos work great.</p></div></div></div>

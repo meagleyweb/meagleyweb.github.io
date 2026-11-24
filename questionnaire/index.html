@@ -1,0 +1,454 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Website Questionnaire | Meagley Web Design</title>
+<meta name="description" content="Tell me what you want your website to look like and do. Takes about 5 minutes.">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="Let's plan your website">
+<meta property="og:description" content="A few questions about your business and the look you like. Takes about 5 minutes.">
+<meta property="og:image" content="https://meagley.tech/img/og-card.png">
+<meta property="og:url" content="https://meagley.tech/questionnaire/">
+<link rel="icon" href="/img/logo-mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Marcellus&family=Cormorant+Garamond:wght@600&family=Anton&family=Zilla+Slab:wght@600&family=Fredoka:wght@600&family=Archivo:wght@700&family=Abril+Fatface&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#faf6f0;--bg-2:#f2ebe0;--card:#fffdf9;--text:#182030;--text-2:#3b4456;--muted:#6b6457;--line:#ebe3d6;--line-2:#d3c6b2;--navy:#334155;--accent:#c93f2c;--coral:#f87666;--bad:#b3261e;--ease:cubic-bezier(.2,.7,.1,1)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Geist,system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.55;font-size:17px;-webkit-font-smoothing:antialiased}
+button,input,select,textarea{font:inherit;color:inherit}
+h1,h2{letter-spacing:-.035em;line-height:1.08;font-weight:700}
+[hidden]{display:none!important}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+
+/* top */
+.top{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
+.top-in{max-width:1180px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;gap:16px;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:10px;color:inherit;text-decoration:none;font-weight:800;letter-spacing:-.02em;font-size:18px;line-height:1.1}
+.logo img{width:36px;height:36px;border-radius:9px;display:block}
+.logo span span{display:block;font-size:12.5px;font-weight:500;letter-spacing:0;color:var(--muted)}
+.where{font-size:14.5px;font-weight:600;color:var(--text-2);text-align:right}
+.bar{height:4px;background:var(--bg-2)}
+.bar i{display:block;height:100%;width:0;background:var(--coral);transition:width .45s var(--ease)}
+
+.page{max-width:1180px;margin:0 auto;padding:40px 20px 120px;display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:56px;align-items:start}
+.page.solo{grid-template-columns:minmax(0,720px);justify-content:center}
+.page.solo>.side{display:none}
+
+/* steps */
+.step h1,.step h2{font-size:clamp(30px,5vw,44px);outline:none}
+.intro{color:var(--text-2);margin-top:12px;max-width:56ch}
+.qn{border:0;margin-top:34px;min-width:0}
+.qn>legend,.qn>label.t{display:block;font-weight:600;font-size:18px;letter-spacing:-.01em;padding:0}
+.hint{display:block;color:var(--muted);font-size:15px;font-weight:400;letter-spacing:0;margin-top:2px}
+.body{margin-top:12px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:0 18px}
+.in{width:100%;background:var(--card);border:1.5px solid var(--line-2);border-radius:10px;padding:13px 14px;min-height:50px}
+textarea.in{min-height:104px;resize:vertical;display:block}
+.in::placeholder{color:#8f8778}
+.in:focus,.chip input:focus-visible+span,.vibe input:focus-visible+span,.col input:focus-visible+span,.btn:focus-visible,.link:focus-visible{outline:3px solid var(--coral);outline-offset:2px}
+.in.err{border-color:var(--bad)}
+.msg{color:var(--bad);font-weight:600;font-size:15px;margin-top:12px}
+
+.chips{display:flex;flex-wrap:wrap;gap:9px}
+.chip{position:relative;cursor:pointer}
+.chip input,.vibe input,.col input{position:absolute;opacity:0;inset:0;width:100%;height:100%;cursor:pointer;margin:0}
+.chip span{display:block;padding:11px 16px;border:1.5px solid var(--line-2);border-radius:99px;background:var(--card);font-weight:500;font-size:16px}
+.chip:hover span{border-color:var(--navy)}
+.chip input:checked+span{background:var(--navy);border-color:var(--navy);color:#fff}
+
+/* vibe tiles: lettering only, no colors */
+.vibes{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px}
+.vibe{position:relative;display:block;cursor:pointer}
+.vibe>span{display:flex;flex-direction:column;justify-content:center;gap:8px;height:100%;min-height:116px;padding:18px;border:1.5px solid var(--line-2);border-radius:12px;background:var(--card)}
+.vibe:hover>span{border-color:var(--navy)}
+.vibe b{font-size:25px;line-height:1.1}
+.vibe small{color:var(--muted);font-size:14.5px;line-height:1.35}
+.vibe input:checked+span{background:var(--navy);border-color:var(--navy);color:#fff}
+.vibe input:checked+span small{color:#dbe1ea}
+.vibes .chip{grid-column:1/-1;justify-self:start}
+
+/* individual colors */
+.cols{display:grid;grid-template-columns:repeat(auto-fill,minmax(78px,1fr));gap:16px 8px}
+.col{position:relative;cursor:pointer;text-align:center}
+.col>span{display:block;border-radius:12px;padding:4px 0}
+.col i{display:grid;place-items:center;width:52px;height:52px;margin:0 auto;border-radius:50%;border:1.5px solid rgba(24,32,48,.18)}
+.col b{display:block;font-size:14px;font-weight:500;line-height:1.25;margin-top:7px}
+.col input:checked+span i{box-shadow:0 0 0 3px var(--bg),0 0 0 6px var(--navy)}
+.col input:checked+span i::after{content:"\2713";font-style:normal;font-weight:800;font-size:22px;color:var(--tick)}
+.col input:checked+span b{font-weight:700}
+.exact{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.exact input{width:56px;height:52px;border:1.5px solid var(--line-2);border-radius:10px;background:var(--card);padding:5px;cursor:pointer}
+.mine{display:flex;flex-wrap:wrap;gap:9px;margin-top:12px}
+.mine:empty{display:none}
+.mine button{display:flex;align-items:center;gap:9px;border:1.5px solid var(--line-2);border-radius:99px;background:var(--card);padding:7px 14px 7px 8px;min-height:46px;cursor:pointer;font-size:15px;font-weight:500}
+.mine button:hover{border-color:var(--navy)}
+.mine i{width:28px;height:28px;border-radius:50%;border:1.5px solid rgba(24,32,48,.18)}
+
+/* buttons */
+.nav{display:flex;gap:12px;align-items:center;margin-top:44px;flex-wrap:wrap}
+.btn{border:0;cursor:pointer;font-weight:600;padding:13px 26px;border-radius:12px;background:var(--accent);color:#fff;min-height:52px;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
+.btn:hover{background:#ad3423}
+.btn.alt{background:transparent;color:var(--text);border:1.5px solid var(--line-2)}
+.btn.alt:hover{border-color:var(--navy)}
+.btn:disabled{opacity:.6;cursor:default}
+.saved{color:var(--muted);font-size:14.5px}
+.link{background:none;border:0;color:var(--accent);font-weight:600;font-size:15px;letter-spacing:0;cursor:pointer;text-decoration:underline;text-underline-offset:3px;padding:6px}
+
+/* review */
+.rev{margin-top:30px}
+.rev section{border-top:1px solid var(--line-2);padding:18px 0}
+.rev h3{display:flex;justify-content:space-between;align-items:baseline;font-size:19px;letter-spacing:-.02em}
+.rev dl{display:grid;grid-template-columns:190px 1fr;gap:6px 20px;margin-top:8px;font-size:16px}
+.rev dt{color:var(--muted)}
+.rev dd{white-space:pre-line;overflow-wrap:anywhere}
+.rev dd.none{grid-column:1/-1;color:var(--muted)}
+.copybox{margin-top:16px}
+
+/* side: real work */
+.side{position:sticky;top:104px}
+.side h2{font-size:22px;letter-spacing:-.02em}
+.work{display:grid;grid-template-columns:1fr 1fr;gap:18px 14px;margin-top:14px}
+.work figure:first-child{grid-column:1/-1}
+.work img{display:block;width:100%;height:auto;border-radius:10px;border:1px solid var(--line-2)}
+.work figcaption{font-size:14.5px;color:var(--muted);margin-top:7px;line-height:1.4}
+.work figcaption b{display:block;color:var(--text);font-weight:600}
+.work a{color:var(--accent);font-weight:600;text-underline-offset:3px}
+.ask{margin-top:22px;padding-top:16px;border-top:1px solid var(--line-2);font-size:15px;color:var(--text-2)}
+.ask a{color:var(--accent);font-weight:600;text-underline-offset:3px;white-space:nowrap}
+.done .ask{display:none}
+.done .side{position:static;margin-top:44px;padding-top:26px;border-top:1px solid var(--line-2)}
+.done ol{margin:20px 0 0 22px;color:var(--text-2)}
+.done li{margin:8px 0}
+.done h1{font-size:clamp(34px,6vw,50px);outline:none}
+
+@media (max-width:960px){
+  .page,.page.solo{grid-template-columns:minmax(0,720px);justify-content:center;gap:0;padding-top:28px}
+  .page>.side{display:none}
+}
+@media (max-width:600px){
+  .two{grid-template-columns:1fr}
+  .vibes{grid-template-columns:1fr 1fr;gap:16px 12px}
+  .vibe b{font-size:21px}.vibe>span{padding:14px}
+  .cols{grid-template-columns:repeat(4,1fr);gap:14px 4px}
+  .rev dl{grid-template-columns:1fr;gap:0}.rev dd{margin-bottom:10px}
+  .nav .btn{flex:1;padding:13px 14px;white-space:nowrap}.nav #back{flex:0 1 auto;padding:13px 20px}
+  .saved{width:100%}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="top-in">
+    <a class="logo" href="/" target="_blank" rel="noopener"><img src="/img/logo-mark.png" alt=""><span>Meagley<span>Web Design</span></span></a>
+    <div class="where" id="where" aria-live="polite"></div>
+  </div>
+  <div class="bar"><i id="bar"></i></div>
+</header>
+
+<main class="page solo" id="page">
+<form id="form" novalidate autocomplete="on">
+  <input type="checkbox" name="botcheck" hidden tabindex="-1" autocomplete="off">
+
+  <section class="step" data-name="Your business">
+    <h1 tabindex="-1" id="hello">Let's plan your website</h1>
+    <p class="intro">This takes about 5 minutes. Skip anything you're not sure about, and don't worry about getting it perfect. We'll talk it over before anything is final.</p>
+    <div class="two">
+      <div class="qn"><label class="t" for="name">Your name</label><div class="body"><input class="in" id="name" name="name" autocomplete="name"></div></div>
+      <div class="qn"><label class="t" for="business">Business name</label><div class="body"><input class="in" id="business" name="business" autocomplete="organization" placeholder="It's fine if you're still deciding"></div></div>
+      <div class="qn"><label class="t" for="phone">Phone</label><div class="body"><input class="in" id="phone" name="phone" type="tel" autocomplete="tel"></div></div>
+      <div class="qn"><label class="t" for="email">Email</label><div class="body"><input class="in" id="email" name="email" type="email" autocomplete="email"></div></div>
+    </div>
+    <div class="msg" id="err" role="alert" hidden></div>
+    <fieldset class="qn"><legend>Best way to reach you</legend><div class="body chips" data-radio="reach" data-opts="Text|Email|Phone call|Facebook message"></div></fieldset>
+    <div class="qn"><label class="t" for="what">What does your business do?<span class="hint">Explain it like you would to a new customer.</span></label><div class="body"><textarea class="in" id="what" name="what"></textarea></div></div>
+    <div class="qn"><label class="t" for="who">Who are your customers, and where are they?<span class="hint">For example: hairstylists around Fort Smith, or families in Greenwood.</span></label><div class="body"><input class="in" id="who" name="who"></div></div>
+    <div class="qn"><label class="t" for="promos">Do you have any referral programs or discounts?<span class="hint">For example: $10 off for sending a friend, or a first-time customer deal.</span></label><div class="body"><textarea class="in" id="promos" name="promos"></textarea></div></div>
+  </section>
+
+  <section class="step" data-name="What it needs" hidden>
+    <h2 tabindex="-1">What should your website do?</h2>
+    <p class="intro">Think about a new customer who just found you.</p>
+    <fieldset class="qn"><legend>What do you want people to be able to do?<span class="hint">Pick as many as you like.</span></legend><div class="body chips" data-check="goal" data-opts="Call or text me|Send me a message|Come visit|Book a time|See my work|Learn what I offer and my prices|Buy something|Not sure"></div></fieldset>
+    <fieldset class="qn"><legend>What should be on the site?<span class="hint">Pick as many as you like.</span></legend><div class="body chips" data-check="sections" data-opts="About me|Services|Prices|Photos|Reviews|Hours|Map and directions|Where I travel|Contact form|Common questions|Specials|Events|Social media links"></div></fieldset>
+    <fieldset class="qn"><legend>How big are you picturing?</legend><div class="body chips" data-radio="size" data-opts="One page you scroll through|A few pages|Bigger than that|Whatever you think is best"></div></fieldset>
+    <div class="qn"><label class="t" for="must">Is there anything it absolutely has to have or say?</label><div class="body"><textarea class="in" id="must" name="must"></textarea></div></div>
+  </section>
+
+  <section class="step" data-name="The vibe" hidden>
+    <h2 tabindex="-1">What's the vibe?</h2>
+    <p class="intro">Go with your gut. Pick one, or two if you'd like a mix.</p>
+    <fieldset class="qn"><legend class="sr">Vibe</legend><div class="vibes" id="vibes"></div></fieldset>
+    <div class="qn"><label class="t" for="likes">Any websites or pages you love the look of?<span class="hint">Paste links or names, and what you like about them. They can be any kind of business.</span></label><div class="body"><textarea class="in" id="likes" name="likes"></textarea></div></div>
+    <div class="qn"><label class="t" for="hates">Anything you can't stand on a website?</label><div class="body"><input class="in" id="hates" name="hates" placeholder="Pop-ups, tiny text, too busy…"></div></div>
+  </section>
+
+  <section class="step" data-name="Colors and lettering" hidden>
+    <h2 tabindex="-1">Colors and lettering</h2>
+    <p class="intro">These are just a starting point. Nothing here is locked in.</p>
+    <div class="qn"><label class="t" for="colorlike">Are there any colors you like or already use?<span class="hint">Describe them however you like: "dusty pink like my sign," "earthy greens," or a color code if you have one.</span></label><div class="body"><textarea class="in" id="colorlike" name="colorlike"></textarea></div></div>
+    <fieldset class="qn"><legend>Or tap any colors you like<span class="hint">As many as you want.</span></legend><div class="body cols" id="cols"></div></fieldset>
+    <div class="qn"><label class="t" for="picker">Have an exact color in mind?<span class="hint">Choose it here, then add it. You can add more than one.</span></label><div class="body exact"><input type="color" id="picker" value="#8fa98f"><button type="button" class="btn alt" id="addColor">Add this color</button></div><div class="mine" id="mine"></div><input type="hidden" name="exact"></div>
+    <fieldset class="qn"><legend>Not sure?</legend><div class="body chips" data-check="colorhelp" data-opts="Match my logo|You choose for me"></div></fieldset>
+    <div class="qn"><label class="t" for="coloravoid">Any colors you don't want?</label><div class="body"><input class="in" id="coloravoid" name="coloravoid"></div></div>
+    <fieldset class="qn"><legend>Light or dark?</legend><div class="body chips" data-radio="shade" data-opts="Light background|Dark background|Whatever looks best"></div></fieldset>
+    <fieldset class="qn"><legend>Lettering for your headlines</legend><div class="body chips" id="fonts"></div></fieldset>
+    <div class="qn"><label class="t" for="fontown">Have your own font?<span class="hint">Type its name or paste a link to it. If you have the font file, you can send it to me after you finish.</span></label><div class="body"><input class="in" id="fontown" name="fontown" spellcheck="false"></div></div>
+    <div class="qn"><label class="t" for="fontdesc">Or describe the lettering you want<span class="hint">For example: "loopy cursive," "like an old western sign," or "same as my business card."</span></label><div class="body"><textarea class="in" id="fontdesc" name="fontdesc"></textarea></div></div>
+  </section>
+
+  <section class="step" data-name="What you have" hidden>
+    <h2 tabindex="-1">What do you already have?</h2>
+    <p class="intro">No problem if the answer is nothing yet.</p>
+    <fieldset class="qn"><legend>Logo</legend><div class="body chips" data-radio="logo" data-opts="Yes, and I love it|Yes, but it needs work|No, I need one|No, just my name is fine"></div></fieldset>
+    <fieldset class="qn"><legend>Photos</legend><div class="body chips" data-radio="photos" data-opts="Plenty of good ones|A few|None yet|Use stock photos for now"></div></fieldset>
+    <fieldset class="qn"><legend>Web address, like yourbusiness.com</legend><div class="body chips" data-radio="domain" data-opts="I own one|I want one|Not sure"></div></fieldset>
+    <div class="qn"><label class="t" for="domainname">If you own one or have one in mind, what is it?</label><div class="body"><input class="in" id="domainname" name="domainname" autocapitalize="off" spellcheck="false"></div></div>
+    <div class="qn"><label class="t" for="links">Links to anything you have online<span class="hint">Current website, Facebook, Instagram, Google listing, booking page.</span></label><div class="body"><textarea class="in" id="links" name="links" autocapitalize="off" spellcheck="false"></textarea></div></div>
+    <div class="qn"><label class="t" for="info">Details customers need<span class="hint">Hours, address, services and prices. A rough list is plenty.</span></label><div class="body"><textarea class="in" id="info" name="info" style="min-height:140px"></textarea></div></div>
+  </section>
+
+  <section class="step" data-name="Extras and timing" hidden>
+    <h2 tabindex="-1">Almost done</h2>
+    <p class="intro">Your site can start simple and grow later.</p>
+    <fieldset class="qn"><legend>Would you want any of these, now or someday?<span class="hint">This doesn't commit you to anything. Some cost extra, and I'll always give you a price first.</span></legend><div class="body chips" data-check="extras" data-opts="Sell products|Sell or book services|Take payments|Gift cards|Update it myself|Order or repair tracking|Email or text list|None of these"></div></fieldset>
+    <div id="extraMore" hidden>
+      <fieldset class="qn"><legend>When would you want them?</legend><div class="body chips" data-radio="extrawhen" data-opts="Right away|Later on|Some now, some later"></div></fieldset>
+      <div class="qn" id="sellBox" hidden><label class="t" for="sell">What would you sell or book?<span class="hint">A quick list is plenty.</span></label><div class="body"><input class="in" id="sell" name="sell"></div></div>
+    </div>
+    <fieldset class="qn"><legend>When would you like your site online?</legend><div class="body chips" data-radio="when" data-opts="As soon as possible|Within a month|In a few months|No rush"></div></fieldset>
+    <div class="qn"><label class="t" for="else">Anything else I should know?</label><div class="body"><textarea class="in" id="else" name="else"></textarea></div></div>
+  </section>
+
+  <section class="step" data-name="Check and send" hidden>
+    <h2 tabindex="-1">Does this look right?</h2>
+    <p class="intro">Nothing is sent until you press the button below.</p>
+    <div class="rev" id="rev"></div>
+    <div class="msg" id="sendErr" role="alert" hidden></div>
+    <div class="copybox" id="copybox" hidden><button type="button" class="btn alt" id="copy">Copy my answers</button></div>
+  </section>
+
+  <div class="nav">
+    <button type="button" class="btn alt" id="back" hidden>Back</button>
+    <button type="submit" class="btn" id="next">Next</button>
+    <span class="saved" id="saved">Your answers are saved on this device as you go.</span>
+  </div>
+</form>
+
+<aside class="side" id="side">
+  <h2>Some of my work</h2>
+  <div class="work">
+    <figure><img src="manehouse.jpg" width="800" height="475" loading="lazy" alt="The Mane House website"><figcaption><b>The Mane House</b>A hair salon in Greenwood. <a href="https://themanehousegwd.com/" target="_blank" rel="noopener">Visit the live site</a></figcaption></figure>
+    <figure><img src="ridgeline.jpg" width="800" height="475" loading="lazy" alt="Ridgeline Coffee sample website"><figcaption><b>Ridgeline Coffee</b>Sample site</figcaption></figure>
+    <figure><img src="hollowcreek.jpg" width="800" height="475" loading="lazy" alt="Hollow Creek Lawn sample website"><figcaption><b>Hollow Creek Lawn</b>Sample site</figcaption></figure>
+  </div>
+  <p class="ask">Stuck on a question? Text me at <a href="sms:+18035091640">803-509-1640</a>.</p>
+</aside>
+</main>
+
+<script>
+const WEB3FORMS_KEY='099815b7-fcbb-4f32-9300-61c6b24480c8', EMAIL='meagleywebdesign@gmail.com', PHONE='803-509-1640';
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const form=$('#form'), steps=$$('.step'), KEY='mwd-questionnaire';
+let cur=0, sending=false, vibeOrder=[];
+const el=(t,c,x)=>{const e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e};
+
+/* ---- choices ---- */
+const VIBES=[
+ {n:'Clean and simple',d:'Lots of space, easy to read',font:'Clean'},
+ {n:'Soft and pretty',d:'Light, graceful',font:'Graceful'},
+ {n:'Bold and edgy',d:'High contrast, attitude',font:'Bold'},
+ {n:'Warm and rustic',d:'Country, handmade, cozy',font:'Sturdy'},
+ {n:'Elegant and high-end',d:'Polished, a little luxe',font:'Elegant'},
+ {n:'Fun and playful',d:'Cheerful, full of energy',font:'Rounded'},
+ {n:'Sharp and professional',d:'Confident, trustworthy',font:'Strong'},
+ {n:'Vintage',d:'Old-school, full of character',font:'Vintage'}];
+const FONTS={Clean:['Geist',700],Elegant:['Marcellus',400],Graceful:['"Cormorant Garamond"',600],Bold:['Anton',400],Sturdy:['"Zilla Slab"',600],Rounded:['Fredoka',600],Strong:['Archivo',700],Vintage:['"Abril Fatface"',400],Handwritten:['"Dancing Script"',700]};
+const COLORS=[['Red','#c62f2f'],['Burgundy','#6d1f33'],['Coral','#f4796b'],['Orange','#ee8430'],['Rust','#a9512a'],['Gold','#c9a24b'],['Yellow','#f4cf45'],['Cream','#f6ecd2'],['Tan','#cdb08a'],['Brown','#6b4427'],['Olive','#75763f'],['Sage','#9db09a'],['Green','#3d9150'],['Forest','#234b38'],['Teal','#17777b'],['Turquoise','#4cc4c0'],['Sky blue','#8fc7ea'],['Blue','#2766c0'],['Navy','#1f3155'],['Lavender','#c3b2e4'],['Purple','#75489a'],['Plum','#512750'],['Blush','#efc9c9'],['Pink','#f19cb8'],['Hot pink','#e3186f'],['White','#ffffff'],['Silver','#c3c8ce'],['Gray','#737a83'],['Black','#16181c']];
+const DARK_TICK=['Cream','Yellow','White','Silver','Blush','Pink','Lavender','Sky blue','Tan','Turquoise','Sage','Gold','Orange','Coral'];
+
+const choice=(type,name,v)=>{const l=el('label','chip'),i=el('input');i.type=type;i.name=name;i.value=v;l.append(i,el('span','',v));return l};
+$$('[data-radio]').forEach(b=>b.dataset.opts.split('|').forEach(o=>b.append(choice('radio',b.dataset.radio,o))));
+$$('[data-check]').forEach(b=>b.dataset.opts.split('|').forEach(o=>b.append(choice('checkbox',b.dataset.check,o))));
+
+const ANY='You choose for me';
+VIBES.forEach(v=>{
+  const l=el('label','vibe'),i=el('input');i.type='checkbox';i.name='vibe';i.value=v.n;
+  const w=el('span'),b=el('b','',v.n);b.style.fontFamily=FONTS[v.font][0]+',serif';b.style.fontWeight=FONTS[v.font][1];
+  w.append(b,el('small','',v.d));l.append(i,w);$('#vibes').append(l);
+});
+$('#vibes').append(choice('checkbox','vibe',ANY));
+COLORS.forEach(([n,h])=>{
+  const l=el('label','col'),i=el('input');i.type='checkbox';i.name='colors';i.value=n;
+  const w=el('span'),c=el('i');c.style.background=h;c.style.setProperty('--tick',DARK_TICK.includes(n)?'#16181c':'#fff');
+  w.append(c,el('b','',n));l.append(i,w);$('#cols').append(l);
+});
+/* exact colors, kept as a list in the hidden "exact" field */
+const exactList=()=>form.elements.exact.value.split(', ').filter(x=>/^#[0-9a-f]{6}$/.test(x));
+function setExact(a){form.elements.exact.value=a.join(', ');drawExact();save()}
+function drawExact(){
+  $('#mine').replaceChildren(...exactList().map(h=>{
+    const b=el('button'),c=el('i');b.type='button';c.style.background=h;b.append(c,el('span','','Remove'));
+    b.setAttribute('aria-label','Remove color '+h);
+    b.onclick=()=>{setExact(exactList().filter(x=>x!==h));$('#addColor').focus()};return b}));
+}
+$('#addColor').onclick=()=>{const h=$('#picker').value;if(!exactList().includes(h))setExact([...exactList(),h])};
+Object.keys(FONTS).forEach(n=>{const l=choice('radio','font',n),s=l.lastChild.style;s.fontFamily=FONTS[n][0];s.fontWeight=FONTS[n][1];s.fontSize='19px';$('#fonts').append(l)});
+$('#fonts').append(choice('radio','font','You choose'));
+
+/* ---- reading answers ---- */
+const get=n=>{const a=[...form.querySelectorAll(`[name="${n}"]`)];if(!a.length)return'';
+  if(a[0].type==='checkbox')return a.filter(x=>x.checked).map(x=>x.value);
+  if(a[0].type==='radio')return (a.find(x=>x.checked)||{}).value||'';
+  return a[0].value.trim()};
+const NONE='None of these';
+const wants=()=>get('extras').some(x=>x!==NONE), selling=()=>get('extras').some(x=>/^Sell/.test(x));
+
+const LABELS=[
+ [['name','Name'],['business','Business'],['phone','Phone'],['email','Email'],['reach','Best way to reach'],['what','What they do'],['who','Customers and area'],['promos','Referrals and discounts']],
+ [['goal','People should be able to'],['sections','Wanted on the site'],['size','Size'],['must','Must have']],
+ [['vibe','Vibe'],['likes','Sites they like'],['hates','Dislikes']],
+ [['colorlike','Colors they like or use'],['colors','Colors picked'],['exact','Exact colors'],['colorhelp','Color help'],['coloravoid','Colors to avoid'],['shade','Light or dark'],['font','Lettering'],['fontown','Their own font'],['fontdesc','Lettering they want']],
+ [['logo','Logo'],['photos','Photos'],['domain','Web address'],['domainname','Address name'],['links','Links'],['info','Details for the site']],
+ [['extras','Extras they might want'],['extrawhen','When for extras'],['sell','Would sell or book'],['when','Site online by'],['else','Anything else']]];
+const YOU={'Extras they might want':'Extras you might want','Would sell or book':'You would sell or book','Their own font':'Your own font','Lettering they want':'Lettering you want','Colors they like or use':'Colors you like or use','What they do':'What you do','Sites they like':'Sites you like','Best way to reach':'Best way to reach you','Dislikes':'You dislike'};
+const SHOWN_IF={extrawhen:wants,sell:selling};
+function answer(n,codes){
+  if(SHOWN_IF[n]&&!SHOWN_IF[n]())return'';
+  let v=n==='vibe'&&vibeOrder.length?vibeOrder:get(n);if(Array.isArray(v))v=v.join(', ');
+  if(n==='colors'&&codes)v=get('colors').map(c=>c+' ('+COLORS.find(x=>x[0]===c)[1]+')').join(', ');
+  if(n==='exact'&&!codes){const k=exactList().length;v=k?k+(k>1?' colors':' color')+' added':''}
+  return v;
+}
+const answers=(i,codes)=>(LABELS[i]||[]).map(([n,l])=>[l,answer(n,codes)]).filter(a=>a[1]);
+const asText=()=>LABELS.map((_,i)=>{const a=answers(i,true);return a.length?steps[i].dataset.name+'\n'+a.map(x=>x[0]+': '+x[1]).join('\n'):''}).filter(Boolean).join('\n\n');
+
+/* ---- keep things in step ---- */
+function refresh(){
+  $('#extraMore').hidden=!wants();$('#sellBox').hidden=!selling();
+}
+function save(){
+  try{
+    const o={_step:cur,_vibes:vibeOrder};
+    [...form.elements].forEach(e=>{if(!e.name||e.name==='botcheck')return;
+      if(e.type==='checkbox'){o[e.name]=o[e.name]||[];if(e.checked)o[e.name].push(e.value)}
+      else if(e.type==='radio'){if(e.checked)o[e.name]=e.value}
+      else o[e.name]=e.value});
+    localStorage.setItem(KEY,JSON.stringify(o));
+  }catch(e){$('#saved').hidden=true}
+}
+function load(){
+  let o=null;try{o=JSON.parse(localStorage.getItem(KEY)||'null')}catch(e){}
+  if(!o)return;
+  [...form.elements].forEach(e=>{if(!e.name||o[e.name]==null)return;
+    if(e.type==='checkbox')e.checked=o[e.name].includes(e.value);
+    else if(e.type==='radio')e.checked=o[e.name]===e.value;
+    else e.value=o[e.name]});
+  vibeOrder=(o._vibes||[]).filter(n=>get('vibe').includes(n));
+  cur=Math.min(Math.max(0,o._step|0),steps.length-1);
+}
+form.addEventListener('input',e=>{
+  const t=e.target;
+  if(t.name==='extras'&&t.checked)form.querySelectorAll('[name=extras]').forEach(x=>{if(x!==t&&(t.value===NONE||x.value===NONE))x.checked=false});
+  if(t.name==='vibe'&&t.checked)form.querySelectorAll('[name=vibe]').forEach(x=>{if(x!==t&&(t.value===ANY||x.value===ANY))x.checked=false});
+  if(t.name==='vibe'){ // a third pick replaces the oldest one
+    vibeOrder=vibeOrder.filter(n=>n!==t.value&&get('vibe').includes(n));
+    if(t.checked&&t.value!==ANY)vibeOrder.push(t.value);
+    while(vibeOrder.length>2){const old=vibeOrder.shift();form.querySelector(`[name=vibe][value="${old}"]`).checked=false}
+  }
+  if(t.classList.contains('err')){t.classList.remove('err');t.removeAttribute('aria-invalid')}
+  refresh();save();
+});
+// let people un-pick a single-choice answer by tapping it again
+let was=null;
+form.addEventListener('pointerdown',e=>{const l=e.target.closest('label'),r=l&&l.querySelector('input[type=radio]');was=r&&r.checked?r:null});
+form.addEventListener('click',e=>{if(e.target===was){e.target.checked=false;was=null;refresh();save()}});
+
+function show(n,focus){
+  cur=n;steps.forEach((s,i)=>s.hidden=i!==n);
+  const last=n===steps.length-1;
+  $('#where').textContent=last?'Last step':`Step ${n+1} of ${steps.length-1}`;
+  $('#bar').style.width=(n/(steps.length-1)*100)+'%';
+  $('#back').hidden=n===0;$('#next').textContent=last?'Send my answers':n===steps.length-2?'Check my answers':'Next';
+  $('#page').classList.toggle('solo',last);
+  if(last)review();
+  save();
+  if(focus){scrollTo(0,0);steps[n].querySelector('h1,h2').focus({preventScroll:true})}
+}
+function check(){
+  const bad=[],e=$('#email');
+  ['#name','#phone','#email'].forEach(s=>{$(s).classList.remove('err');$(s).removeAttribute('aria-invalid')});
+  if(!get('name'))bad.push(['#name','Add your name so I know who this is from.']);
+  if(!get('phone')&&!get('email'))bad.push(['#phone','Add a phone number or an email so I can reach you.']);
+  else if(get('email')&&!e.checkValidity())bad.push(['#email','That email looks incomplete. It should look like name@example.com.']);
+  $('#err').hidden=!bad.length;$('#err').textContent=bad.map(b=>b[1]).join(' ');
+  if(bad.length){
+    if(cur!==0)show(0,true);
+    bad.forEach(b=>{$(b[0]).classList.add('err');$(b[0]).setAttribute('aria-invalid','true')});
+    $(bad[0][0]).focus();
+  }
+  return !bad.length;
+}
+function review(){
+  const r=$('#rev');r.replaceChildren();
+  LABELS.forEach((_,i)=>{
+    const s=el('section'),h=el('h3','',steps[i].dataset.name),b=el('button','link','Change');
+    b.type='button';b.setAttribute('aria-label','Change '+steps[i].dataset.name);b.onclick=()=>show(i,true);h.append(b);s.append(h);
+    const a=answers(i),d=el('dl');
+    if(a.length)a.forEach(x=>d.append(el('dt','',YOU[x[0]]||x[0]),el('dd','',x[1])));
+    else d.append(el('dd','none','Nothing here yet'));
+    s.append(d);r.append(s);
+  });
+}
+$('#back').onclick=()=>show(cur-1,true);
+form.addEventListener('submit',e=>{
+  e.preventDefault();if(sending)return;
+  if(cur===0&&!check())return;
+  if(cur<steps.length-1)return show(cur+1,true);
+  if(check())send();
+});
+
+async function send(){
+  sending=true;const b=$('#next');b.disabled=true;b.textContent='Sending…';$('#sendErr').hidden=true;
+  const who=get('business')||get('name');
+  const data={access_key:WEB3FORMS_KEY,subject:'Website questionnaire: '+who,from_name:'Meagley Web Design questionnaire',botcheck:form.elements.botcheck.checked};
+  if(get('email'))data.email=get('email');
+  LABELS.forEach((_,i)=>answers(i,true).forEach(([l,v])=>{if(l!=='Email')data[l]=v}));
+  try{
+    const r=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(data)});
+    if(!(await r.json()).success)throw 0;
+    try{localStorage.removeItem(KEY)}catch(e){}
+    done();
+  }catch(e){
+    sending=false;b.disabled=false;b.textContent='Try again';
+    $('#sendErr').textContent=`Your answers didn't send, but they're still saved here. Check your connection and try again, or copy them and text them to ${PHONE}.`;
+    $('#sendErr').hidden=false;$('#copybox').hidden=false;
+  }
+}
+$('#copy').onclick=async()=>{
+  try{await navigator.clipboard.writeText(asText());$('#copy').textContent='Copied'}
+  catch(e){const t=el('textarea','in');t.value=asText();t.readOnly=true;t.style.marginTop='12px';$('#copybox').append(t);t.select()}
+};
+function done(){
+  const first=get('name').split(' ')[0], box=el('div','done'), h=el('h1','',`Thanks, ${first}. I got it!`);h.tabIndex=-1;
+  const ol=el('ol');["I'll read through your answers and reach out if I have questions.","I'll put together a first look for you to see.","You tell me what to change, and we go from there."].forEach(x=>ol.append(el('li','',x)));
+  const p=el('p','intro','Have a logo, photos or a font file? Text or email them to me whenever you have a minute.');p.style.marginTop='26px';
+  const n=el('div','nav');n.style.marginTop='18px';
+  const a=el('a','btn','Text '+PHONE);a.href='sms:+1'+PHONE.replace(/\D/g,'');
+  const m=el('a','btn alt','Email files');m.href='mailto:'+EMAIL+'?subject='+encodeURIComponent('Files for '+(get('business')||get('name')));n.append(a,m);
+  box.append(h,el('p','intro',"Here's what happens next."),ol,p,n,$('#side'));
+  $('#page').className='page solo';$('#page').replaceChildren(box);$('#where').textContent='Sent';$('#bar').style.width='100%';scrollTo(0,0);h.focus();
+}
+
+/* ---- start (optional personal link: ?name=Amy&business=Amy's+Shop) ---- */
+load();
+const q=new URLSearchParams(location.search);
+['name','business'].forEach(k=>{const v=(q.get(k)||'').slice(0,60);if(v&&!get(k))$('#'+k).value=v});
+if(q.get('name'))$('#hello').textContent=`Hi ${q.get('name').slice(0,30).split(' ')[0]}! Let's plan your website`;
+drawExact();refresh();show(cur,false);
+</script>
+</body>
+</html>
